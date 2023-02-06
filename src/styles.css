@@ -1,0 +1,87 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'assets/css/style.css';
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+.mat-dialog-container {
+    margin-top: -100% !important;
+}
+
+
+/* .mat-select-panel mat-option.mat-option {
+    height: unset
+  }
+  
+  .mat-option-text.mat-option-text {
+    white-space: normal;
+  } */
+
+.mat-select-panel mat-option.mat-option {
+    margin: 0;
+    overflow: visible;
+    line-height: initial;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    margin-top: 0;
+    text-transform: capitalize;
+}
+
+
+
+
+.mat-option-text.mat-option-text {
+    white-space: normal;
+    margin: 10px;
+}
+.mat-option-text.mat-option-text:hover {
+  color: black;
+}
+
+.mat-option {
+  padding-left: 0px!important;
+}
+
+.mat-form-field-infix{ width: 125px ! important; }
+
+.mat-tab-body-content {
+  height: 100%;
+  width:98% ! important;
+  overflow:hidden !important;
+}
+
+@media (max-width: 1024px) {
+
+  .mat-tab-body-content {
+    height: 100%;
+    width:100% ! important;
+    overflow:auto !important;
+  }
+
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+
+
+/* Added by shamim */
+
+
+/* dashboard */

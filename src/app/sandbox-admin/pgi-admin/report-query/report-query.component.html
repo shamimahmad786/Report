@@ -1,0 +1,54 @@
+<header>
+
+       <!-- /* <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> */ -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <!-- <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet"> -->
+    <!-- Datatables Js -->
+     <!-- <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.4/b-html5-1.5.4/b-print-1.5.4/r-2.2.2/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.4/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.4/js/buttons.print.min.js"></script> -->
+</header>
+<div class="panel panel-default">
+    <div class="panel-heading">Write Query</div>
+    <div class='panel-body'>
+        <div class='col-sm-12 nativeQuery'>
+            <textarea style="width:100%;height: 100%" [(ngModel)] = "queryString" class="query" rows="5" cols="10" ></textarea>
+        </div>
+    </div>
+    <div class="panel-footer row">
+        <div class='col-sm-12'>
+            <div class='col-sm-3'>
+                <input type="text" class="form-control" placeholder="Enter Report Name" />
+            </div>
+            <div class='col-sm-9' style='text-align: right;'>
+                <input type='button' class='btn btn-sm btn-info mr-2' (click)="saveReport()" value='Save Report'>
+                <input type='button' class='btn btn-sm btn-info'  (click)="executeQuery()" value='Execute'>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        Quote
+    </div>
+ <!-- //   <div class="card-body"> -->
+        <table class="table" id='queryData' >
+            <thead>
+                <tr>
+                    <th *ngFor="let listColumeName of listColumeNames">{{listColumeName}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let columnValue of columnValues">
+                   <td *ngFor="let listColumeName of listColumeNames">{{columnValue[listColumeName]}}</td>
+                  
+                </tr>
+            </tbody>
+        </table>
+    <!-- </div> -->
+</div>

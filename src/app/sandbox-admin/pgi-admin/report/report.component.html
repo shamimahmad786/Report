@@ -1,0 +1,140 @@
+
+<div class='col-sm-12 row' style="background: cadetblue; margin-top: 1%;">
+    <div class='col-sm-4 headerReport'>
+            <label style="color: white;">Report List</label>
+            <div class='col-sm-12 row'>
+                <div class='col-sm-8' style='padding:0px'>
+            <select  *ngFor="let listReport of listReports" class='form-control reportDropDown' type='dropdown'>
+                <option>Select</option>
+                <option id={{listReport.id}} >{{listReport.name}}</option>
+            </select>
+        </div>
+        <div class='col-sm-4'>
+              <button class='btn btn-sm btn-info' style='color:black;background: white; height:30px'>Generate Report</button>
+              </div>
+             </div>
+
+    </div>
+    
+
+</div>
+
+<!-- <ngb-tabset>
+        <ngb-tab title="Tab One">
+          <ng-template ngbTabContent>
+            <p>Tab one content here</p>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Tab Two">
+          <ng-template ngbTabContent>
+            <p>Tab two content here</p>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Tab Three">
+          <ng-template ngbTabContent>
+            <p>Tab three content here</p>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset> -->
+<!--<mat-tab-group>
+        <mat-tab label="First"> Content 1 </mat-tab>
+        <mat-tab label="Second"> Content 2 </mat-tab>
+        <mat-tab label="Third"> Content 3 </mat-tab>
+        </mat-tab-group> -->
+
+
+
+      
+ <!--      <ul class="nav nav-tabs">
+          <li class="active" style='padding:10px'><a id="report-tab" data-toggle="tab" href="#report" role="tab" aria-controls="report" aria-selected="true">Report</a></li>
+          <li style='padding:10px'> <a  id="queryReport-tab" data-toggle="tab" href="#queryReport" role="tab" aria-controls="queryReport" aria-selected="true">Query Report</a></li>
+        </ul>
+        <div class='col-sm-12' id='report' role="tabpanel" aria-labelledby="report-tab">
+                <div class='col-sm-4 headerReport'>
+                        <label>Report List</label>
+                        <div class='col-sm-12 row'>
+                            <div class='col-sm-8' style='padding:0px'>
+                        <select  *ngFor="let listReport of listReports" class='form-control reportDropDown' type='dropdown'>
+                            <option>Select</option>
+                            <option id={{listReport.id}} reportRemarks={{listReport.reportRemarks}} reportQuery={{listReport.reportQuery}}>{{listReport.name}}</option>
+                        </select>
+                    </div>
+                    <div class='col-sm-4'>
+                          <button class='btn btn-sm btn-info' style='color:black;background: white; height:30px'>Generate Report</button>
+                          </div>
+                         </div>
+            
+                </div>
+        </div>
+        <div class='col-sm-12' id='queryReport' role="tabpanel" aria-labelledby="queryReport-tab">
+
+        </div> --> 
+
+
+     <!--   <mat-tab-group>
+                <mat-tab label="First"> Content 1 </mat-tab>
+                <mat-tab label="Second"> Content 2 </mat-tab>
+                <mat-tab label="Third"> Content 3 </mat-tab>
+              </mat-tab-group>
+
+              <mat-tab-group>
+                    <mat-tab>
+                      <ng-template mat-tab-label>
+                        The <em>best</em> pasta
+                      </ng-template>
+                      <h1>Best pasta restaurants</h1>
+                      <p>...</p>
+                    </mat-tab>
+                    <mat-tab>
+                      <ng-template mat-tab-label>
+                        <mat-icon>thumb_down</mat-icon> The worst sushi
+                      </ng-template>
+                      <h1>Terrible sushi restaurants</h1>
+                      <p>...</p>
+                    </mat-tab>
+                  </mat-tab-group>
+
+
+                  <mat-tab-group animationDuration="0ms">
+                        <mat-tab label="First">View 1</mat-tab>
+                        <mat-tab label="Second">View 2</mat-tab>
+                        <mat-tab label="Third">View 3</mat-tab>
+                      </mat-tab-group>
+
+
+                      <mat-tab-group>
+                            <mat-tab label="First">View 1</mat-tab>
+                            <mat-tab label="Second">View 2</mat-tab>
+                            <mat-tab label="Third">View 3</mat-tab>
+                          </mat-tab-group> -->
+                        
+     
+                          <mat-tab-group>
+                                <mat-tab>
+                                  <ng-template mat-tab-label>
+                                    <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+                                    First
+                                  </ng-template>
+                                  Content 1
+                                </mat-tab>
+                              
+                                <mat-tab>
+                                  <ng-template mat-tab-label>
+                                    <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+                                    Second
+                                  </ng-template>
+                                  Content 2
+                                </mat-tab>
+                              
+                                <mat-tab>
+                                  <ng-template mat-tab-label>
+                                    <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+                                    Third
+                                  </ng-template>
+                              
+                                  Content 3
+                                </mat-tab>
+                              </mat-tab-group>
+
+
+                            

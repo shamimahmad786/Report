@@ -1,0 +1,223 @@
+<h1 class="mb-2 page-head">Analytics</h1>
+<div *ngIf="showFilters">
+    <mat-tab-group (selectedTabChange)="showTab($event)">
+        <mat-tab label="Single Table"></mat-tab>
+        <mat-tab label="Join Table"></mat-tab>
+    </mat-tab-group>
+    <form #searchInd="ngForm" (ngSubmit)="searchInd.valid && getQueryResult()">
+        <div class="filter-area">
+            <h6 class="filters-heading">Please fill the below search parameters</h6>
+
+            <!-- <button type="button" mat-raised-button color="primary" class="btn-gradient ml-auto ml-3 mb-4"
+                (click)="addJoinForm();" [disabled]="joinForms.length > 1">
+                <mat-icon>add</mat-icon>
+                Join Table
+            </button> -->
+            <mat-form-field appearance="outline" style="width: 150px">
+                <mat-label>Columns</mat-label>
+                <mat-select multiple [(ngModel)]="column" name="column" (ngModelChange)="showColumns()" required>
+                    <mat-option *ngFor="let c of tableColumns" [value]="c">
+                        {{c}} </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div>
+                <div *ngFor="let i of joinForms">
+                    <div class="d-flex" *ngFor="let filter of masterQueryModel['qm' + i]; let index = index;">
+                        <ul class="list-unstyled filter-list m-0">
+                            <li class="pl-0" *ngIf="index === 0">
+                                <mat-form-field appearance="outline" style="width: 120px">
+                                    <mat-label>Table</mat-label>
+                                    <mat-select [(ngModel)]="filter.table" required name="table{{i}}"
+                                        (ngModelChange)="getTableFields(i);">
+                                        <mat-option *ngFor="let table of masterTables['tables' + i]" [value]="table"
+                                            (click)="filtersModel.table = table.displayName">
+                                            {{table.displayName}} </mat-option>
+                                    </mat-select>
+                                    <mat-error>Please select table</mat-error>
+                                </mat-form-field>
+                            </li>
+                            <li class="pl-0" *ngIf="(i == joinForms.length) ">
+                                <mat-form-field appearance="outline" style="width: 250px">
+                                    <mat-label>Fields</mat-label>
+                                    <mat-select name="tableField{{index}}{{i}}" [(ngModel)]="filter.tableField"
+                                        required>
+                                        <mat-option *ngFor="let field of tableFields['table' + i]" [value]="field"
+                                            (click)="filtersModel.tableField = field.displayName">
+                                            {{field.displayName}} </mat-option>
+                                    </mat-select>
+                                    <mat-error>Please select a field</mat-error>
+                                </mat-form-field>
+                            </li>
+                            <li class="pl-0" *ngIf="(i == joinForms.length)">
+                                <mat-form-field appearance="outline" style="width: 250px">
+                                    <mat-label>Operation</mat-label>
+                                    <mat-select name="operation{{index}}{{i}}" [(ngModel)]="filter.operation" required>
+                                        <mat-option *ngFor="let opr of operations" [value]="opr.value"
+                                            (click)="filtersModel.operation = opr.key">
+                                            {{opr.key}} </mat-option>
+                                    </mat-select>
+                                    <mat-error>Please select an operation</mat-error>
+                                </mat-form-field>
+                            </li>
+                            <li class="pl-0" *ngIf="filter.tableField.fieldType === 'S' && (i == joinForms.length)">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Value</mat-label>
+                                    <input type="text" matInput placeholder="Value" [(ngModel)]="filter.value"
+                                        name="crntValue{{index}}{{i}}" required>
+                                </mat-form-field>
+                            </li>
+                            <li class="pl-0"
+                                *ngIf="(filter.tableField.fieldType === 'I' || filter.tableField.fieldType === 'DO') && (i == joinForms.length)">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Value</mat-label>
+                                    <input type="number" matInput placeholder="Value" [(ngModel)]="filter.value"
+                                        name="crntValue{{index}}{{i}}" required>
+                                </mat-form-field>
+                            </li>
+                            <li class="pl-0"
+                                *ngIf="index > 0">
+                                <button type="button" mat-raised-button color="primary" class="btn-gradient ml-auto ml-3 mb-4"
+                                (click)="removeRule(i);">
+                                <mat-icon>remove_circle</mat-icon>                                
+                            </button>
+                            </li>
+                            <!-- <li class="pl-0">
+                            <mat-form-field appearance="outline" style="width: 250px">
+                                <mat-label>Operator</mat-label>
+                                <mat-select [(ngModel)]="filter.operator" name="operator" #operator="ngModel">
+                                    <mat-option *ngFor="let oprt of operators" [value]="oprt">
+                                        {{oprt}} </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </li> -->
+                        </ul>
+                    </div>
+                    <button *ngIf="joinForms.length == '1'" type="button" mat-raised-button color="primary"
+                        class="btn-gradient ml-auto ml-3 mb-4" (click)="addRuleRow(i);">
+                        <mat-icon>add</mat-icon>
+                        Add rule
+                    </button>
+                    <mat-divider class="mb-5"></mat-divider>
+                </div>
+                <button type="submit" mat-raised-button color="primary" class="btn-gradient ml-auto ml-3 mb-3"
+                    [disabled]="!searchInd.valid">
+                    <mat-icon>search</mat-icon>
+                    Search
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<div *ngIf="!showFilters">
+    <div class="filter-area stateUser">
+        <h6 class="filters-heading">You have search for</h6>
+        <div class="d-flex align-items-center">
+            <ul class="list-inline selected-filters">
+                <li class="list-inline-item">
+                    Year: <span class="search-item">{{filtersModel.year}}</span>
+                </li>
+                <li class="list-inline-item">
+                    State: <span class="search-item">{{filtersModel.state}}</span>
+                </li>
+                <li class="list-inline-item">
+                    Category: <span class="search-item">{{filtersModel.cat}}</span>
+                </li>
+                <li class="list-inline-item">
+                    Domain: <span class="search-item">{{filtersModel.dom}}</span>
+                </li>
+            </ul>
+            <button type="submit" mat-raised-button color="primary" class="btn-gradient ml-auto mw-auto"
+                (click)="modifySearch()">
+                <mat-icon>search</mat-icon> Modify Search
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="table-wrap" *ngIf="scores.length > 0">
+    <div class="table-head">
+        <table class="table m-0">
+            <thead>
+                <tr>
+                    <th scope="col" width="80" class="text-center">S.No.</th>
+                    <th scope="col" width="80" class="text-center">State Id</th>
+                    <th scope="col" width="100" class="text-center">Indicator Id</th>
+                    <th scope="col" width="100" class="text-center">Year</th>
+                    <th scope="col" width="100" class="text-center">Score</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="table-scroll" data-simplebar>
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let score of scores; let index = index;">
+                    <td width="80" class="text-center">{{index + 1}}</td>
+                    <td width="80" class="text-center">{{score.stateId}}</td>
+                    <td width="100" class="text-center">{{score.indId}}</td>
+                    <td width="100" class="text-center">{{score.year}}</td>
+                    <td width="100" class="text-center">{{score.score}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> -->
+
+<div class="table-wrap">
+    <div class="table-scroll">
+        <pre>{{joinResultSet}}</pre>
+    </div>
+</div>
+
+
+
+<div class="table-wrap" *ngIf="scores.length > 0">
+    <div class="table-head">
+        <table class="table m-0">
+            <thead>
+                <tr>
+                    <th width="{{columnWidth}}" *ngFor="let head of scores[0] | keys : column : removeColumn" class="text-center">{{head}}</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="table-scroll" data-simplebar>
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let item of scores">
+                    <td width="{{columnWidth}}" *ngFor="let list of item | keys : column : removeColumn" class="text-center">{{item[list]}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="table-wrap" *ngIf="joinScores.length > 0">
+    <div class="table-head">
+        <table class="table m-0">
+            <thead>
+                <tr>
+                    <th width="{{columnWidth}}" *ngFor="let head of joinScores[0] | keys : column : removeColumn" class="text-center">{{head}}
+                    </th>
+                    <th width="{{columnWidth}}" *ngFor="let jHead of joinScores[0][joinScores[0]['JoinProp0']][0] | keys : column : removeColumn"
+                        class="text-center">{{jHead}}</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="table-scroll" data-simplebar>
+        <table class="table">
+            <tbody>
+                <ng-container *ngFor="let jval of joinScores; let ind = index;">
+                    <tr *ngFor="let joinVal of jval[jval['JoinProp' + ind]]">
+                        <td width="{{columnWidth}}" *ngFor="let val of joinScores[0] | keys : column : removeColumn" class="text-center">
+                            {{joinScores[0][val]}}
+                        </td>
+                        <td width="{{columnWidth}}" *ngFor="let joinColName of joinVal | keys : column : removeColumn" class="text-center">{{joinVal[joinColName]}}
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>

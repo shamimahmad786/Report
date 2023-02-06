@@ -1,0 +1,392 @@
+[
+    { "name": "Govt", "number": 1083747, "year": "2018-19" },
+    { "name": "Aided", "number": 84623, "year": "2018-19" },
+    { "name": "Private", "number": 326228, "year": "2018-19" },
+    { "name": "Others", "number": 56402, "year": "2018-19" },
+
+    { "name": "Govt", "number": 1032570, "year": "2019-20" },
+    { "name": "Aided", "number": 84362, "year": "2019-20" },
+    { "name": "Private", "number": 337499, "year": "2019-20" },
+    { "name": "Others", "number": 53277, "year": "2019-20" },
+
+    { "name": "Govt", "number": 1032049, "year": "2020-21" },
+    { "name": "Aided", "number": 84295, "year": "2020-21" },
+    { "name": "Private", "number": 34753, "year": "2020-21" },
+    { "name": "Others", "number": 52039, "year": "2020-21" },
+
+    { "name": "Govt", "number": 1022386, "year": "2021-22" },
+    { "name": "Aided", "number": 82480, "year": "2021-22" },
+    { "name": "Private", "number": 335844, "year": "2021-22" },
+    { "name": "Others", "number": 48405, "year": "2021-22" },
+
+    { "schtypename": "Boys", "schtypnumber": 15260, "year": "2018-19" },
+    { "schtypename": "Girls", "schtypnumber": 31448, "year": "2018-19" },
+    { "schtypename": "Co-Ed", "schtypnumber": 1504292, "year": "2018-19" },
+
+    { "schtypename": "Boys", "schtypnumber": 13294, "year": "2019-20" },
+    { "schtypename": "Girls", "schtypnumber": 28954, "year": "2019-20" },
+    { "schtypename": "Co-Ed", "schtypnumber": 1465460, "year": "2019-20" },
+
+    { "schtypename": "Boys", "schtypnumber": 12972, "year": "2020-21" },
+    { "schtypename": "Girls", "schtypnumber": 30605, "year": "2020-21" },
+    { "schtypename": "Co-Ed", "schtypnumber": 1465559, "year": "2020-21" },
+
+    { "schtypename": "Boys", "schtypnumber": 11956, "year": "2021-22" },
+    { "schtypename": "Girls", "schtypnumber": 29656, "year": "2021-22" },
+    { "schtypename": "Co-Ed", "schtypnumber": 1447503, "year": "2021-22" },
+
+    { "totschcatname": "Elementary", "totschcatnum": 1270407, "year": "2018-19" },
+    { "totschcatname": "Secondary", "totschcatnum": 150573, "year": "2018-19" },
+    { "totschcatname": "Higher Secondary", "totschcatnum": 130020, "year": "2018-19" },
+
+    { "totschcatname": "Elementary", "totschcatnum": 1222485, "year": "2019-20" },
+    { "totschcatname": "Secondary", "totschcatnum": 151489, "year": "2019-20" },
+    { "totschcatname": "Higher Secondary", "totschcatnum": 133734, "year": "2019-20" },
+
+    { "totschcatname": "Elementary", "totschcatnum": 1217670, "year": "2020-21" },
+    { "totschcatname": "Secondary", "totschcatnum": 151946, "year": "2020-21" },
+    { "totschcatname": "Higher Secondary", "totschcatnum": 139520, "year": "2020-21" },
+
+    { "totschcatname": "Elementary", "totschcatnum": 1196265, "year": "2021-22" },
+    { "totschcatname": "Secondary", "totschcatnum": 150452, "year": "2021-22" },
+    { "totschcatname": "Higher Secondary", "totschcatnum": 142398, "year": "2021-22" },
+
+   
+
+    { "boyschtypcatelem": 10036, "boyschtypcatsec": 1948, "boyschtypcathsec": 3276, "year": "2018-19" },
+    { "girlschtypcatelem": 16187, "girlschtypcatsec": 6809, "girlschtypcathsec": 8452, "year": "2018-19" },
+    { "coedschtypcatelem": 1244184, "coedschtypcatsec": 141816, "coedschtypcathsec": 118292, "year": "2018-19" },
+
+    { "boyschtypcatelem": 7989, "boyschtypcatsec": 1994, "boyschtypcathsec": 3311, "year": "2019-20" },
+    { "girlschtypcatelem": 13562, "girlschtypcatsec": 6620, "girlschtypcathsec": 8772, "year": "2019-20" },
+    { "coedschtypcatelem": 1200934, "coedschtypcatsec": 142875, "coedschtypcathsec": 121651, "year": "2019-20" },
+
+    { "boyschtypcatelem": 7784, "boyschtypcatsec": 1910, "boyschtypcathsec": 3278, "year": "2020-21" },
+    { "girlschtypcatelem": 14973, "girlschtypcatsec": 6488, "girlschtypcathsec": 9144, "year": "2020-21" },
+    { "coedschtypcatelem": 1194913, "coedschtypcatsec": 143548, "coedschtypcathsec": 127098, "year": "2020-21" },
+
+    { "boyschtypcatelem": 6834, "boyschtypcatsec": 1934, "boyschtypcathsec": 3188, "year": "2021-22" },
+    { "girlschtypcatelem": 13860, "girlschtypcatsec": 6498, "girlschtypcathsec": 9298, "year": "2021-22" },
+    { "coedschtypcatelem": 1175571, "coedschtypcatsec": 142020, "coedschtypcathsec": 129912, "year": "2021-22" },
+
+    { "cwsnname": "Govt", "cwsnper": 68.8, "cwsnnumber": 19031, "year": "2018-19" },
+    { "cwsnname": "Aided", "cwsnper": 9.0, "cwsnnumber": 2500, "year": "2018-19" },
+    { "cwsnname": "Private", "cwsnper": 18.4, "cwsnnumber": 5099, "year": "2018-19" },
+    { "cwsnname": "Others", "cwsnper": 3.8, "cwsnnumber": 1045, "year": "2018-19" },
+
+    { "cwsngovtelem": 673739, "cwsngovtsec": 49473, "cwsngovthsec": 44924, "year": "2018-19" },
+    { "cwsnaidedelem": 34773, "cwsnaidedsec": 22865, "cwsnaidedhsec": 18127, "year": "2018-19" },
+    { "cwsnpvtelem": 169830, "cwsnpvtsec": 56250, "cwsnpvthsec": 51591, "year": "2018-19" },
+    { "cwsnothelem": 29740, "cwsnothsec": 2869, "cwsnothhsec": 1620, "year": "2018-19" },
+
+    { "cwsngovtelem": 673739, "cwsngovtsec": 49473, "cwsngovthsec": 44924, "year": "2018-19" },
+    { "cwsnaidedelem": 34773, "cwsnaidedsec": 22865, "cwsnaidedhsec": 18127, "year": "2018-19" },
+    { "cwsnpvtelem": 169830, "cwsnpvtsec": 56250, "cwsnpvthsec": 51591, "year": "2018-19" },
+    { "cwsnothelem": 29740, "cwsnothsec": 2869, "cwsnothhsec": 1620, "year": "2018-19" },
+
+    { "boysgovttoiletele": 1008502, "boysaidedtoiletele": 73486, "boysprivatetoiletele": 308115, "boysotherstoiletele": 46530, "year": "2018-19" },
+    { "boysgovttoiletsec": 1008502, "boysaidedtoiletsec": 73486, "boysprivatetoiletsec": 308115, "boysotherstoiletsec": 46530, "year": "2018-19" },
+    { "boysgovttoilethsec": 1008502, "boysaidedtoilethsec": 73486, "boysprivatetoilethsec": 308115, "boysotherstoilethsec": 46530, "year": "2018-19" },
+
+    { "girlsgovttoiletele": 1030489, "girlsaidedtoiletele": 76650, "girlsprivatetoiletele": 310156, "girlsotherstoiletele": 46594, "year": "2018-19" },
+    { "girlsgovttoiletsec": 1030489, "girlsaidedtoiletsec": 76650, "girlsprivatetoiletsec": 310156, "girlsotherstoiletsec": 46594, "year": "2018-19" },
+    { "girlsgovttoilethsec": 1030489, "girlsaidedtoilethsec": 76650, "girlsprivatetoilethsec": 310156, "girlsotherstoilethsec": 46594, "year": "2018-19" },
+
+    { "libgovt": 909674, "libaided": 70161, "libprivate": 242392, "libothers": 27491, "year": "2018-19" },
+
+    { "medical1govt": 915615, "medical1aided": 68896, "medical1pvt": 201706, "medical1oth": 23466, "year": "2018-19" },
+    { "rampgovt": 798811, "rampaided": 45812, "ramppvt": 129198, "rampoth": 14276, "year": "2018-19" },
+
+    { "grndgovtelem": 673739, "grndgovtsec": 49473, "grndgovthsec": 44924, "year": "2018-19" },
+    { "grndaidedelem": 34773, "grndaidedsec": 22865, "grndaidedhsec": 18127, "year": "2018-19" },
+    { "grndpvtelem": 169830, "grndpvtsec": 56250, "grndpvthsec": 51591, "year": "2018-19" },
+    { "grndothelem": 29740, "grndothsec": 2869, "grndothhsec": 1620, "year": "2018-19" },
+
+    { "compgovt": 282323, "compaided": 45068, "comppvt": 166836, "compothers": 12256, "year": "2018-19" },
+    { "internetgovt": 105959, "internetaided": 32648, "internetpvt": 141619, "internetothers": 10221, "year": "2018-19" },
+    { "electgovt": 759558, "electaided": 68876, "electpvt": 279948, "electothers": 37137, "year": "2018-19" },
+
+    { "drnkwatername": "Govt", "drnkwaternum": 1041327, "year": "2018-19" },
+    { "drnkwatername": "Aided", "drnkwaternum": 80096, "year": "2018-19" },
+    { "drnkwatername": "Private", "drnkwaternum": 312383, "year": "2018-19" },
+    { "drnkwatername": "Others", "drnkwaternum": 50266, "year": "2018-19" },
+
+    { "drnkwatergovtelem": 673739, "drnkwatergovtsec": 49473, "drnkwatergovthsec": 44924, "year": "2018-19" },
+    { "drnkwateraidedelem": 34773, "drnkwateraidedsec": 22865, "drnkwateraidedhsec": 18127, "year": "2018-19" },
+    { "drnkwaterpvtelem": 169830, "drnkwaterpvtsec": 56250, "drnkwaterpvthsec": 51591, "year": "2018-19" },
+    { "drnkwaterothelem": 29740, "drnkwaterothsec": 2869, "drnkwaterothhsec": 1620, "year": "2018-19" },
+
+    { "drnkwatergovt": 1040150, "drnkwateraided": 80096, "drnkwaterpvt": 312383, "drnkwateroth": 50266, "year": "2018-19" },
+    { "handwashgovt": 958673, "handwashaided": 73741, "handwashpvt": 290553, "handwashoth": 43654, "year": "2018-19" },
+    { "boystoiletgovt": 1007515, "boystoiletaided": 73486, "boystoiletpvt": 308115, "boystoiletoth": 46530, "year": "2018-19" },
+    { "girlstoiletgovt": 1029355, "girlstoiletaided": 76650, "girlstoiletpvt": 310156, "girlstoiletoth": 46549, "year": "2018-19" },
+
+    { "malegovtteachergovt": 2818425, "malegovtteacheraided": 471194, "malegovtteacherpvt": 1241354, "malegovtteacheroth": 185634, "year": "2018-19" },
+    { "femalegovtteachergovt": 2129183, "femalegovtteacheraided": 348653, "femalegovtteacherpvt": 2063019, "femalegovtteacheroth": 173377, "year": "2018-19" },
+
+    { "malegovtteachergovt": 2797084, "malegovtteacheraided": 463210, "malegovtteacherpvt": 1343424, "malegovtteacheroth": 167148, "year": "2019-20" },
+    { "femalegovtteachergovt": 2141784, "femalegovtteacheraided": 357091, "femalegovtteacherpvt": 2259201, "femalegovtteacheroth": 158635, "year": "2019-20" },
+
+    { "malegovtteachergovt": 2773901, "malegovtteacheraided": 453709, "malegovtteacherpvt": 1358230, "malegovtteacheroth": 163511, "year": "2020-21" },
+    { "femalegovtteachergovt": 2153198, "femalegovtteacheraided": 354646, "femalegovtteacherpvt": 2289444, "femalegovtteacheroth": 149786, "year": "2020-21" },
+
+    { "malegovtteachergovt": 2729750, "malegovtteacheraided": 441364, "malegovtteacherpvt": 1308609, "malegovtteacheroth": 150668, "year": "2021-22" },
+    { "femalegovtteachergovt": 2152696, "femalegovtteacheraided": 355267, "femalegovtteacherpvt": 2232038, "femalegovtteacheroth": 136731, "year": "2021-22" },
+
+    { "stdntboysgovt": 62509126, "stdntboysaided": 33159087, "stdntboyspvt": 20006747, "stdntboysoth": 13182632, "year": "2018-19" },
+    { "stdntgirlsgovt": 57721044, "stdntgirlsaided": 31107939, "stdntgirlspvt": 18327824, "stdntgirlsoth": 12324185, "year": "2018-19" },
+
+    { "stdntboysgovt": 63251749, "stdntboysaided": 33427571, "stdntboyspvt": 20072356, "stdntboysoth": 13330949, "year": "2019-20" },
+    { "stdntgirlsgovt": 58434954, "stdntgirlsaided": 31445816, "stdntgirlspvt": 18392077, "stdntgirlsoth": 12616211, "year": "2019-20" },
+
+    { "stdntboysgovt": 66308171, "stdntboysaided": 13855373, "stdntboyspvt": 53247170, "stdntboysoth": 4024325, "year": "2020-21" },
+    { "stdntgirlsgovt": 68596389, "stdntgirlsaided": 12990154, "stdntgirlspvt": 41909912, "stdntgirlsoth": 3518493, "year": "2020-21" },
+
+    { "stdntboysgovt": 63517655, "stdntboysaided": 34511750, "stdntboyspvt": 20071918, "stdntboysoth": 14747732, "year": "2021-22" },
+    { "stdntgirlsgovt": 58324595, "stdntgirlsaided": 32278942, "stdntgirlspvt": 18456713, "stdntgirlsoth": 13831318, "year": "2021-22" },
+
+
+    { "electgovtname": "Elementary", "electgovtnum": 575552, "year": "2018-19" },
+    { "electgovtname": "Higher Secondary", "electgovtnum": 1527, "year": "2018-19" },
+    { "electgovtname": "Secondary", "electgovtnum": 63, "year": "2018-19" },
+    { "electaidedname": "Elementary", "electaidednum": 68876, "year": "2018-19" },
+    { "electaidedname": "Higher Secondary", "electaidednum": 68876, "year": "2018-19" },
+    { "electaidedname": "Secondary", "electaidednum": 68876, "year": "2018-19" },
+    { "electpvtname": "Elementary", "electpvtnum": 279948, "year": "2018-19" },
+    { "electpvtname": "Higher Secondary", "electpvtnum": 279948, "year": "2018-19" },
+    { "electpvtname": "Secondary", "electpvtnum": 279948, "year": "2018-19" },
+    { "electothname": "Elementary", "electothnum": 20718, "year": "2018-19" },
+    { "electothname": "Higher Secondary", "electothnum": 13203, "year": "2018-19" },
+    { "electothname": "Secondary", "electothnum": 3216, "year": "2018-19" },
+
+    { "medicalname": "Govt", "medicalnumber": 915615, "year": "2018-19" },
+    { "medicalname": "Aided", "medicalnumber": 68896, "year": "2018-19" },
+    { "medicalname": "Private", "medicalnumber": 201706, "year": "2018-19" },
+    { "medicalname": "Others", "medicalnumber": 23466, "year": "2018-19" },
+
+    { "rampnamegovtele": 1008502, "rampnameaidedele": 73486, "rampnameprivateele": 308115, "rampnameothersele": 46530, "year": "2018-19" },
+    { "rampnamegovtsec": 1008502, "rampnameaidedsec": 73486, "rampnameprivatesec": 308115, "rampnameotherssec": 46530, "year": "2018-19" },
+    { "rampnamegovthsec": 1008502, "rampnameaidedhsec": 73486, "rampnameprivatehsec": 308115, "rampnameothershsec": 46530, "year": "2018-19" },
+
+
+
+
+
+
+
+
+
+
+    { "teachername": "Govt", "teachernumber": 4947608, "year": "2018-19" },
+    { "teachername": "Aided", "teachernumber": 819847, "year": "2018-19" },
+    { "teachername": "Private", "teachernumber": 3304373, "year": "2018-19" },
+    { "teachername": "Others", "teachernumber": 359011, "year": "2018-19" },
+
+    { "teachername": "Govt", "teachernumber": 4938868, "year": "2019-20" },
+    { "teachername": "Aided", "teachernumber": 820301, "year": "2019-20" },
+    { "teachername": "Private", "teachernumber": 3602625, "year": "2019-20" },
+    { "teachername": "Others", "teachernumber": 325783, "year": "2019-20" },
+
+    { "teachername": "Govt", "teachernumber": 4927099, "year": "2020-21" },
+    { "teachername": "Aided", "teachernumber": 808355, "year": "2020-21" },
+    { "teachername": "Private", "teachernumber": 3647674, "year": "2020-21" },
+    { "teachername": "Others", "teachernumber": 313297, "year": "2020-21" },
+
+    { "teachername": "Govt", "teachernumber": 4882446, "year": "2021-22" },
+    { "teachername": "Aided", "teachernumber": 796631, "year": "2021-22" },
+    { "teachername": "Private", "teachernumber": 3540647, "year": "2021-22" },
+    { "teachername": "Others", "teachernumber": 287399, "year": "2021-22" },
+
+    
+
+    { "tottchschcatname": "Elementary", "tottchschcatnum": 5430128, "year": "2018-19" },
+    { "tottchschcatname": "Secondary", "tottchschcatnum": 1584091, "year": "2018-19" },
+    { "tottchschcatname": "Higher Secondary", "tottchschcatnum": 2416620, "year": "2018-19" },
+
+    { "tottchschcatname": "Elementary", "tottchschcatnum": 5397736, "year": "2019-20" },
+    { "tottchschcatname": "Secondary", "tottchschcatnum": 1666853, "year": "2019-20" },
+    { "tottchschcatname": "Higher Secondary", "tottchschcatnum": 2622988, "year": "2019-20" },
+
+    { "tottchschcatname": "Elementary", "tottchschcatnum": 6360773, "year": "2020-21" },
+    { "tottchschcatname": "Secondary", "tottchschcatnum": 1672444, "year": "2020-21" },
+    { "tottchschcatname": "Higher Secondary", "tottchschcatnum": 2663208, "year": "2020-21" },
+
+    { "tottchschcatname": "Elementary", "tottchschcatnum": 5185615, "year": "2021-22" },
+    { "tottchschcatname": "Secondary", "tottchschcatnum": 1620001, "year": "2021-22" },
+    { "tottchschcatname": "Higher Secondary", "tottchschcatnum": 2701507, "year": "2021-22" },
+
+    { "tottschtypesname": "Girls", "tottschtypesnum": 1270407, "year": "2018-19" },
+    { "tottschtypesname": "Boys", "tottschtypesnum": 150573, "year": "2018-19" },
+    { "tottschtypesname": "Co-Ed", "tottschtypesnum": 130020, "year": "2018-19" },
+
+    { "ptrprimary": 28, "ptrupperprimary": 20, "ptrsec": 21, "ptrhs": 30, "year": "2018-19" },
+
+    { "ptrprimary": 27, "ptrupperprimary": 19, "ptrsec": 19, "ptrhs": 27, "year": "2019-20" },
+
+    { "ptrprimary": 26.25, "ptrupperprimary": 18.86, "ptrsec": 18.44, "ptrhs": 26.27, "year": "2020-21" },
+
+    { "ptrprimary": 26.16, "ptrupperprimary": 19.44, "ptrsec": 17.60, "ptrhs": 27.08, "year": "2021-22" },
+
+    { "malegovtteacher": 1008502, "maleaidedteacher": 73486, "maleprivateteacher": 308115, "maleothersteacher": 46530, "year": "2018-19" },
+    { "femalegovtteacher": 1030489, "femaleaidedteacher": 76650, "femaleprivateteacher": 310156, "femaleothersteacher": 46594, "year": "2018-19" },
+
+    { "malegovtteacherele": 1008502, "maleaidedteacherele": 73486, "maleprivateteacherele": 308115, "maleothersteacherele": 46530, "year": "2018-19" },
+    { "malegovtteachersec": 1008502, "maleaidedteachersec": 73486, "maleprivateteachersec": 308115, "maleothersteachersec": 46530, "year": "2018-19" },
+    { "malegovtteacherhsec": 1008502, "maleaidedteacherhsec": 73486, "maleprivateteacherhsec": 308115, "maleothersteacherhsec": 46530, "year": "2018-19" },
+
+    { "femalegovtteacherele": 1030489, "femaleaidedteacherele": 76650, "femaleprivateteacherele": 310156, "femaleothersteacherele": 46594, "year": "2018-19" },
+    { "femalegovtteachersec": 1030489, "femaleaidedteachersec": 76650, "femaleprivateteachersec": 310156, "femaleothersteachersec": 46594, "year": "2018-19" },
+    { "femalegovtteacherhsec": 1030489, "femaleaidedteacherhsec": 76650, "femaleprivateteacherhsec": 310156, "femaleothersteacherhsec": 46594, "year": "2018-19" },
+
+    { "twthtfemalename": "Govt", "twthtfemaleper": 68.8, "twthtfemalepernumber": 19031, "year": "2018-19" },
+    { "twthtfemalename": "Aided", "twthtfemaleper": 9.0, "twthtfemalepernumber": 2500, "year": "2018-19" },
+    { "twthtfemalename": "Private", "twthtfemaleper": 18.4, "twthtfemalepernumber": 5099, "year": "2018-19" },
+    { "twthtfemalename": "Others", "twthtfemaleper": 3.8, "twthtfemalepernumber": 1045, "year": "2018-19" },
+
+    { "ptrname": "Elementary", "ptrnumber": 4947608, "year": "2018-19" },
+    { "ptrname": "Secondary", "ptrnumber": 819847, "year": "2018-19" },
+    { "ptrname": "Higher Secondary", "ptrnumber": 3304373, "year": "2018-19" },
+
+    { "enggovtteacher": 1008502, "engaidedteacher": 73486, "engprivateteacher": 308115, "engothersteacher": 46530, "year": "2018-19" },
+    { "mathgovtteacher": 1008502, "mathaidedteacher": 73486, "mathprivateteacher": 308115, "mathothersteacher": 46530, "year": "2018-19" },
+    { "sstgovtteacher": 1030489, "sstaidedteacher": 76650, "sstprivateteacher": 310156, "sstothersteacher": 46594, "year": "2018-19" },
+
+    { "noprofgovtteacher": 1008502, "noprofaidedteacher": 73486, "noprofprivateteacher": 308115, "noprofothersteacher": 46530, "year": "2018-19" },
+
+    { "th100govtelem": 673739, "th100govtsec": 49473, "th100govthsec": 44924, "year": "2018-19" },
+    { "th100aidedelem": 34773, "th100aidedsec": 22865, "th100aidedhsec": 18127, "year": "2018-19" },
+    { "th100pvtelem": 169830, "th100pvtsec": 56250, "th100pvthsec": 51591, "year": "2018-19" },
+    { "th100othelem": 29740, "th100othsec": 2869, "th100othhsec": 1620, "year": "2018-19" },
+
+    { "th150govtelem": 673739, "th150govtsec": 49473, "th150govthsec": 44924, "year": "2018-19" },
+    { "th150aidedelem": 34773, "th150aidedsec": 22865, "th150aidedhsec": 18127, "year": "2018-19" },
+    { "th150pvtelem": 169830, "th150pvtsec": 56250, "th150pvthsec": 51591, "year": "2018-19" },
+    { "th150othelem": 29740, "th150othsec": 2869, "th150othhsec": 1620, "year": "2018-19" },
+
+
+    { "totstdname": "Govt", "totstdnumber": 128716369, "year": "2018-19" },
+    { "totstdname": "Aided", "totstdnumber": 27530022, "year": "2018-19" },
+    { "totstdname": "Private", "totstdnumber": 84122799, "year": "2018-19" },
+    { "totstdname": "Others", "totstdnumber": 7969394, "year": "2018-19" },
+
+    { "totstdname": "Govt", "totstdnumber": 128142596, "year": "2019-20" },
+    { "totstdname": "Aided", "totstdnumber": 27014238, "year": "2019-20" },
+    { "totstdname": "Private", "totstdnumber": 88913012, "year": "2019-20" },
+    { "totstdname": "Others", "totstdnumber": 6901837, "year": "2019-20" },
+
+    { "totstdname": "Govt", "totstdnumber": 134904560, "year": "2020-21" },
+    { "totstdname": "Aided", "totstdnumber": 26845527, "year": "2020-21" },
+    { "totstdname": "Private", "totstdnumber": 95157082, "year": "2020-21" },
+    { "totstdname": "Others", "totstdnumber": 7542818, "year": "2020-21" },
+
+    { "totstdname": "Govt", "totstdnumber": 143240480, "year": "2021-22" },
+    { "totstdname": "Aided", "totstdnumber": 27039457, "year": "2021-22" },
+    { "totstdname": "Private", "totstdnumber": 88271316, "year": "2021-22" },
+    { "totstdname": "Others", "totstdnumber": 6684577, "year": "2021-22" },
+
+    { "totstdschcatname": "Elementary", "totstdschcatnum": 184497196, "year": "2018-19" },
+    { "totstdschcatname": "Secondary", "totstdschcatnum": 38334571, "year": "2018-19" },
+    { "totstdschcatname": "Higher Secondary", "totstdschcatnum": 25506817, "year": "2018-19" },
+
+    { "totstdschcatname": "Elementary", "totstdschcatnum": 186560090, "year": "2019-20" },
+    { "totstdschcatname": "Secondary", "totstdschcatnum": 38464433, "year": "2019-20" },
+    { "totstdschcatname": "Higher Secondary", "totstdschcatnum": 25947160, "year": "2019-20" },
+
+    { "totstdschcatname": "Elementary", "totstdschcatnum": 135700574, "year": "2020-21" },
+    { "totstdschcatname": "Secondary", "totstdschcatnum": 42771213, "year": "2020-21" },
+    { "totstdschcatname": "Higher Secondary", "totstdschcatnum": 85978200, "year": "2020-21" },
+
+    { "totstdschcatname": "Elementary", "totstdschcatnum": 198128149, "year": "2021-22" },
+    { "totstdschcatname": "Secondary", "totstdschcatnum": 38528631, "year": "2021-22" },
+    { "totstdschcatname": "Higher Secondary", "totstdschcatnum": 28579050, "year": "2021-22" },
+
+    { "noofgirlselem": 88828983, "noofgirlssec": 18327824, "noofgirlshsec": 12324185, "year": "2018-19" },
+    { "noofboyselem": 95668213, "noofboyssec": 20006747, "noofboyshsec": 13182632, "year": "2018-19" },
+
+    { "nergirlsprimary": 89.81, "nergirlsupperprimary": 69.9, "nergirlssec": 48.24, "nergirlshsec": 29.99, "year": "2018-19" },
+    { "nerboysprimary": 88.54, "nerboysupperprimary": 68.16, "nerboyssec": 49, "nerboyshsec": 31.65, "year": "2018-19" },
+
+    { "nergirlsprimary": 92.37, "nergirlsupperprimary": 71.89, "nergirlssec": 50.03, "nergirlshsec": 33.26, "year": "2019-20" },
+    { "nerboysprimary": 90.52, "nerboysupperprimary": 70.44, "nerboyssec": 50.17, "nerboyshsec": 31.41, "year": "2019-20" },
+
+    { "nergirlsprimary": 93.83, "nergirlsupperprimary": 74.55, "nergirlssec": 52.39, "nergirlshsec": 9.31, "year": "2020-21" },
+    { "nerboysprimary": 91.63, "nerboysupperprimary": 73.6, "nerboyssec": 52.6, "nerboyshsec": 33.9, "year": "2020-21" },
+
+    { "nergirlsprimary": 93.83, "nergirlsupperprimary": 74.55, "nergirlssec": 52.39, "nergirlshsec": 9.31, "year": "2021-22" },
+    { "nerboysprimary": 91.63, "nerboysupperprimary": 73.6, "nerboyssec": 52.6, "nerboyshsec": 33.9, "year": "2021-22" },
+
+    { "gergirlsprimary": 101.78, "gergirlsupperprimary": 88.54, "gergirlssec": 76.93, "gergirlshsec": 50.84, "year": "2018-19" },
+    { "gerboysprimary": 100.76, "gerboysupperprimary": 87, "gerboyssec": 76.87, "gerboyshsec": 49.49, "year": "2018-19" },
+
+    { "gergirlsprimary": 103.69, "gergirlsupperprimary": 90.46, "gergirlssec": 77.83, "gergirlshsec": 52.04, "year": "2019-20" },
+    { "gerboysprimary": 101.87, "gerboysupperprimary": 88.93, "gerboyssec": 77.97, "gerboyshsec": 50.59, "year": "2019-20" },
+
+    { "gergirlsprimary": 104.45, "gergirlsupperprimary": 92.74, "gergirlssec": 79.46, "gergirlshsec": 54.65, "year": "2020-21" },
+    { "gerboysprimary": 102.22, "gerboysupperprimary": 91.64, "gerboyssec": 80.05, "gerboyshsec": 52.99, "year": "2020-21" },
+
+    { "gergirlsprimary": 104.82, "gergirlsupperprimary": 94.90, "gergirlssec": 79.40, "gergirlshsec": 58.23, "year": "2021-22" },
+    { "gerboysprimary": 102.12, "gerboysupperprimary": 94.45, "gerboyssec": 79.72, "gerboyshsec": 56.95, "year": "2021-22" },
+
+    { "prdrateele": "Elementary", "prdelenum": "Promotion Rate", "year": "2018-19" },
+    { "prdrateele": "Elementary", "prdelenum": "Repetition Rate", "year": "2018-19" },
+    { "prdrateele": "Elementary", "prdelenum": "Dropout Rate", "year": "2018-19" },
+    { "prdrateele": "Promotion Rate", "prdelenum": "pBoys", "year": "2018-19" },
+    { "prdrateele": "Promotion Rate", "prdelenum": "pGirls", "year": "2018-19" },
+    { "prdrateele": "Promotion Rate", "prdelenum": "pTotal", "year": "2018-19" },
+    { "prdrateele": "pBoys", "prdelenum": 94.94, "year": "2018-19" },
+    { "prdrateele": "pGirls", "prdelenum": 94.88, "year": "2018-19" },
+    { "prdrateele": "pTotal", "prdelenum": 94.91, "year": "2018-19" },
+    { "prdrateele": "Repetition Rate", "prdelenum": "rBoys", "year": "2018-19" },
+    { "prdrateele": "Repetition Rate", "prdelenum": "rGirls", "year": "2018-19" },
+    { "prdrateele": "Repetition Rate", "prdelenum": "rTotal", "year": "2018-19" },
+    { "prdrateele": "rBoys", "prdelenum": 0.57, "year": "2018-19" },
+    { "prdrateele": "rGirls", "prdelenum": 0.52, "year": "2018-19" },
+    { "prdrateele": "rTotal", "prdelenum": 0.55, "year": "2018-19" },
+    { "prdrateele": "Dropout Rate", "prdelenum": "dBoys", "year": "2018-19" },
+    { "prdrateele": "Dropout Rate", "prdelenum": "dGirls", "year": "2018-19" },
+    { "prdrateele": "Dropout Rate", "prdelenum": "dTotal", "year": "2018-19" },
+    { "prdrateele": "dBoys", "prdelenum": 4.49, "year": "2018-19" },
+    { "prdrateele": "dGirls", "prdelenum": 4.6, "year": "2018-19" },
+    { "prdrateele": "dTotal", "prdelenum": 4.54, "year": "2018-19" },
+
+    { "prdratesec": "Secondary", "prdsecnum": "Promotion Rate", "year": "2018-19" },
+    { "prdratesec": "Secondary", "prdsecnum": "Repetition Rate", "year": "2018-19" },
+    { "prdratesec": "Secondary", "prdsecnum": "Dropout Rate", "year": "2018-19" },
+    { "prdratesec": "Promotion Rate", "prdsecnum": "pBoys", "year": "2018-19" },
+    { "prdratesec": "Promotion Rate", "prdsecnum": "pGirls", "year": "2018-19" },
+    { "prdratesec": "Promotion Rate", "prdsecnum": "pTotal", "year": "2018-19" },
+    { "prdratesec": "pBoys", "prdsecnum": 78.17, "year": "2018-19" },
+    { "prdratesec": "pGirls", "prdsecnum": 80.12, "year": "2018-19" },
+    { "prdratesec": "pTotal", "prdsecnum": 79.09, "year": "2018-19" },
+    { "prdratesec": "Repetition Rate", "prdsecnum": "rBoys", "year": "2018-19" },
+    { "prdratesec": "Repetition Rate", "prdsecnum": "rGirls", "year": "2018-19" },
+    { "prdratesec": "Repetition Rate", "prdsecnum": "rTotal", "year": "2018-19" },
+    { "prdratesec": "rBoys", "prdsecnum": 3.19, "year": "2018-19" },
+    { "prdratesec": "rGirls", "prdsecnum": 2.87, "year": "2018-19" },
+    { "prdratesec": "rTotal", "prdsecnum": 3.04, "year": "2018-19" },
+    { "prdratesec": "Dropout Rate", "prdsecnum": "dBoys", "year": "2018-19" },
+    { "prdratesec": "Dropout Rate", "prdsecnum": "dGirls", "year": "2018-19" },
+    { "prdratesec": "Dropout Rate", "prdsecnum": "dTotal", "year": "2018-19" },
+    { "prdratesec": "dBoys", "prdsecnum": 18.64, "year": "2018-19" },
+    { "prdratesec": "dGirls", "prdsecnum": 17.01, "year": "2018-19" },
+    { "prdratesec": "dTotal", "prdsecnum": 17.87, "year": "2018-19" },
+
+    { "cwsnenrolgovt": 1234, "cwsnenrolaided": 5678, "cwsnenrolprivate": 9123, "cwsnenrolothers": 4567, "year": "2018-19" },
+
+
+    { "testgdata1": 7896, "testgdata2": 3698, "testgdata3": 1478, "testgdata4": 2589, "testgdata5": 6547, "testgdata6": 4587, "year": "2018-19" },
+    { "testadata1": 3265, "testadata2": 7896, "testadata3": 1478, "testadata4": 3254, "testadata5": 7569, "testadata6": 6541, "year": "2018-19" },
+    { "testpdata1": 6879, "testpdata2": 3214, "testpdata3": 9632, "testpdata4": 1256, "testpdata5": 1596, "testpdata6": 2548, "year": "2018-19" },
+    { "testodata1": 7836, "testodata2": 1236, "testodata3": 5874, "testodata4": 8563, "testodata5": 3571, "testodata6": 3633, "year": "2018-19" },
+
+    { "testggdata1": 7777, "testggdata2": 5555, "testggdata3": 9999, "testggdata4": 4000, "testggdata5": 8000, "testggdata6": 1574, "year": "2018-19" },
+    { "testaadata1": 4444, "testaadata2": 8888, "testaadata3": 1000, "testaadata4": 5000, "testaadata5": 9000, "testaadata6": 3693, "year": "2018-19" },
+    { "testppdata1": 1111, "testppdata2": 3333, "testppdata3": 2000, "testppdata4": 6000, "testppdata5": 7532, "testppdata6": 2547, "year": "2018-19" },
+    { "testoodata1": 2222, "testoodata2": 6666, "testoodata3": 3000, "testoodata4": 7000, "testoodata5": 7458, "testoodata6": 9514, "year": "2018-19" },
+
+    { "testgggdata1": 1, "testgggdata2": 5, "testgggdata3": 9, "testgggdata4": 25, "testgggdata5": 5, "testgggdata6": 41, "year": "2018-19" },
+    { "testaaadata1": 4, "testaaadata2": 6, "testaaadata3": 15, "testaaadata4": 11, "testaaadata5": 59, "testaaadata6": 49, "year": "2018-19" },
+    { "testpppdata1": 2, "testpppdata2": 8, "testpppdata3": 10, "testpppdata4": 35, "testpppdata5": 36, "testpppdata6": 9, "year": "2018-19" },
+    { "testooodata1": 3, "testooodata2": 7, "testooodata3": 20, "testooodata4": 12, "testooodata5": 22, "testooodata6": 5, "year": "2018-19" }
+
+]

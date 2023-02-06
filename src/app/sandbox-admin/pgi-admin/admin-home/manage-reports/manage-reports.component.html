@@ -1,0 +1,28 @@
+<div class="table-head">
+    <table class="table m-0">
+        <thead>
+            <tr>
+                <th width="5%" class="text-center">S.No.</th>
+                <th width="35%">Reports name</th>
+                <th width="20%">Category</th>
+                <th width="30%">Details</th>
+                <th width="10%">Tag</th>
+                <th width="10%">Action</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<div class="table-scroll" data-simplebar>
+    <table class="table">
+        <tbody>
+            <tr *ngFor="let report of reportsList; let index = index;">
+                <td width="5%" class="text-center">{{index + 1}} </td>
+                <td width="35%">{{report.report_name}}</td>
+                <td width="10%">{{report.reportdomain}}</td>
+                <td width="30%">{{report.tag}}</td>
+                <td width="10%">{{report.reportTag}}</td>
+                <td width="10%" style="cursor: pointer; color: blue;" (click)="editReport(report.id)">Edit</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

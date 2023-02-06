@@ -1,0 +1,345 @@
+<div class="wrapper">
+    <!-- Common Header Starts Here -->
+    <section id="header" class="header allIndiaHeader">
+        <div class="container logoSection">
+            <div class="logo">
+                <a href="#"><img src="assets/newdashboard/images/logo.png" width="316" height="65" alt="Ministry of Education" title="Ministry of Education"></a>
+            </div>
+            <div class="topRtText">School Education Dashboard</div>
+        </div>
+    </section>
+    <!-- Common Header Ends Here -->
+
+    <section id="midContainer">
+        <div class="topTabLink">
+            <ul>
+                <li>
+                    <a [routerLink]="['/reportDashboard/national']" class="blueLink"><img src="assets/newdashboard/images/india.svg" width="40" height="40" alt="">All India Figures</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/reportDashboard/state']" class="redLink"><img src="assets/newdashboard/images/states.svg" width="40" height="40" alt="">States and UTs</a>
+                </li>
+                <li class="active">
+                    <a href="#" class="violetLink"><img src="assets/newdashboard/images/scheme.svg" width="40" height="40" alt="">Schemes</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/reportDashboard/autonomus']" class="yellowLink"><img src="assets/newdashboard/images/puzzle.svg" width="40" height="40" alt="">Autonomous Bodies</a>
+                </li>
+            </ul>
+        </div>
+        <div class="graphBoxSection budgetContent cf">
+            <div class="container budgetContainer">
+                <div class="cf">
+                    <div class="alignLeft">
+                        <h3 class="budgetTitle" style="color: #344a65;">Budget (2020-21) <span class="subLine">Department of School Education &amp; Literacy</span></h3>
+                    </div>
+                    <div class="alignRight">
+                        <div class="totalBudget">
+                            <div class="cf">
+                                <div class="budgetLeft">
+                                    <div class="iconBudget">Total Budget</div>
+                                </div>
+                                <div class="budgetRight budgetCount">59,845.00 <span>Crores</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cols3">
+                        <div class="budgetBox orangeBox" style="min-height: 650px;">
+                            <div class="budgetBoxTop"> Centrally Sponsored Scheme <span class="figureIn">(Rs. in Crores)</span> </div>
+                            <div class="budgetGreyStrip"> 50,200.50 <span class="figureIn">Crores</span> </div>
+                            <div id="chartP1" style="width:100%; height:350px;"></div>
+                            <div class="legendBlock">
+                                <ul class="pieLagend">
+                                    <li class="ssPieLegend">Samagra Shiksha (SS)</li>
+                                    <li class="mdmPieLegend">National Programme of Mid Day Meals in Schools (MDM)</li>
+                                    <li class="dmesmmPieLegend">Umbrella Programme for Development of Minorities-Education Scheme for Madrasas and Minorities (DMESMM)</li>
+                                    <li class="altPieLegend">Appointment of Language Teachers (ALT)</li>
+                                    <li class="plaPieLegend">Padhna Likhna Abhiyan (PLA)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cols3">
+                        <div class="budgetBox violetBox" style="min-height: 650px;">
+                            <div class="budgetBoxTop"> Central Sector Schemes <span class="figureIn">(Rs. in Crores)</span> </div>
+                            <div class="budgetGreyStrip"> 519.50 <span class="figureIn">Crores</span> </div>
+                            <div id="chartP2" style="width:100%; height:350px;"></div>
+                            <div class="legendBlock">
+                                <ul class="pieLagend">
+                                    <li class="nmcmssPieLegend">National Means Cum Merit Scholarship Scheme (NMCMSS)</li>
+                                    <li class="igsePieLegend">National Scheme of Incentives to Girls for Secondary Education (IGSE)</li>
+                                    <li class="odbPieLegend">Operation Digital Board (ODB)</li>
+                                    <li class="dhruvPieLegend">Pradhan Mantri Innovative Learning Programme (DHRUV)</li>
+                                    <li class="natPieLegend">National Award to Teachers (NAT)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cols3">
+                        <div class="budgetBox pinkBox" style="min-height: 650px;">
+                            <div class="budgetBoxTop"> Central Sector Expenditures<span class="figureIn">(Rs. in Crores)</span> </div>
+                            <div class="budgetGreyStrip"> 9,204.50 <span class="figureIn">Crores</span> </div>
+                            <div id="chartP3" style="width:100%; height:350px;"></div>
+                            <div class="legendBlock">
+                                <ul class="pieLagend">
+                                    <li class="kvsPieLegend">Kendriya Vidyalaya Sangathan (KVS)</li>
+                                    <li class="nvsPieLegend">Navodaya Vidyalaya Samiti (NVS)</li>
+                                    <li class="ncertPieLegend">National Council of Educational Research and Training (NCERT)</li>
+                                    <li class="ctsaPieLegend">Central Tibetan Schools Administration (CTSA)</li>
+                                    <li class="nbbPieLegend">National Bal Bhawan (NBB)</li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cols3">
+                        <div class="budgetBox blueBox" style="min-height: 650px;">
+                            <div class="budgetBoxTop"> Others <span class="figureIn">(Rs. in Crores)</span> </div>
+                            <div class="budgetGreyStrip"> 40.50 <span class="figureIn">Crores</span> </div>
+                            <div id="chartP4" style="width:100%; height:350px;"></div>
+                            <div class="legendBlock">
+                                <ul class="pieLagend">
+                                    <li class="kvsPieLegend">National Literacy Mission Authority (NLMA)</li>
+                                    <li class="nvsPieLegend">Secretariat (S)</li>
+                                    <li class="ncertPieLegend">Directorate of Adult Education (DAE)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="cols12">
+                        <div class="resTab budgetTab">
+                            <ul class="tabNav">
+                                <li class="tab_selected">
+                                    <a href="#samagraShiksha">
+                                        <div class="samagraShiksha"></div>
+                                        <div class="tabName">Samagra<br> Shiksha</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#midDayMeal">
+                                        <div class="midDayMeal"></div>
+                                        <div class="tabName">Mid Day Meal</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#padhnaLikhnaAbhiyan">
+                                        <div class="padhnaLikhnaAbhiyan"></div>
+                                        <div class="tabName">Padhna Likhna<br> Abhiyan</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#educationMadrasas">
+                                        <div class="educationMadrasas"></div>
+                                        <div class="tabName">Education to <br>Madrasas / Minorities</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#nationalMeritScholarship">
+                                        <div class="nationalMeritScholarship"></div>
+                                        <div class="tabName">National Means<br> Cum Merit Scholarship</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#incentivesGirls">
+                                        <div class="incentivesGirls"></div>
+                                        <div class="tabName">Incentives to Girls for <br>Secondary Education</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#nationalAward">
+                                        <div class="nationalAward"></div>
+                                        <div class="tabName">National Award<br> to Teachers</div>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="tabContainer" style="margin:0;">
+                                <div id="samagraShiksha" class="tabContent">
+                                    <div class="cf">
+                                        <img src="assets/newdashboard/images/budget-tab-img-left.jpg" width="284" height="238" class="imgLeft" alt="Samagra Shiksha">
+                                        <p><strong>Samagra Shiksha</strong> is a sector-wide development programme which subsumes the then existing Centrally Sponsored Schemes of Sarva Shiksha Abhiyan (SSA), Rashtriya Madhyamik Shiksha Abhiyan (RMSA) and
+                                            Teacher Education (TE) to help harmonising the implementation mechanisms and transaction costs at all levels, particularly in using state, district and sub-district level systems and resources, besides envisaging
+                                            one comprehensive strategic plan for the development of school education at the district level. The shift in the focus is from project objectives to improving systems level performance and schooling outcomes
+                                            which will be the emphasis of the combined Scheme along-with incentivizing states towards improving quality of education. The Integrated Scheme envisages the 'school' as a continuum from pre-school, primary,
+                                            upper primary, secondary to senior secondary levels. The vision of the Scheme is to ensure inclusive and equitable quality education from pre-school to senior secondary stage in accordance with the Sustainable
+                                            Development Goal (SDG) for Education.</p>
+                                        <a *ngIf = "isValid3" class="readMore hoverClass" style="color: blue;" (click)="myclick2(true); myclick(false)">Read More <span class="fa fa-long-arrow-right"></span></a>
+                                        <div *ngIf = "isValid2">
+                                        <p >The major objectives of the Scheme are provision of quality education and enhancing learning outcomes of students; Bridging Social and Gender Gaps in School Education; Ensuring equity and inclusion
+                                            at all levels of school education; Ensuring minimum standards in schooling provisions; Promoting Vocationalisation of education; Support States in implementation of Right of Children to Free and Compulsory Education
+                                            (RTE) Act, 2009; Strengthening and up-gradation of State Councils of Educational Research and Training (SCERTs)/State Institutes of Education (SIE) and District Institute of Education and Training (DIET) as nodal
+                                            agencies for teacher training. The main outcomes of the Scheme are envisaged as Universal Access, Equity and Quality, promoting Vocationalisation of Education and strengthening of Teacher Education Institutions (TEIs).</p>
+
+                                        <p>The Samagra Shiksha is implemented as a Centrally Sponsored Scheme by the Department through a single State Implementation Society (SIS) at the State/UT level. It provides for a Governing Council (GC) headed by 
+                                            Education Minister at the National level and a Project Approval Board (PAB) headed by Secretary, Department of School Education & Literacy. The GC is empowered to modify financial and programmatic norms and approve 
+                                            detailed guidelines for implementation within the overall Framework of the scheme. Such modifications will include innovations and interventions to improve the quality of school education. States are expected to bring 
+                                            a single plan for the entire school education sector.</p>
+
+                                        <p>Under Samagra Shiksha, an amount of Rs. 30780.81 crore has been sanctioned at Revised Estimates (RE) stage for the financial year 2018-19, out of which Rs. 29349.10 crore (95.35%) has been released as Central Share to States and Union Territories. The fund sharing pattern for the scheme between Centre and States is at present in the ratio of 90:10 for the 8 North-Eastern States viz. Arunachal Pradesh, Assam, Manipur, Meghalaya, Mizoram, Nagaland, Sikkim and Tripura and 3 Himalayan States viz. Jammu & Kashmir, Himachal Pradesh and Uttarakhand and 60:40 for all other States and Union Territories with Legislature. It is 100% centrally sponsored for Union Territories without Legislature. This is in accordance with the recommendations of the Sub-Group of Chief Ministers on Rationalization of Centrally Sponsored Schemes received in October 2015.</p>
+
+                                        <p>The major interventions across all levels of school education under the scheme are: (i) Universal Access including Infrastructure Development and Retention; (ii) Gender and Equity; (iii) Inclusive Education; (iv) Quality; (v) Financial support for Teacher Salary; (vi) Digital Initiatives; (vii) RTE Entitlements including uniforms, textbooks etc;(viii) Pre-school Education; (ix) Vocational Education; (x) Sports and Physical Education; (xi) Strengthening of Teacher Education & Training and (xiii) National Component. Preference in the interventions is given to Educationally Backward Blocks (EBBs), LWE affected districts, Special Focus Districts (SFDs), Border areas and the 115 Aspirational Districts.</p>
+                                    
+                                        <p>The main emphasis of the Scheme is on improving quality of school education by focussing on the two T’s – Teacher and Technology. The strategy for all interventions under the Scheme is to enhance the Learning Outcomes at all levels of schooling. The scheme proposes to give flexibility to the States and UTs to plan and prioritize their interventions within the scheme norms and the overall resource envelope available to them. Funds are allocated based on an objective criteria based on the enrolment of students, committed liabilities, learning outcomes and various performance indicators.</p>
+
+                                        <p>The Scheme will help in improving the transition rates across various levels of school education and aids in promoting universal access to children to complete school education. The integration of Teacher Education would facilitate effective convergence and linkages between different support structures in school education through interventions such as a unified training calendar, innovations in pedagogy, mentoring and monitoring, etc. This single Scheme will enable the SCERT to become the nodal agency for conduct and monitoring of all in-service training programmes to make it need-focused and dynamic. It would also enable reaping the benefits of technology and widening the access of good quality education across all States and UTs of all sections of the Society.</p>
+                                        </div>
+                                        <a *ngIf = "isValid2" class="readMore hoverClass" style="color: blue;" (click)="myclick2(false); myclick(true)">Read Less <span class="fa fa-long-arrow-right"></span></a>
+                                    </div>
+                                </div>
+                                <div id="midDayMeal" class="tabContent">
+                                    <div class="cf">
+                                        <p>With a view to enhance enrolment, attendance, retention and simultaneously to improve the nutritional status of children, a Centrally Sponsored Scheme ‘National Programme of Nutritional Support to Primary Education (NP-NSPE)’ was launched on 15th August, 1995. In 2008-09, the scheme was extended to cover children of upper primary classes and the Scheme was renamed as ‘National Programme of Mid-Day Meal in Schools’, popularly known as Mid-Day Meal Scheme covers all school children studying in I - VIII classes in Government and Government-aided schools, Special Training Centres (STCs) and Madrasas & Maktabs supported under Samagra Shiksha. Content and coverage of the scheme has been revised from time to time.</p>
+                                    
+                                    <a *ngIf = "isValid3" class="readMore hoverClass" style="color: blue;" (click)="myclick2(true); myclick(false)">Read More <span class="fa fa-long-arrow-right"></span></a>
+                                    <div *ngIf = "isValid2">
+                                        <p>The objectives of the Mid-Day Meal Scheme is to address two of the pressing problems for majority of children in India, viz. hunger and education by:</p>
+                                        <p>- Improving the nutritional status of children studying in classes I – VIII in Government and Government-aided schools, Special Training Centers (STCs) and Madrasas & Maktabs supported under Samagra Shiksha.</p>
+                                        <p>- Encouraging poor children belonging to disadvantaged sections to attend school more regularly and help them concentrate on classroom activities.</p>
+                                        <p>- Providing nutritional support to children of elementary stage in drought-affected areas during summer vacations.</p>
+                                    </div>
+                                    <a *ngIf = "isValid2" class="readMore hoverClass" style="color: blue;" (click)="myclick2(false); myclick(true)">Read Less <span class="fa fa-long-arrow-right"></span></a>
+                                </div>
+                                </div>
+                                <div id="padhnaLikhnaAbhiyan" class="tabContent">
+                                    <div class="cf">
+                                        <p>A new scheme of Adult Education (Padhna Likhna Abhiyaan) has been approved by the Hon’ble HRM as a centrally sponsored scheme with financial outlay of Rs.224.95 crore including central share of Rs.148.74 crore and State Share of Rs.76.21 crore and physical target of 57 lakh learners to be made literate for implementation in FY 2020-21 with immediate effect.</p>
+                                    
+                                    <a *ngIf = "isValid3" class="readMore hoverClass" style="color: blue;" (click)="myclick2(true); myclick(false)">Read More <span class="fa fa-long-arrow-right"></span></a>
+                                    <div *ngIf = "isValid2">
+                                        <p>The <strong>unique features</strong> of the scheme include the following:</p>
+                                        <p>- The focus of the programme shall be on Basic Literacy component in a four months cycle; priority will be given to aspirational districts.</p>
+                                        <p>- The programme will cover both rural and urban areas, target and budget of States/UTs is indicated in Annexure with details in the enclosed Operational Guidelines. States/UTs will distribute targets to Districts.</p>
+                                        <p>- The scheme shall have a flexible approach and innovative methodologies such as involving school and college students and other volunteers of NCC, NSS and NYKS, for imparting Basic Literacy.</p>
+                                        <p>- There will be a Project Approval Board (PAB) at the national level to approve the Annual Plans of States/UTs. Secretaries of Education will present their Annual Plans, based on district plans, on the portal being developed by NIC, in the PAB meetings.</p>
+                                        <p>- Convergence with projects of M/o Rural Development (MGNREGA), Skill Development, Culture, Information Technology, Finance, Sports and Youth Welfare (NYK), schemes of NCC and NSS, NGOs/Civil Society & CSR sector may be taken up.</p>
+                                        <p>- Formation and involvement of SHGs, Voluntary & User Groups and other community based organizations may be encouraged.</p>
+                                        <p>- Basic Literacy Assessment under the scheme will be conducted by National Institute of Open Schooling (NIOS) for adult learners, thrice a year.</p>
+                                        <p>The operational guidelines of the scheme have been prepared. An online portal pla.mhrd.gov.in has also been developed for monitoring the scheme.</p>
+                                    </div>
+                                    <a *ngIf = "isValid2" class="readMore hoverClass" style="color: blue;" (click)="myclick2(false); myclick(true)">Read Less <span class="fa fa-long-arrow-right"></span></a>
+                                </div>
+                                </div>
+                                <div id="educationMadrasas" class="tabContent">
+                                    <div class="cf">
+                                        <p>Department of School Education & Literacy is implementing an Umbrella Scheme for Providing Quality Education to Madrasas/Minorities (SPEMM) which comprises of two schemes namely Scheme for Providing Quality Education in Madrasas (SPQEM) and Infrastructure Development of Minority Institutes (IDMI). The scheme is being implemented at the national level. Both the schemes are voluntary in nature.</p>
+                                    
+                                    <a *ngIf = "isValid3" class="readMore hoverClass" style="color: blue;" (click)="myclick2(true); myclick(false)">Read More <span class="fa fa-long-arrow-right"></span></a>
+                                    <div *ngIf = "isValid2">
+                                        <p>1. <strong>Scheme for Providing Quality Education in Madrasas (SPQEM)</strong> seeks to bring about qualitative improvement in Madrasas to enable Muslim children attain standards of the National education system in formal education subjects.</p>
+                                        <p><strong>The salient features of SPQEM scheme are :</strong></p>
+                                        <p>- To encourage traditional institutions like Madrasas and Maktabs by giving financial assistance to introduce Science, Mathematics, Social Studies, Hindi and English in their curriculum so that academic proficiency for classes I-XII is attainable for children studying in these institutions.</p>
+                                        <p>- To provide opportunities to students of these institutions to acquire education comparable to the National Education System especially for secondary and senior secondary levels.</p>
+                                        <p>- To strengthen State Madrasa Boards opting for assistance by enabling them to monitor the Madrasa modernization programme and enhance awareness about education among the Muslim community.</p>
+                                        <p>- To provide quality components in Madrasas such as remedial teaching, assessment and enhancement of learning outcomes, Rashtriya Avishkar Abhiyan etc.</p>
+                                        <p>- To provide in-service training of teachers appointed under the scheme for teaching modern subjects of Science, Mathematics, Social Studies, Hindi and English to improve their pedagogical skills and quality of teaching.</p>
+                                        <p>2. <strong>Infrastructure Development of Minority Institutes (IDMI)</strong> has been operationalised to augment Infrastructure in Private Aided/Unaided Minority Schools/Institutions in order to enhance the quality of education to minority children.</p>
+                                        <p><strong>The salient features of IDMI scheme are:</strong></p>
+                                        <p>To facilitate education of minorities by augmenting and strengthening school infrastructure in Minority Institutions (elementary/ secondary/senior secondary schools) in order to expand the facilities for formal education to children of minority communities.</p>
+                                        <p>To encourage educational facilities for girls, children with special needs and those who are most deprived educationally amongst the minorities.</p>
+                                    </div>
+                                    <a *ngIf = "isValid2" class="readMore hoverClass" style="color: blue;" (click)="myclick2(false); myclick(true)">Read Less <span class="fa fa-long-arrow-right"></span></a>
+                                </div>
+                                </div>
+                                <div id="nationalMeritScholarship" class="tabContent">
+                                    <div class="cf">
+                                        <p><strong>Background:</strong> The ‘National Means-cum-Merit Scholarship Scheme’ (NMMSS) is a Central Sector Scheme launched in May, 2008 to provide scholarships for meritorious students of classes IX to XII. The scheme is boarded on the National Scholarship Portal (NSP).</p>
+                                    
+                                    <a *ngIf = "isValid3" class="readMore hoverClass" style="color: blue;" (click)="myclick2(true); myclick(false)">Read More <span class="fa fa-long-arrow-right"></span></a>
+                                    <div *ngIf = "isValid2">
+                                        <p><strong>Objective:</strong> To award scholarships to meritorious students of economically weaker sections to arrest their drop out at class VIII and encourage them to continue their study and complete secondary stage.</p>
+                                        <p><strong>Coverage:</strong> The scheme envisages award of one lakh fresh scholarships every year to selected students of class IX and their continuation/renewal in classes X to XII for study in a State Government, Government-aided and Local body schools under the scheme.</p>
+                                        <p><strong>Scholarship Amount:</strong> An amount of Rs. 12000/- per student per annum. The rate of scholarship has been enhanced from Rs. 6000/- to Rs. 12000/- per year with effect from 1st April, 2017.</p>
+                                        <p><strong>Eligibility criteria to appear in NMMSS selection test:</strong></p>
+                                        <p>i) Students whose parental income from all sources is not more than Rs. 1,50,000/- per annum are eligible to avail the scholarships.</p>
+                                        <p>ii) The student must have minimum of 55 % marks or equivalent grade in Class VII examination for appearing in selection test for award of scholarship (relaxable by 5% for SC and ST students).</p>
+                                        <p>iii) The student should be studying as regular student in a Government, Government-aided and local body schools. Students of NVS, KVS and residential schools are not entitled for the scholarships.</p>
+                                        <p>iv) There is reservation as per State Government norms.</p>
+                                        <p><strong>Selection of Fresh Awardee Students:</strong></p>
+                                        <p>i) The selection test is conducted at stage of class-VIII.</p>
+                                        <p>ii) Each State and UT conducts its own test for selection of students for the award of the National Means-cum-Merit Scholarship. Due publicity is given by the State and UT regarding the test.</p>
+                                        <p>iii) A student who fulfills the eligibility criteria, must pass both the tests, i.e., Mental Ability Test (MAT) and Scholastic Aptitude Test (SAT) under NMMSS exam with at least 40 % marks in aggregate taken together for these two tests. For the SC/ST students, this cut off is 32% marks.</p>
+                                        <p><strong>Selection of Renewal Awardee Students:</strong> The awardees should get minimum of 55% marks in Class IX and XI, and a minimum of 60% in Class X for continuance of scholarship (relaxable by 5% for SC/ST candidates).</p>
+                                        <p><strong>National Scholarship Portal (NSP):</strong> The NSP has been developed by Ministry of Electronics and Information Technology (MeitY) for streamlining and fast tracking the release of Scholarships across Ministries / Departments with efficiency, transparency and reliability.</p>
+                                        <p><strong>NMMSS Process under NSP:</strong></p>
+                                        <p>To apply for NMMSS, students from different States and UTs, who have qualified in the MAT and SAT under NMMSS must register themselves on NSP.</p>
+                                        <p>The applications are verified online on the portal by the prescribed State authorities.</p>
+                                        <p>The final list of eligible candidates, complete in all respect, is provided to the MHRD by NSP Team for sanction of the scholarship.</p>
+                                        <p>The Ministry of HRD thereafter sanctions funds and releases to State Bank of India (SBI), the implementing bank for the Scheme.</p>
+                                        <p>The SBI disburses the scholarships to students directly by electronic transfer into their bank accounts under Direct Benefit Transfer (DBT) through Public Financial Management System (PFMS).</p>                                    
+                                    </div>
+                                    <a *ngIf = "isValid2" class="readMore hoverClass" style="color: blue;" (click)="myclick2(false); myclick(true)">Read Less <span class="fa fa-long-arrow-right"></span></a>
+                                </div>
+                            </div>
+                                <div id="incentivesGirls" class="tabContent">
+                                    <div class="cf">
+                                        <p><strong>Background:</strong> The centrally sponsored “National Scheme of Incentive to Girls for Secondary Education (NSIGSE)” was launched in May 2008, to give incentive to students enrolled in class IX. The scheme is now boarded on National Scholarship Portal (NSP).</p>
+                                    
+                                    <a *ngIf = "isValid3" class="readMore hoverClass" style="color: blue;" (click)="myclick2(true); myclick(false)">Read More <span class="fa fa-long-arrow-right"></span></a>
+                                    <div *ngIf = "isValid2">
+                                        <p><strong>Objective:</strong> The objective of the scheme is to establish an enabling environment to promote enrolment and reduce drop out of girls belonging to SC/ST communities in secondary schools and ensure their retention up to the 18 years of age.</p>
+                                        <p><strong>Coverage:</strong> The scheme covers (i) all girls belonging to SC/ST communities who pass class VIII and (ii) all girls who pass class VIII examination from Kasturba Gandhi Balika Vidyalayas (irrespective of whether they belong to SC/ ST), and enroll in class IX in State/ UT Government, Government-aided and Local Body schools.</p>
+                                        <p><strong>Incentive Amount:</strong> A sum of Rs.3000/- is deposited in the name of eligible unmarried girls as fixed deposit on enrolment in class IX, who are entitled to withdraw it along with interest thereon upon reaching 18 years of age and passing Class X examination.</p>
+                                        <p><strong>Eligibility criteria:</strong></p>
+                                        <p>i) Girls students who pass class VIII and are enrolled in class IX in State/ UT Government, Government-aided and Local Body schools and belonging to SC/ST communities</p>
+                                        <p>ii) All girls who pass class VIII examination from Kasturba Gandhi Balika Vidyalayas (irrespective of whether they belong to SC/ ST)</p>
+                                        <p><strong>National Scholarship Portal (NSP):</strong> The NSP has been developed by Ministry of Electronics and Information Technology (MeitY) for streamlining and fast tracking the release of Scholarships across Ministries / Departments with efficiency, transparency and reliability.</p>
+                                        <p>i) To apply for NSIGSE, students from different States and UTs, who pass class VIII and enrol in class IX in Government, Government-aided and Local Body schools must register themselves on NSP.</p>
+                                        <p>ii) The applications are verified online on the portal by the prescribed State authorities.</p>
+                                        <p>iii) The final list of eligible candidates, complete in all respect, is provided to the Ministry by NSP Team for sanction of the scholarship.</p>
+                                        <p>iv) The Ministry of HRD thereafter sanctions funds and releases to the Indian Bank and Union Bank of India, the implementing banks for the Scheme.</p>
+                                        <p>v) The banks disburse the scholarships/incentive to students directly by electronic transfer into their bank accounts under Direct Benefit Transfer (DBT) through Public Financial Management System (PFMS).</p>
+                                        <p><strong>Re-designing:</strong> The NSIGSE Scheme is being re-designed to make it implementable in more effective way.</p>
+                                    </div>
+                                    <a *ngIf = "isValid2" class="readMore hoverClass" style="color: blue;" (click)="myclick2(false); myclick(true)">Read Less <span class="fa fa-long-arrow-right"></span></a>
+                                </div>
+                                </div>
+                                <div id="nationalAward" class="tabContent">
+                                    <div class="cf">
+                                        <p>National Award to Teachers was instituted in 1958. The purpose of the scheme is to celebrate the unique contribution of some of the finest teachers in the country and to honor those teachers who through their commitment have not only improved the quality of school education but also enriched the lives of their students. From mid-60s, the function is also held on 5th of September (Teacher's Day) every year on account of the birthday of Dr. Sarvepalli Radhakrishnan, former President of India.</p>
+                                    
+                                    <a *ngIf = "isValid3" class="readMore hoverClass" style="color: blue;" (click)="myclick2(true); myclick(false)">Read More <span class="fa fa-long-arrow-right"></span></a>
+                                    <div *ngIf = "isValid2">
+                                        <p><strong>The features of the new scheme are as under:</strong></p>
+                                        <p>i) Online self-nominations from teachers are invited on https://mhrd.gov.in.</p>
+                                        <p>ii) All regular teachers are eligible and no minimum years of service is required. This enables meritorious young teachers to apply.</p>
+                                        <p>iii) The number of awards has been rationalized to 45, thereby restoring the prestige of the awards.</p>
+                                        <p>iv) No State, UT or Organization has a quota in the final selection. This encourages them to compete for the awards.</p>
+                                        <p>v) An independent Jury at the National level makes the final selection.</p>
+                                    </div>
+                                    <a *ngIf = "isValid2" class="readMore hoverClass" style="color: blue;" (click)="myclick2(false); myclick(true)">Read Less <span class="fa fa-long-arrow-right"></span></a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Footer Starts Here -->
+    <section id="footer" class="budgetFooter">
+        <div class="budgetFooterBottom cf">
+            <div class="footerBudgetLeft">
+                <ul>
+                    <li>SE Shagun</li>
+                    <li>UDISE+</li>
+                    <li>Repository</li>
+                    <li>School GIS</li>
+                    <li>Samagra Shiksha</li>
+                </ul>
+                <div class="mahatmaLogo">
+                    <img src="assets/newdashboard/images/mahatma-logo.png" width="138" height="99" alt="Mahatma" title="Mahatma">
+                </div>
+            </div>
+            <div class="footerBudgetRight">
+                <p>Copyright &copy; 2020 Ministry of Human Resource Development,<br>Government of India. All Rights Reserved.</p>
+                <div class="visitorCount">Visitors: 009622 <br>Last Updated: 01 July 2020</div>
+            </div>
+        </div>
+    </section>
+    <!-- Common Footer Ends Here -->
+</div>

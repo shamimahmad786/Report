@@ -1,0 +1,438 @@
+<!-----------------------------------------:::::::New DashBoard:::::::--------------------------------------------------->
+
+<div (window:resize)="onResize($event)" style="margin-left: 2%; margin-right: 1.5%;">
+    <h3 class="pgHead">Teacher Dashboard &nbsp;&nbsp;<span>|&nbsp;&nbsp;2021-22</span></h3>
+    <div class="card shadow" style="padding: 30px; margin-top: 1.5%;">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="schoolNum">
+
+                    <div class="media">
+                        <div class="schoolicon"> <img src="assets/images/dash-icon/teacher-red.png" class="align-self-center mr-3" alt="..."></div>
+                        <div class="media-body schooltxt">
+                            <p>Elementary Teachers</p>
+                            <h5 class="red">51.85 <span class="font14">Lakhs</span></h5>
+                        </div>
+                    </div>
+
+
+                    <!-- <div class="schoolicon"><img src="assets/images/class_red.png"></div>
+                <div class="schooltxt">
+                    
+                    <h5 class="red"> </h5>
+                </div>                             -->
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="schoolNum">
+
+                    <div class="media">
+                        <div class="schoolicon"> <img src="assets/images/dash-icon/teacher-lit-blue.png" class="align-self-center mr-3" alt="..."></div>
+                        <div class="media-body schooltxt">
+                            <p>Secondary Teachers</p>
+                            <h5 class="aqua">16.20<span class="font14">Lakhs</span></h5>
+                        </div>
+                    </div>
+
+
+                    <!-- <div class="schoolicon"><img src="assets/images/class_red.png"></div>
+                <div class="schooltxt">
+                    
+                    <h5 class="aqua"> Lakhs</h5>
+                </div>                             -->
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="schoolNum">
+
+
+                    <div class="media">
+                        <div class="schoolicon"> <img src="assets/images/dash-icon/teacher-green.png" class="align-self-center mr-3" alt="..."></div>
+                        <div class="media-body schooltxt">
+                            <p>Higher Sec. Teachers</p>
+                            <h5 class="green">27.01 <span class="font14">Lakhs</span></h5>
+                        </div>
+                    </div>
+
+
+                    <!-- <div class="schoolicon"><img src="assets/images/class_red.png"></div>
+                <div class="schooltxt">
+                    
+                    <h5 class="green">26.22 Lakhs</h5>
+                </div>                             -->
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="schoolNum" style="border-right: none;">
+
+                    <div class="media">
+                        <div class="schoolicon"> <img src="assets/images/dash-icon/teacher-blue.png" class="align-self-center mr-3" alt="..."></div>
+                        <div class="media-body schooltxt">
+                            <p>Total Teachers</p>
+                            <h5 class="blue">95.07 <span class="font14">Lakhs</span></h5>
+                        </div>
+                    </div>
+
+
+
+                    <!-- <div class="schoolicon"><img src="assets/images/class_red.png"></div>
+                <div class="schooltxt">
+                    
+                    <h5 class="blue">96.87 Lakhs</h5>
+                </div>                             -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-------------------------------------------Total no. of teachers-------------------------------------------------->
+        <div class="col-sm-6">
+            <div class="card shadow tab-content mb-4">
+                <!-- <mat-card-header style="display: block; text-align: center;">
+                            <mat-card-title class="text-oneline">Total no. of teachers</mat-card-title>
+                        </mat-card-header> -->
+                <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+                <div style="width:100%" (window:resize)="onResize($event)" id="ttotalNoOfTeachers"></div>
+                <mat-card-footer class="cardfooter" style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline cardfooter-txt">Number of Teachers Management-Wise</mat-card-title>
+                </mat-card-footer>
+                <!-- </div> -->
+                <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                
+                            <div (click)="mouseEnter('chart1')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                                Graphical
+                            </div> -->
+                <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                                Tabular
+                            </div> -->
+                <!-- </mat-card> -->
+            </div>
+        </div>
+
+        <!-------------------------------------------Male-Female Ratio-------------------------------------------------->
+        <div class="col-sm-6">
+            <div class="card shadow mb-4">
+                <!-- <mat-card-header style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Male-Female Ratio</mat-card-title>
+                </mat-card-header> -->
+                <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+                <div style="width:100%" (window:resize)="onResize($event)" id="ttchnumschcat"></div>
+                <mat-card-footer class="cardfooter" style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline cardfooter-txt">Number of Teachers by Level of Education</mat-card-title>
+                </mat-card-footer>
+                <!-- </div> -->
+                <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                
+                    <div (click)="mouseEnter('chart2')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+                <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+                <!-- </mat-card> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="row ">
+        <!-------------------------------------------Percentage of Schools without Female teacher-------------------------------------------------->
+        <div class="col-sm-6">
+            <div class="card shadow mb-4">
+                <!-- <mat-card-header style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Total no. of teachers</mat-card-title>
+                </mat-card-header> -->
+                <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+                <div style="width:100%" (window:resize)="onResize($event)" id="tMaleFemaleRatio"></div>
+                <mat-card-footer class="cardfooter" style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline cardfooter-txt">Number of Male - Female Teacher</mat-card-title>
+                </mat-card-footer>
+                <!-- </div> -->
+                <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+        
+                    <div (click)="mouseEnter('chart3')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+                <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+                <!-- </mat-card>0 -->
+            </div>
+        </div>
+        <!-------------------------------------------Pupil-Teacher Ratio-------------------------------------------------->
+        <div class="col-sm-6">
+            <div class="card shadow mb-4">
+                <!-- <mat-card-header style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Pupil-Teacher Ratio</mat-card-title>
+                </mat-card-header> -->
+                <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+                <div style="width:100%" (window:resize)="onResize($event)" id="tPTR"></div>
+                <mat-card-footer class="cardfooter" style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline cardfooter-txt">Pupil Teacher Ratio</mat-card-title>
+                </mat-card-footer>
+                <!-- </div> -->
+                <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                
+                    <div (click)="mouseEnter('chart7')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+                <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+                <!-- </mat-card> -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="row" style="margin-top: 1%;"> -->
+
+    <!----------Percentage of schools/section with teacher who is graduate or more qualification in English/Language--------->
+
+    <!-- <div class="col-sm-12" style="margin-top: 1%; width: 100%;">
+            <div class="card shadow" style="padding: 20px;"> -->
+    <!-- <mat-card-header style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Total no. of teachers</mat-card-title>
+                </mat-card-header> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id="ttchschoolTypes"></div> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+        
+                    <div (click)="mouseEnter('chart7')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+    <!-- </mat-card> -->
+    <!-- </div>
+        </div> -->
+
+    <!----------Percentage of teachers do not have professional qualification----------->
+    <!-- <div class="col-sm-6" style="margin-top: 1%; width: 100%;">
+            <div class="card shadow" style="padding: 20px;"> -->
+    <!-- <mat-card-header style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Percentage of Schools without Female teacher</mat-card-title>
+                </mat-card-header> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id="twithoutfemale"></div> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                
+                    <div (click)="mouseEnter('chart7')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+    <!-- </mat-card> -->
+    <!-- </div>
+        </div> -->
+    <!-- </div> -->
+
+    <!-- <div class="row" style="margin-top: 1%; margin-bottom: 1%;"> -->
+    <!----Percentage of Upper Primary schools/section having Enrolment 100 and above and have Head Teacher---->
+    <!-- <div class="col-sm-6" style="margin-top: 1%; width: 100%;">
+            <div class="card shadow" style="padding: 20px;"> -->
+    <!-- <mat-card-header style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Percentage of schools/section with teacher who is graduate or more qualification in English/Language</mat-card-title>
+                </mat-card-header> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id="tengmathssc"></div> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                
+                    <div (click)="mouseEnter('chart7')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+    <!-- </mat-card> -->
+    <!-- </div>
+        </div> -->
+    <!-----Percentage of Primary only schools having enrolment 150 and above and have Head Teacher----->
+    <!-- <div class="col-sm-6" style="margin-top: 1%; width: 100%;">
+            <div class="card shadow" style="padding: 20px;"> -->
+    <!-- <mat-card-header style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Percentage of Primary only schools having enrolment 150 and above and have Head Teacher</mat-card-title>
+                </mat-card-header> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id="theadTeacher150"></div> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                
+                    <div (click)="mouseEnter('chart7')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+    <!-- </mat-card> -->
+    <!-- </div>
+        </div>
+    </div>
+        <div class="row" style="margin-top: 1%; margin-bottom: 1%;">
+            <div class="col-sm-6" style="margin-top: 1%; width: 100%;">
+                <div class="card shadow" style="padding: 20px;"> -->
+    <!-- <mat-card-header style="display: block; text-align: center;">
+                        <mat-card-title class="text-oneline">Percentage of teachers do not have professional qualification</mat-card-title>
+                    </mat-card-header> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id="tqualification"></div> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                    
+                        <div (click)="mouseEnter('chart7')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                            Graphical
+                        </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                            Tabular
+                        </div> -->
+
+    <!-- </mat-card> -->
+    <!-- </div>
+            </div>
+            <div class="col-sm-6" style="margin-top: 1%; width: 100%;">
+                <div class="card shadow" style="padding: 20px;"> -->
+    <!-- <mat-card-header style="display: block; text-align: center;">
+                        <mat-card-title class="text-oneline"></mat-card-title>
+                    </mat-card-header> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id="theadTeacher100"></div> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                    
+                        <div (click)="mouseEnter('chart7')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                            Graphical
+                        </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                            Tabular
+                        </div> -->
+
+    <!-- </mat-card> -->
+    <!-- </div>
+            </div>
+        </div> -->
+    <!-- <div class="row" style="margin-top: 1%; margin-bottom: 1%;">
+            <div class="col-sm-6" style="margin-top: 1%; width: 100%;">
+                <div class="card shadow" style="padding: 20px;"> -->
+    <!-- <mat-card-header style="display: block; text-align: center;">
+                        <mat-card-title class="text-oneline">Percentage of teachers do not have professional qualification</mat-card-title>
+                    </mat-card-header> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id="tMale"></div> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                    
+                        <div (click)="mouseEnter('chart7')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                            Graphical
+                        </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                            Tabular
+                        </div> -->
+
+    <!-- </mat-card> -->
+    <!-- </div>
+            </div>
+            <div class="col-sm-6" style="margin-top: 1%; width: 100%;">
+                <div class="card shadow" style="padding: 20px;"> -->
+    <!-- <mat-card-header style="display: block; text-align: center;">
+                        <mat-card-title class="text-oneline"></mat-card-title>
+                    </mat-card-header> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id=""></div> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                    
+                        <div (click)="mouseEnter('chart7')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                            Graphical
+                        </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                            Tabular
+                        </div> -->
+
+    <!-- </mat-card> -->
+    <!-- </div>
+            </div>
+        </div> -->
+</div>
+
+
+
+<ng-template #Graphical let-modal style="min-width: 100%;">
+    <div class="modal-header" style="display: block; text-align: center; background:#8d2825">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10" style="color: white">
+                <h4 class="modal-title">Header</h4>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="col-sm-12" id="tchmyExpanded"></div>
+        <!-- <ng-template [ngIf]="values == 'chart1'">
+            <mat-card id="schoolContainer" style=" height: 500px;background: rgba(255, 255, 255, 0.7);">
+            <mat-card-header style="display: block; text-align: center;">
+                <mat-card-title class="text-oneline">Libarary Facility</mat-card-title>
+            </mat-card-header> -->
+        <!-- <div id="schoolContainer" style=" position: relative; width: 100%;">
+                <div>
+                    <div  id="test6"></div>
+                </div>
+            </div> -->
+        <!-- <div class="row" style="margin-top: 3%;">
+                <div (click)="mouseEnter('chart7')" (click)="mouseLeave('div G')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;border-right:1px solid;">
+                    Graphical
+                </div>
+                <div (click)="mouseEnter('chart8')" (click)="mouseLeave('div H')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                    Tabular
+                </div>
+            </div> -->
+        <!-- </mat-card>
+        </ng-template>-->
+        <ng-template [ngIf]="values == 'chart2'">
+            <div>
+                <!-- <ag-grid-angular
+                    style="width: 1200px; height: 500px;"
+                    class="ag-theme-balham"
+                    [rowData]="rowData | async"
+                    [columnDefs]="columnDefs"
+                    >
+                </ag-grid-angular> -->
+
+            </div>
+        </ng-template>
+        <!-- <ng-template [ngIf]="values == 'chart3'"><div>3</div></ng-template>
+        <ng-template [ngIf]="values == 'chart4'"><div>4</div></ng-template>
+        <ng-template [ngIf]="values == 'chart5'"><div>5</div></ng-template>
+        <ng-template [ngIf]="values == 'chart6'"><div>6</div></ng-template>
+        <ng-template [ngIf]="values == 'chart7'"><div>7</div></ng-template>
+        <ng-template [ngIf]="values == 'chart8'"><div>8</div></ng-template>
+        <ng-template [ngIf]="values == 'chart9'"><div>9</div></ng-template>
+        <ng-template [ngIf]="values == 'chart10'"><div>10</div></ng-template>
+        <ng-template [ngIf]="values == 'chart11'"><div>11</div></ng-template>
+        <ng-template [ngIf]="values == 'chart12'"><div>12</div></ng-template>
+        <ng-template [ngIf]="values == 'chart13'"><div>13</div></ng-template>
+        <ng-template [ngIf]="values == 'chart14'"><div>14</div></ng-template>
+        <ng-template [ngIf]="values == 'chart15'"><div>15</div></ng-template>
+        <ng-template [ngIf]="values == 'chart16'"><div>16</div></ng-template>
+        <ng-template [ngIf]="values == 'chart17'"><div>17</div></ng-template>
+        <ng-template [ngIf]="values == 'chart18'"><div>18</div></ng-template>
+        <ng-template [ngIf]="values == 'chart19'"><div>19</div></ng-template>
+        <ng-template [ngIf]="values == 'chart20'"><div>20</div></ng-template> -->
+    </div>
+</ng-template>

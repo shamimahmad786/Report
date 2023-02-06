@@ -1,0 +1,31 @@
+<header style="">
+    <mat-toolbar>
+        <mat-toolbar-row>
+            <img src="assets/images/mhrd-logo2.png" alt="MHRD" class="img-fluid" style="max-height: 90%">
+        </mat-toolbar-row>
+    </mat-toolbar>
+</header>
+
+<main class="h-100 w-100 d-flex position-fixed">
+    <mat-drawer-container class="w-100">
+        <mat-drawer #drawer mode="side" opened class="bg-gradient overflow-auto">
+            <div class="text-center user-details">
+                <figure class="m-0">
+                    <div class="icon mx-auto">
+                        <mat-icon>person_outline</mat-icon>
+                    </div>
+                    <figcaption>Welcome Shamim {{user.firstName | titlecase}} {{user.lastName | titlecase}}</figcaption>
+                </figure>
+            </div>
+            <app-navigation></app-navigation>
+        </mat-drawer>
+        <mat-drawer-content>
+            <a href="javascript:void(0);" class="toggle-sidenav" (click)="drawer.toggle(); changeIcon();">
+                <mat-icon aria-hidden="false">
+                    keyboard_arrow_{{icon === 'left' ? 'left' : 'right'}}
+                </mat-icon>
+            </a>
+            <router-outlet></router-outlet>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</main>

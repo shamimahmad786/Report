@@ -1,0 +1,580 @@
+mat-icon {
+    cursor: pointer;
+}
+
+.mat-tab-group.mat-tab-fill-height .mat-tab-body-wrapper {
+    flex: 1 1 100%;
+ }
+
+.dark-modal .modal-content {
+    background-color: #292b2c;
+    color: white;
+}
+
+.dark-modal .close {
+    color: white;
+}
+
+.light-blue-backdrop {
+    background-color: #5cb3fd;
+}
+
+@media print {
+    .header-print {
+        display: table-header-group;
+    }
+}
+
+.loading {
+    margin-top: 10em;
+    text-align: center;
+    color: gray;
+}
+
+
+/* ArcGIS CSS */
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Helvetica";
+}
+
+#header {
+    background-color: #E8E8E8;
+    height: 65px;
+    margin: 5px 5px;
+}
+
+#mainWindow {
+    width: 100%;
+    height: 100%;
+}
+
+#title {
+    padding-top: 2px;
+    padding-left: 10px;
+    font-size: 18pt;
+    font-weight: 700;
+}
+
+#subtitle {
+    font-size: small;
+    padding-left: 40px;
+}
+
+#rightPane {
+    background-color: #E8E8E8;
+    margin: 5px;
+    width: 20%;
+}
+
+#map {
+    margin: 5px;
+    padding: 0;
+}
+
+tr {
+    border-bottom: 1px solid silver;
+}
+
+th,
+td {
+    text-align: inherit;
+    padding: 12px 9px;
+}
+
+.mat-card {
+    background: #fafafa;
+    color: rgba(0, 0, 0, .87);
+}
+
+.text-primary-600 {
+    color: #1e88e5;
+}
+
+.border-primary {
+    border-color: #2196f3;
+}
+
+.badge-flat {
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: calc(.3125rem - 1px) calc(.375rem - 1px);
+}
+
+.border-primary {
+    border-color: #2196f3!important;
+}
+
+.badge-primary {
+    color: #fff;
+    background-color: #2196f3;
+    padding: 5px 8px 5px 8px ! important;
+    line-height: 1 ! important;
+    font-size: 15px ! important;
+}
+
+.badge-primary-lit {
+    color: #fff;
+    background-color: #bf6e6c;
+    padding: 5px 8px 5px 8px ! important;
+    line-height: 1 ! important;
+    font-size: 15px ! important;
+}
+
+.ppading {
+    padding: 5px 8px 5px 8px ! important;
+    line-height: 1 ! important;
+    font-size: 15px ! important;
+}
+
+.badge {
+    display: inline-block;
+    padding: .3125rem .375rem;
+    font-size: 75%;
+    font-weight: 500;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .125rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.rounded-circle {
+    border-radius: 50%!important;
+}
+
+.badge-icon {
+    padding: 5px 8px 5px 8px;
+    line-height: 1;
+    font-size: 15px;
+}
+
+.badge-pill {
+    border-radius: 10rem;
+    padding: 6px 5px 5px 5px;
+}
+
+.border-teal {
+    border-color: #009688;
+}
+
+.card {
+    margin-bottom: 1.25rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .1875rem;
+}
+
+
+/* tr:nth-child(even) {
+    background-color: #f2f2f2;
+} */
+
+.mat-card-header-text {
+    margin: 0px !important;
+}
+
+::ng-deep .mat-form-field-flex>.mat-form-field-infix {
+    padding: 0.4em 0px !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-label {
+    margin-top: -15px;
+}
+
+::ng-deep label.ng-star-inserted {
+    transform: translateY(-0.59375em) scale(.75) !important;
+}
+
+.ag-header-cell .ag-header-cell-sortable .ag-header-cell {
+    background: burlywood !important;
+    font-size: medium !important;
+    color: black !important;
+}
+
+.ag-pivot-off .ag-header-group-cell {
+    font-size: 50px;
+    color: red;
+}
+
+.ag-pivot-on .ag-header-group-cell {
+    font-size: 25px;
+    color: green;
+}
+
+::ng-deep .ag-header-cell {
+    background: #132554 !important;
+    font-size: 18px !important;
+    font-weight: 600;
+    color: white !important;
+}
+
+::ng-deep .ag-icon {
+    color: white;
+    background: blanchedalmond;
+}
+
+.subSection {
+    padding: 5px;
+    font-size: 20px;
+    background: #f7f7f7 !important;
+    font-family: sans-serif;
+    text-align: left;
+    font-weight: 600;
+    color: #646464;
+}
+
+.table-bordered thead th {
+    padding: 5px;
+    ;
+}
+
+.tabbleHeader {
+    background: #f7f7f7!important;
+    color: #646464;
+    padding: 5px;
+}
+
+::ng-deep .ag-icon-menu {
+    color: white;
+    background: blanchedalmond;
+}
+
+::ng-deep .ag-header-cell-menu-button {
+    opacity: 1 !important;
+}
+
+::ng-deep .modal-content {
+    margin-left: -5% !important;
+    width: 110% !important;
+}
+
+::ng-deep #bigHeader {
+    color: red;
+}
+
+.ag-header-group-cell-with-group {
+    background-color: #00e7b1;
+}
+
+::ng-deep .grid-cell-centered {
+    text-align: right;
+  }
+
+ ::ng-deep .participant-group {
+    background-color: #00e7b1;
+}
+
+#a {
+    color: red;
+}
+
+/* ::ng-deep body {
+    overflow: hidden !important;
+} */
+
+ ::ng-deep .ag-pivot-off .ag-header-group-cell .ag-header-group-cell-label {
+    font-size: 14px;
+    color: black;
+    justify-content: center;
+    text-align: center;
+    /* height: 22px; */
+    /* background: red; */
+    /* float: center; */
+    /* display: block; */
+    /*margin-top:10px;*/
+}
+
+.ag-theme-balham .ag-header-cell::after,
+.ag-theme-balham .ag-header-group-cell::after {
+    border-right: 1px solid rgba(189, 195, 199, 0.5);
+    content: " ";
+    height: 16px;
+    margin-top: 8px;
+    position: absolute;
+    text-indent: -2000px;
+    top: 10px ! important;
+}
+
+
+/* ::ng-deep .ag-pivot-off .ag-header-group-cell{
+      background: blue;
+  } */
+
+
+/* @media (min-width: 800px) {
+      .modal-xl {
+        max-width: 80% ;
+      }
+
+      
+    } */
+
+.highcharts-figure,
+.highcharts-data-table table {
+    min-width: 310px;
+    max-width: 800px;
+    margin: 1em auto;
+}
+
+#container {
+    height: 400px;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #EBEBEB;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+    padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+.left {
+    float: left;
+    width: 70px;
+    background: #14c1d7;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    color: white;
+    display: inline-table;
+    border-color: #14c1d7;
+}
+
+.text-muted {
+    color: #999!important;
+}
+
+th {
+    text-align: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
+h5,
+.h5 {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+td {
+    font-size: 13px !important;
+    color: #636363 !important;
+    letter-spacing: 0.9px;
+    font-weight: 400;
+}
+
+.left:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 70px;
+    border-left: 5px solid;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left-color: inherit;
+    margin-top: -5px;
+}
+
+.right h5 {
+    margin-left: 80px;
+    line-height: 50px;
+    height: 50px;
+}
+
+.mttop {
+    position: relative;
+    top: -15px;
+    right: 13px;
+}
+
+::ng-deep .mat-select-content {
+    /* width: 2000px; */
+    /*background-color: red;*/
+    font-size: 10px;
+}
+
+::ng-deep .mat-option {
+    background-color: black;
+}
+
+::ng-deep .mat-select-panel {
+    background: #fff;
+}
+
+::ng-deep .mat-select-value {
+    color: white;
+}
+
+::ng-deep .mat-form-field-infix {
+    border-bottom: 2px solid white;
+}
+
+::ng-deep .mat-select-arrow-wrapper {
+    background: white;
+}
+
+::ng-deep table,
+td {
+    color: black !important;
+}
+
+img {
+    /* cursor: pointer; */
+}
+
+select {
+    margin-top: 5px;
+}
+
+
+/* ::ng-deep .ag-header-cell-text {            
+    text-overflow: clip !important;
+    overflow: visible !important;
+    white-space: normal !important;
+} */
+
+::ng-deep .ag-header-cell-label .ag-header-cell-text {
+    white-space: normal !important;
+    /* font-size: 14px !important; */
+    font-size: 70%;
+    text-align: center;
+
+}
+
+.white-card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.white-card:hover {
+    /* On mouse-over, add a deeper shadow */
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+::ng-deep .ag-header-row {
+    height: 50px !important;
+}
+
+select {
+    font-family: inherit !important;
+}
+
+::ng-deep .ag-cell {
+    font-family: inherit !important;
+    font-size: 15px;
+}
+
+.tabl-font td {
+    font-size: 14px!important;
+}
+
+.mat-select-panel mat-option.mat-option {
+    margin-top: 0!important;
+}
+
+
+/* ********************************* */
+
+.mat-form-field-infix {
+    width: 100px ! important;
+}
+
+select {
+    width: 100% ! important;
+}
+
+ul.reportCard {
+    list-style: none;
+    float: right;
+    margin-top: 10px;
+}
+ .test-grid {
+  flex-grow: 1;
+}
+
+.test-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.test-header {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  margin-bottom: 1rem;
+}
+
+ul.reportCard li {
+    display: inline-block;
+    text-align: center;
+}
+
+a.border-none.close {
+    font-size: 32px;
+    color: white;
+}
+
+@media (max-width: 1024px) {
+    ul.reportCard li {
+        display: inline-block;
+        width: 33%;
+        text-align: center;
+        font-size: 12px;
+    }
+}
+
+
+/* ::ng-deep  body{
+    overflow: hidden !important;
+} */
+
+@media screen and (max-width: 480px) {
+    .sNo {
+        display: none !important;
+    }
+}
+

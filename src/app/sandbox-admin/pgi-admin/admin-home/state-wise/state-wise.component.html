@@ -1,0 +1,133 @@
+<h1 class="mb-2 page-head">State wise PGI records</h1>
+<div *ngIf="showFilters">
+  <form #searchInd="ngForm" (ngSubmit)="searchInd.valid && getStateInd()">
+    <div class="filter-area">
+      <h6 class="filters-heading">Please fill the below search parameters</h6>
+      <div class="d-flex">
+        <ul class="list-unstyled filter-list m-0">
+          <li class="pl-0">
+            <mat-form-field appearance="outline" style="width: 120px">
+              <mat-label>Year</mat-label>
+              <mat-select [(ngModel)]="stateData.year" required name="year" #year="ngModel">
+                <mat-option *ngFor="let year of years" [value]="year.value" (click)="filtersModel.year = year.key">
+                  {{year.key}} </mat-option>
+              </mat-select>
+              <mat-error>Please select year</mat-error>
+            </mat-form-field>
+          </li>
+          <li *ngIf="currentUser.paramName === 'ADMIN'" class="pl-0">
+            <mat-form-field appearance="outline" style="width: 250px">
+              <mat-label>State</mat-label>
+              <mat-select [(ngModel)]="stateData.state" required name="state" #category="ngModel">
+                <mat-option *ngFor="let state of states" [value]="state.id"
+                  (click)="filtersModel.state = state.stateName">
+                  {{state.stateName}} </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </li>
+          <!-- <li class="pl-0">
+            <mat-form-field appearance="outline">
+              <mat-label>Category</mat-label>
+              <mat-select disabled [(ngModel)]="stateData.cat" name="category" #category="ngModel"
+                (ngModelChange)="getDomains()">
+                <mat-option *ngFor="let cat of catList" [value]="cat.value" (click)="filtersModel.cat = cat.key">
+                  {{cat.key}} </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </li>
+          <li class="pl-0">
+            <mat-form-field appearance="outline">
+              <mat-label>Domain</mat-label>
+              <mat-select [(ngModel)]="stateData.domain" name="domain" #domain="ngModel">
+                <mat-option *ngFor="let dom of domains" [value]="dom.domain_id" (click)="filtersModel.dom = dom.value">
+                  {{dom.value}} </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </li> -->
+        </ul>
+        <button type="submit" mat-raised-button color="primary" class="btn-gradient ml-auto ml-3"
+          [disabled]="!searchInd.valid">
+          <mat-icon>search</mat-icon>
+          Search
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div *ngIf="!showFilters">
+  <div class="filter-area stateUser">
+    <h6 class="filters-heading">You have search for</h6>
+    <div class="d-flex align-items-center">
+      <ul class="list-inline selected-filters">
+        <li class="list-inline-item">
+          Year: <span class="search-item">{{filtersModel.year}}</span>
+        </li>
+        <li class="list-inline-item">
+          State: <span class="search-item">{{filtersModel.state}}</span>
+        </li>
+        <li class="list-inline-item">
+          Category: <span class="search-item">{{filtersModel.cat}}</span>
+        </li>
+        <li class="list-inline-item">
+          Domain: <span class="search-item">{{filtersModel.dom}}</span>
+        </li>
+      </ul>
+      <button type="submit" mat-raised-button color="primary" class="btn-gradient ml-auto mw-auto"
+        (click)="modifySearch()">
+        <mat-icon>search</mat-icon> Modify Search
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="showMsg">
+  No Data Found.
+</div>
+<div class="alert alert-success" role="alert" *ngIf="showSucMsg">
+  Data Saved Successfully
+</div>
+
+<div *ngIf="scores.length > 0">
+  <form #recordForm="ngForm" (ngSubmit)="recordForm.valid && manageIndData()">
+    <div class="table-wrap">
+      <div class="table-head">
+        <table class="table m-0">
+          <thead>
+            <tr>
+              <th scope="col" width="80" class="text-center">S.No.</th>
+              <th scope="col">Indicator Name</th>
+              <th scope="col" width="200" class="text-center">Calcuated raw value</th>
+              <th scope="col" width="100" class="text-center">Weight</th>
+              <th scope="col" width="180" class="text-center">Processed Value</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="table-scroll" data-simplebar>
+        <table class="table">
+          <tbody>
+            <tr *ngFor="let score of scores; let index = index;">
+              <td [ngClass]="{title : (score.indData.weight == 0)}" width="80" scope="row" class="text-center">
+                {{score.indData.serial}}</td>
+              <td attr.colspan="{{score.indData.weight > 0 ? 0 : 4}}" [ngClass]="{title : (score.indData.weight == 0)}">
+                {{score.indData.name}}</td>
+              <!-- <td *ngIf="score.indData.weight > 0" width="200" class="text-center"><input type="text"
+                  class="form-control" name="{{index+1}}" [(ngModel)]="score.calcRawValue"
+                  style="width: 60px; margin: 0 auto;" (blur)="changeProcsdValue(score)" required></td> -->
+              <td *ngIf="score.indData.weight > 0" width="100" class="text-center">{{score.calcRawValue}}</td>    
+              <td *ngIf="score.indData.weight > 0" width="100" class="text-center">{{score.indData.weight}}</td>
+              <td *ngIf="score.indData.weight > 0" width="180" class="text-center">{{score.score}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- <div class="text-right mt-4">
+      <button mat-raised-button color="primary" class="btn-gradient" [disabled]="!recordForm.valid"
+        (click)="scores = []; showFilters = true;">Cancel</button>
+      <button type="submit" mat-raised-button color="primary" class="btn-gradient ml-1"
+        [disabled]="!recordForm.valid">Save</button>
+    </div> -->
+  </form>
+
+</div>

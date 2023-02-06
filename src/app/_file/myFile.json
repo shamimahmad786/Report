@@ -1,0 +1,10 @@
+[   
+    { "SNo": 1, "SchoolManagement": "Dept. of Education", "Primary":654163, "UpperPrimary":654134, "Secondary":634163, "HigherSecondary":61354 },
+    { "SNo": 2, "SchoolManagement": "Tribal Welfare Dept.", "Primary": 32000, "UpperPrimary":654134, "Secondary":634163, "HigherSecondary":61354 },
+    { "SNo": 3, "SchoolManagement": "Local Body", "Primary": 72000, "UpperPrimary":654134, "Secondary":634163, "HigherSecondary":61354 },
+    { "SNo": 4, "SchoolManagement": "Govt. Aided", "Primary": 72000, "UpperPrimary":654134, "Secondary":634163, "HigherSecondary":61354 },
+    { "SNo": 5, "SchoolManagement": "Dept. of Education", "Primary":654163, "UpperPrimary":654134, "Secondary":634163, "HigherSecondary":61354 },
+    { "SNo": 6, "SchoolManagement": "Tribal Welfare Dept.", "Primary": 32000, "UpperPrimary":654134, "Secondary":634163, "HigherSecondary":61354 },
+    { "SNo": 7, "SchoolManagement": "Local Body", "Primary": 72000, "UpperPrimary":654134, "Secondary":634163, "HigherSecondary":61354 },
+    { "SNo": 8, "SchoolManagement": "Govt. Aided", "Primary": 72000, "UpperPrimary":654134, "Secondary":634163, "HigherSecondary":61354 }
+]

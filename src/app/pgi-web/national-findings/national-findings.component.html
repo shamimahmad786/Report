@@ -1,0 +1,125 @@
+<section id="banner">
+  <img src="assets/images/national-finding-banner.jpg" alt="national-findings" class="img-fluid w-100">
+  <div class="container banner-caption">
+    <div class="row h-100">
+      <div class="col-md-10 d-flex align-items-center">
+        <h2>National Findings</h2>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="main_content">
+  <div class="container">
+    <h2 class="heading">National Findings <span>Domain Wise</span></h2>
+    <div class="row">
+      <div class="col-lg-4 animated zoomIn wow" *ngFor="let domain of pgiService.nfDomains; let i = index" attr.data-wow-delay="{{((i + 1) * 200) + 'ms'}}">
+        <a href="javascript:void(0);" [routerLink]="['/domain', i + 1]">
+          <div
+            class="finding-box domain-{{domain.key=='Domain_1'?'one': (domain.key=='Domain_2'?'two':(domain.key=='Domain_3'?'three':(domain.key=='Domain_4'?'four':'five')))}}">
+            <h3>{{domain.value}}</h3>
+            <div class="finding-box-score mt-3 mb-5">
+              <span class="title">Average Score</span>
+              <span class="score">{{domain.avg}}</span>
+            </div>
+            <div class="d-flex">
+              <div class="finding-box-score mr-5">
+                <span class="arrow arrow-highest"></span>
+                <span class="title">Highest Score</span>
+                <span class="score">{{domain.highest}}</span>
+              </div>
+              <div class="finding-box-score">
+                <span class="arrow arrow-lowest"></span>
+                <span class="title">Lowest Score</span>
+                <span class="score">{{domain.lowest}}</span>
+              </div>
+            </div>
+            <div class="finding-box-score finding-box-index text-left">
+              <span class="title">Share in Index</span>
+              <span class="score">{{domain.max}}</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="state_carousel" class="gray">
+  <div class="container animated zoomIn wow">
+    <h2 class="heading">State<code>s</code>/UT<code>s</code> Performance In <span>All Domains</span></h2>
+    <div class="text-right carousel-view">
+      <a href="javascript:void(0);" (click)="showSlider = 'big'" class="carousel-view-block" [ngClass]="{active: showSlider == 'big'}"></a>
+      <a href="javascript:void(0);" (click)="showSlider = 'small'" class="carousel-view-card" [ngClass]="{active: showSlider == 'small'}"></a>
+    </div>
+    <div class="card-carousel block-view" *ngIf="showSlider == 'big'">
+      <owl-carousel-o [options]="bigSlider" (changed)="getData($event)">
+        <ng-container *ngFor="let slide of pgiService.nfScores">
+          <ng-template carouselSlide>
+            <img src="assets/images/state-carousel/big/{{slide.banner}}" alt="{{slide.stateName}}" class="state-img">
+            <div class="card-caption state-progress d-flex align-items-center justify-content-center">
+              <div class="card-content">
+                <h2 class="heading">{{slide.stateName}}</h2>
+                <div class="grade-box">
+                  <div
+                    class="grade-score grade-{{slide.domainScore.grade==1?'one':(slide.domainScore.grade==2?'two':(slide.domainScore.grade==3?'three' : (slide.domainScore.grade==4?'four':(slide.domainScore.grade==5?'five': 'six'))))}}">
+                    Grade
+                    {{slide.domainScore.grade==1?'I':(slide.domainScore.grade==2?'II':(slide.domainScore.grade==3?'III' : (slide.domainScore.grade==4?'IV':(slide.domainScore.grade==5?'V': 'VI'))))}}
+                  </div>
+                </div>
+                <div class="d-flex align-items-center mt-4">
+                  <div class="progress-box progress-box-inverse sm" *ngFor="let dom of slide.domain">
+                    <svg width="200" height="200" viewBox="0 0 200 200" stroke="blue" class="radial-progress">
+                      <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stop-color="#600e63" />
+                          <stop offset="100%" stop-color="#be55c2" />
+                        </linearGradient>
+                      </defs>
+                      <circle class="progress-bg light" cx="100" cy="100" r="85" fill="none" stroke="#e6e6e6"
+                        stroke-width="12" />
+                      <circle class="progress-meter" cx="100" cy="100" r="85" fill="none" stroke="url(#gradient)"
+                        stroke-width="12" stroke-dasharray="534.070" stroke-dashoffset="534.070" />
+                    </svg>
+                    <div class="total-progress">
+                      <img src="{{dom.icon}}" alt="{{dom.name}}">
+                      <div class="get-score">
+                        <span class="performance">{{dom.score}}</span></div>
+                      <div class="total-score">Out of <span class="total">{{dom.max}}</span>
+                      </div>
+                    </div>
+                    <div class="domain-name">{{dom.name}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+    <div class="card-carousel card-view" *ngIf="showSlider == 'small'">
+      <owl-carousel-o [options]="smSlider">
+        <ng-container *ngFor="let slide of pgiService.nfScores" class="my-card">
+          <ng-template carouselSlide>
+              <img src="assets/images/state-carousel/{{slide.banner}}" alt="{{slide.stateName}}" class="state-img">
+            <div
+              class="card-caption grade-{{slide.domainScore.grade==1?'one':(slide.domainScore.grade==2?'two':(slide.domainScore.grade==3?'three' : (slide.domainScore.grade==4?'four':(slide.domainScore.grade==5?'five': 'six'))))}}">
+              <ul class="list-unstyled state-domain text-left">
+                <li *ngFor="let d of slide.domain">
+                  <div class="state-domain-score">{{d.score}}/{{d.max}}</div>
+                  <div class="state-domain-name">{{d.name}}</div>
+                </li>
+              </ul>
+              <div class="state-name-domain-wise">
+                {{slide.stateName}}
+              </div>
+              <div
+                class="card-footer grade-{{slide.domainScore.grade==1?'one':(slide.domainScore.grade==2?'two':(slide.domainScore.grade==3?'three' : (slide.domainScore.grade==4?'four':(slide.domainScore.grade==5?'five': 'six'))))}}">
+                Grade
+                {{slide.domainScore.grade==1?'I':(slide.domainScore.grade==2?'II':(slide.domainScore.grade==3?'III' : (slide.domainScore.grade==4?'IV':(slide.domainScore.grade==5?'V': 'VI'))))}}
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>

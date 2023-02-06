@@ -1,0 +1,33 @@
+.table thead th {
+    border-top-width: 0;
+    border-bottom-width: 1px;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .table tbody td {
+    font-size: 14px;
+    vertical-align: middle;
+    height: 46px
+  }
+  
+  .form-control {
+    border-color: rgba(0, 0, 0, .12);
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .form-control:focus {
+      box-shadow: 0 0 0 0.2rem rgba(128, 22, 132, 0.25)
+  }
+  .mat-raised-button {
+    min-width: 100px !important;
+  }
+  .mw-auto {
+    min-width: auto !important;
+  }
+  .title{
+    font-weight: 600;
+  }

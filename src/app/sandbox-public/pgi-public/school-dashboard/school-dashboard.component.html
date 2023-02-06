@@ -1,0 +1,479 @@
+<div style="margin-left: 2%; margin-right: 1.5%;">
+    <h3 class="pgHead">School Dashboard &nbsp;&nbsp;<span>|&nbsp;&nbsp;2021-22</span></h3>
+    <div class="card shadow" style="padding: 30px; margin-top: 1.5%;">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="schoolNum">
+                    <div class="media">
+                        <div class="schoolicon"> <img src="assets/images/school-icon-red.png" class="align-self-center mr-3" alt="..."></div>
+                        <div class="media-body schooltxt">
+                            <p>Elementary Schools</p>
+                            <h5 class="red">11.96 <span class="font14">Lakhs</span></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="schoolNum">
+
+                    <div class="media">
+                        <div class="schoolicon"> <img src="assets/images/school-icon-aqua.png" class="align-self-center mr-3" alt="..."></div>
+                        <div class="media-body schooltxt">
+                            <p>Secondary Schools</p>
+                            <h5 class="aqua">1.50 <span class="font14">Lakhs</span></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="schoolNum">
+                    <div class="media">
+                        <div class="schoolicon"> <img src="assets/images/school-icon-green.png" class="align-self-center mr-3" alt="..."></div>
+                        <div class="media-body schooltxt">
+                            <p>Higher Sec. Schools</p>
+                            <h5 class="green">1.42 <span class="font14">Lakhs</span></h5>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="schoolNum" style="border-right: none;">
+
+                    <div class="media">
+                        <div class="schoolicon"> <img src="assets/images/school-icon-blue.png" class="align-self-center mr-3" alt="..."></div>
+                        <div class="media-body schooltxt">
+                            <p>Total Schools</p>
+                            <h5 class="blue">14.89 <span class="font14">Lakhs</span></h5>
+                        </div>
+                    </div>
+
+
+                    <!-- <div class="schoolicon"><img src="assets/images/school-icon-blue.png"></div>
+                <div class="schooltxt">
+                    <p>Total Schools</p>
+                    <h5 class="blue">15.07 <span class="font14">Lakhs</span></h5>
+                </div>                             -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="card shadow" style="margin-top:1.5%; padding: 20px;">
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="stesting"></div>
+        </div>
+    </div>
+    </div> -->
+    <div class="row mt-4">
+        <div class="col-sm-6">
+            <div class="card shadow mb-4">
+
+                <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"></div> -->
+                <div style="width:100% ! important" id="stotalnoSchool"></div>
+                <mat-card-footer class="cardfooter" style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline cardfooter-txt">Number of Schools Management-Wise</mat-card-title>
+                </mat-card-footer>
+                <!-- </div> -->
+                <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;"> -->
+
+                <!-- <div (click)="mouseEnter('chart1')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+                <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+                <!-- </mat-card> -->
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card shadow mb-4">
+                <!-- <mat-card-footer style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Libarary Facility</mat-card-title>
+                </mat-card-footer> -->
+                <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"></div> -->
+                <div style="width:100%" (window:resize)="onResize($event)" id="stotalnoSchoolcat"></div>
+                <mat-card-footer class="cardfooter" style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline cardfooter-txt">Number of Schools by Level of Education</mat-card-title>
+                </mat-card-footer>
+                <!-- </div> -->
+                <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;"> -->
+
+                <!-- <div (click)="mouseEnter('chart5')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+                <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+                <!-- </mat-card> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-6" style="width: 100%;">
+            <div class="card shadow mb-4">
+                <!-- <mat-card-footer style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Libarary Facility</mat-card-title>
+                </mat-card-footer> -->
+                <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"></div> -->
+                <div style="width:100%" (window:resize)="onResize($event)" id="sschoolTypes"></div>
+                <mat-card-footer class="cardfooter" style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline cardfooter-txt">Number of Schools based on School Types</mat-card-title>
+                </mat-card-footer>
+                <!-- </div> -->
+                <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;"> -->
+
+                <!-- <div (click)="mouseEnter('chart3')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+                <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+                <!-- </mat-card> -->
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="card shadow mb-4">
+                <!-- <mat-card-footer style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Computer Facility</mat-card-title>
+                </mat-card-footer> -->
+                <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+                <div style="width:100%" (window:resize)="onResize($event)" id="sschltypebycat"></div>
+                <mat-card-footer class="cardfooter" style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline cardfooter-txt">Number of Schools by Type and School Category</mat-card-title>
+                </mat-card-footer>
+                <!-- </div> -->
+                <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;"> -->
+
+                <!-- <div (click)="mouseEnter('chart4')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+                <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+                <!-- </mat-card> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="row" style="margin-top: 1%;">
+
+        <div class="col-sm-6">
+            <div class="card shadow mb-4" > -->
+
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width:100%" (window:resize)="onResize($event)" id="sMedRampfacility"></div>
+                <mat-card-footer class="cardfooter" style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline cardfooter-txt">Medical and Ramp Facility</mat-card-title>
+                </mat-card-footer> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;"> -->
+
+    <!-- <div (click)="mouseEnter('chart2')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+    <!-- </mat-card> -->
+    <!-- </div>  
+        </div> -->
+
+    <!-- <div class="col-sm-6">
+            <div class="card shadow mb-4" > -->
+
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width:100%" (window:resize)="onResize($event)" id="scomputerFacility"></div>
+                <mat-card-footer class="cardfooter" style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline cardfooter-txt">Electricity, Computer and Internet Facility</mat-card-title>
+                </mat-card-footer> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;"> -->
+
+    <!-- <div (click)="mouseEnter('chart6')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+    <!-- </mat-card> -->
+    <!-- </div>
+        </div>
+    </div>  -->
+
+    <!-- <div  *ngIf = isValid2>
+        <button style="height: 20; color:rebeccapurple; width: 100%; margin-top: 15px;  margin-bottom: 20px;" (click)="myclick2(true); myclick3(false)">Show More > > ></button>
+    </div> -->
+
+    <!-- <div *ngIf = isValid> -->
+
+    <!-- <div class="row" style="margin-top: 1%;">
+        <div class="col-sm-6">
+            <div class="card shadow" style="padding: 20px;"> -->
+    <!-- <mat-card-footer style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Drinking Water Facility</mat-card-title>
+                </mat-card-footer> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id="sdrinkingWater"></div> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                
+                    <div (click)="mouseEnter('chart9')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+    <!--                 
+            </mat-card>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card shadow" style="padding: 20px;"> -->
+    <!-- <mat-card-footer style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Electricity Facility</mat-card-title>
+                </mat-card-footer> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id="selectricityFaclitiy"></div> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                
+                    <div (click)="mouseEnter('chart10')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+    <!-- </mat-card>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="row col-sm-12" style="margin-top: 1%;">
+        <div class="col-sm-6">
+            <mat-card class="mat-elevation-z10" id="schoolContainer" style="height: 500px;background: rgba(255, 255, 255, 0.7);"> -->
+    <!-- <mat-card-footer style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Ground Facility</mat-card-title>
+                </mat-card-footer> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id="stest1"></div> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;"> -->
+
+    <!-- <div (click)="mouseEnter('chart7')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+    <!-- </mat-card>
+            </mat-card>
+        </div>
+        <div class="col-sm-6">
+            <mat-card class="mat-elevation-z10" id="schoolContainer" style="height: 500px;background: rgba(255, 255, 255, 0.7);"> -->
+    <!-- <mat-card-footer style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Libarary Facility</mat-card-title>
+                </mat-card-footer> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id="slibararyFacility" ></div> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;"> -->
+
+    <!-- <div (click)="mouseEnter('chart8')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+    <!-- </mat-card>
+            </mat-card>
+        </div>
+    </div> -->
+
+    <!-- <div class="row"> -->
+    <!-- <div class="col-sm-12">
+            <div class=" shadow mb-4"  width='100%'> -->
+
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div  id="sdrinkingWater5" style="width:100% ! important;"></div>
+                <mat-card-footer class="cardfooter" style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline cardfooter-txt">Drinking Water, HandWash and Toilet Facility</mat-card-title>
+                </mat-card-footer> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;"> -->
+
+    <!-- <div (click)="mouseEnter('chart11')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+    <!-- </mat-card> -->
+    <!-- </div>
+        </div> -->
+    <!-- <div class="col-sm-6">
+            <div class="card shadow" style="padding: 20px;"> -->
+    <!-- <mat-card-footer style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Ramp Facility</mat-card-title>
+                </mat-card-footer> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id="srampFacility"></div> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                
+                    <div (click)="mouseEnter('chart12')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+    <!--                 
+                </mat-card>
+            </div>
+        </div> -->
+    <!-- </div> -->
+    <!-- <div class="row" style="margin-top: 1%; margin-bottom: 1%;">
+        <div class="col-sm-6">
+            <div class="card shadow" style="padding: 20px;"> -->
+    <!-- <mat-card-footer style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Ramp Facility</mat-card-title>
+                </mat-card-footer> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id="scwsn"></div> -->
+    <!-- </div> -->
+    <!-- <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                
+                    <div (click)="mouseEnter('chart12')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div> -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+    <!-- </mat-card>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card shadow" style="padding: 20px;"> -->
+    <!-- <mat-card-footer style="display: block; text-align: center;">
+                    <mat-card-title class="text-oneline">Ramp Facility</mat-card-title>
+                </mat-card-footer> -->
+    <!-- <div id="schoolContainer" style=" position: relative; width: 100%;"> -->
+    <!-- <div style="width: 100%" id="sbtoilet"></div>
+                <mat-card style="height: 1px; margin-top: 14px; background-color: aliceblue;">
+                
+                    <div (click)="mouseEnter('chart12')" (click)="mouseLeave('div G')" class="col-sm-12 hoverClass" style="text-align: center; margin-top: -10px ">
+                        Graphical
+                    </div>  -->
+    <!-- <div (click)="mouseEnter('chart20')" (click)="mouseLeave('div T')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                        Tabular
+                    </div> -->
+
+    <!-- </mat-card>
+        </div>
+        </div>
+    </div> -->
+
+    <!-- </div>
+    <div *ngIf = isValid>
+        <button style="height: 20; color:rgb(184, 184, 184); width: 100%; margin-top: 15px; margin-bottom: 20px; background-color: blue;" (click)="myclick2(false); myclick3(true)"> Show Less  </button>
+    </div> -->
+</div>
+
+
+<ng-template #Graphical let-modal style="min-width: 100%;">
+    <div class="modal-header" style="display: block; text-align: center; background:#8d2825">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10" style="color: white">
+                <h4 class="modal-title">Header</h4>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-body" style="width: 100%;">
+        <div style="width: 100%; " id="stest6"></div>
+        <!-- <ng-template [ngIf]="values == 'chart1'">
+            <mat-card id="schoolContainer" style=" box-shadow: 5px 10px #888888;height: 500px;background: rgba(255, 255, 255, 0.7);">
+            <mat-card-footer style="display: block; text-align: center;">
+                <mat-card-title class="text-oneline">Libarary Facility</mat-card-title>
+            </mat-card-footer> -->
+        <!-- <div id="schoolContainer" style=" position: relative; width: 100%;">
+                <div>
+                    <div  id="test6"></div>
+                </div>
+            </div> -->
+        <!-- <div class="row" style="margin-top: 3%;">
+                <div (click)="mouseEnter('chart7')" (click)="mouseLeave('div G')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5">
+                    Graphical
+                </div>
+                <div (click)="mouseEnter('chart8')" (click)="mouseLeave('div H')" class="col-sm-6 hoverClass" style="text-align: center; padding: 5%;background: #d1e4f5;">
+                    Tabular
+                </div>
+            </div> -->
+        <!-- </mat-card>
+        </ng-template>-->
+        <ng-template [ngIf]="values == 'chart2'">
+            <div>
+                <!-- <ag-grid-angular
+                    style="width: 1200px; height: 500px;"
+                    class="ag-theme-balham"
+                    [rowData]="rowData"
+                    [columnDefs]="columnDefs"
+                    >
+                </ag-grid-angular> -->
+
+            </div>
+        </ng-template>
+        <!-- <ng-template [ngIf]="values == 'chart3'"><div>3</div></ng-template>
+        <ng-template [ngIf]="values == 'chart4'"><div>4</div></ng-template>
+        <ng-template [ngIf]="values == 'chart5'"><div>5</div></ng-template>
+        <ng-template [ngIf]="values == 'chart6'"><div>6</div></ng-template>
+        <ng-template [ngIf]="values == 'chart7'"><div>7</div></ng-template>
+        <ng-template [ngIf]="values == 'chart8'"><div>8</div></ng-template>
+        <ng-template [ngIf]="values == 'chart9'"><div>9</div></ng-template>
+        <ng-template [ngIf]="values == 'chart10'"><div>10</div></ng-template>
+        <ng-template [ngIf]="values == 'chart11'"><div>11</div></ng-template>
+        <ng-template [ngIf]="values == 'chart12'"><div>12</div></ng-template>
+        <ng-template [ngIf]="values == 'chart13'"><div>13</div></ng-template>
+        <ng-template [ngIf]="values == 'chart14'"><div>14</div></ng-template>
+        <ng-template [ngIf]="values == 'chart15'"><div>15</div></ng-template>
+        <ng-template [ngIf]="values == 'chart16'"><div>16</div></ng-template>
+        <ng-template [ngIf]="values == 'chart17'"><div>17</div></ng-template>
+        <ng-template [ngIf]="values == 'chart18'"><div>18</div></ng-template>
+        <ng-template [ngIf]="values == 'chart19'"><div>19</div></ng-template>
+        <ng-template [ngIf]="values == 'chart20'"><div>20</div></ng-template> -->
+    </div>
+
+    <!-- <div *ngIf = isValid></div>
+<div>
+  <button (click)="myclick()">Click Me</button>
+</div>
+<div  *ngIf = isValid2>
+<button style="height: 20; color:rebeccapurple;" (click)="myclick2(true); myclick3(false)" >Show Button</button>
+</div>
+<div *ngIf = isValid>
+  <button (click)="myclick2(false); myclick3(true)">Hide</button>
+</div> -->
+
+
+</ng-template>

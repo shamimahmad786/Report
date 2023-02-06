@@ -1,0 +1,96 @@
+<h1 class="mb-2 page-head">CONFIGURE DASHBOARD CONTENT</h1>
+
+<!-- <h3 *ngIf="message!=''" class="success" style="text-align: center;"> {{message}} </h3> -->
+
+<form autocomplete="off" [formGroup]="ReportForm">
+    <br>
+
+    <h2>Roles</h2>
+
+    <div class="row ">
+
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+
+                <mat-label>select</mat-label>
+
+                <mat-select required formControlName="designation" (selectionChange)="bindDashboard()">
+
+                    <mat-option *ngFor="let role of designations" [value]="role.value">
+                        {{role.name}}
+                    </mat-option>
+                </mat-select>
+
+            </mat-form-field>
+        </div>
+
+
+    </div>
+
+    <h2>School Dashboard</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100 ">
+                <mat-label>select</mat-label>
+
+                <mat-select required formControlName="report1">
+
+                    <!-- <mat-option *ngFor="let report of reportsList | filter:ReportForm.value.designation" [value]="report.id ">
+                         -->
+                    <mat-option *ngFor="let report of sortdedList" [value]="report.id ">
+                        {{report.report_name}}
+                    </mat-option>
+                </mat-select>
+
+            </mat-form-field>
+        </div>
+        <div class="col-md-6 ">
+            <mat-form-field appearance="outline" class="w-100 ">
+
+                <mat-label>select</mat-label>
+
+                <mat-select required formControlName="report2">
+
+                    <!-- <mat-option *ngFor="let report of reportsList | filter: ReportForm.value.designation" [value]="report.id ">
+                         -->
+                    <mat-option *ngFor="let report of sortdedList" [value]="report.id ">
+                        {{report.report_name}}
+                    </mat-option>
+                </mat-select>
+
+            </mat-form-field>
+        </div>
+        <div class="col-md-6 ">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>select</mat-label>
+
+                <mat-select required formControlName="report3">
+
+                    <!-- <mat-option *ngFor="let report of reportsList | filter: ReportForm.value.designation" [value]="report.id "> -->
+                    <mat-option *ngFor="let report of sortdedList" [value]="report.id ">
+                        {{report.report_name}}
+                    </mat-option>
+                </mat-select>
+
+            </mat-form-field>
+        </div>
+        <div class="col-md-6 ">
+            <mat-form-field appearance="outline" class="w-100 ">
+
+                <mat-label>select</mat-label>
+
+                <mat-select required formControlName="report4">
+
+                    <!-- <mat-option *ngFor="let report of reportsList | filter: ReportForm.value.designation" [value]="report.id "> -->
+                    <mat-option *ngFor="let report of sortdedList" [value]="report.id ">
+                        {{report.report_name}}
+                    </mat-option>
+                </mat-select>
+
+            </mat-form-field>
+        </div>
+    </div>
+
+    <button mat-raised-button (click)="submit()" class="text-right">Save</button>
+</form>

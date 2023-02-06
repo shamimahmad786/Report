@@ -1,0 +1,30 @@
+<h1 class="mb-2 page-head">{{ 'Manage Groups'}}</h1>
+<br>
+<button mat-raised-button [routerLink]="['/sandbox/home/addgroup']">Add Group</button>
+<br>
+<br>
+
+<div class="table-head">
+    <table class="table m-0">
+        <thead>
+            <tr>
+                <th width="10%" class="text-center">S.No.</th>
+                <th width="70%">Name</th>
+                <th width="20%">Action</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+<div class="table-scroll" data-simplebar>
+    <table class="table">
+        <tbody>
+            <tr *ngFor="let group of groupList; let index = index;">
+                <td width="10%" class="text-center">{{index + 1}} </td>
+                <td width="70%">{{group.groupName}}</td>
+                <td width="20%">
+                    <span (click)="editGroup(group.id)" style="cursor: pointer; color: blue;">Edit</span> |
+                    <span (click)="delete(group.id)" style="cursor: pointer; color: blue;">Delete</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

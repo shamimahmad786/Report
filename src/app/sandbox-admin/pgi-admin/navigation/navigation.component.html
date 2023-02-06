@@ -1,0 +1,132 @@
+<div class="social-btns " style="margin:25px 0px">
+    <a class="btn facebook" style="background: orange;" [routerLink]="['/public/home/schooldashboard']" [routerLinkActive]="['active']"><img src="assets/images/high-school.svg" width="22px" /></a>
+    <a class="btn twitter" style="background: orange;" [routerLink]="['/public/home/teacherdashboard']"><img src="assets/images/teacher.svg" width="22px" /></a>
+    <a class="btn google" style="background: orange;" [routerLink]="['/public/home/studentdashboard']"><img src="assets/images/book.svg" width="22px" /></a>
+</div>
+<ul class="list-unstyled menu-list" id="menu">
+    <!-- <div class='sideCustomHeader row'>
+        <div class='col-sm-1'>
+            <mat-icon>assignment</mat-icon>
+        </div>
+        <div class='col-sm-9'><span>Dashboard</span></div>
+    </div> -->
+
+
+    <!-- <li>
+        <a [routerLink]="['/sandbox/home/dashboard']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>Dashboard</a>
+    </li> -->
+
+
+
+    <div *ngIf="userParamName != 'Admin'" class='sideCustomHeader row'>
+        <div class='col-sm-1'>
+            <mat-icon>assignment</mat-icon>
+        </div>
+        <div class='col-sm-9'><span>Data Entry Form</span></div>
+    </div>
+    <li *ngIf="userParamName === 'STLU' || userParamName === 'DLU'">
+        <a [routerLink]="['/sandbox/home/entryForm']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>PGI Data Entry</a>
+    </li>
+
+    <li *ngIf="userParamName === 'STLU'">
+        <a [routerLink]="['/sandbox/home/pgiApprover']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>PGI District Approve</a>
+    </li>
+
+    <li *ngIf="userParamName === 'STLU'">
+        <a [routerLink]="['/sandbox/home/staticReport']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>PGI Report</a>
+    </li>
+
+    <!-- <li ><a [routerLink]="['/sandbox/home/PGIForm']" [routerLinkActive]="['active']"><mat-icon>assignment</mat-icon>PGI Data Entry</a></li> -->
+    <li *ngIf="userParamName === 'KV'">
+        <a [routerLink]="['/sandbox/home/KVForm']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>KV Data Entry</a>
+    </li>
+    <li *ngIf="userParamName === 'NV'">
+        <a [routerLink]="['/sandbox/home/NVForm']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>NV Data Entry</a>
+    </li>
+    <li *ngIf="userParamName === 'NCERT'">
+        <a [routerLink]="['/sandbox/home/NCERTForm']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>NCERT Data Entry</a>
+    </li>
+    <li *ngIf="userParamName === 'CTSA'">
+        <a [routerLink]="['/sandbox/home/CTSAForm']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>CTSA Data Entry</a>
+    </li>
+    <li *ngIf="userParamName === 'NBB'">
+        <a [routerLink]="['/sandbox/home/NBBForm']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>NBB Data Entry</a>
+    </li>
+    <li *ngIf="userParamName === 'CBSE'">
+        <a [routerLink]="['/sandbox/home/CBSEForm']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>CBSE Data Entry</a>
+    </li>
+    <li *ngIf="userParamName === 'NIOS'">
+        <a [routerLink]="['/sandbox/home/NIOSForm']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>NIOS Data Entry</a>
+    </li>
+    <li *ngIf="userParamName === 'NCTE'">
+        <a [routerLink]="['/sandbox/home/NCTEForm']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>NCTE Data Entry</a>
+    </li>
+
+
+    <div class='sideCustomHeader row' *ngIf="userParamName === 'Admin'">
+        <div class='col-sm-1'>
+            <mat-icon>assignment</mat-icon>
+        </div>
+        <div class='col-sm-9'><span>Manage User</span></div>
+    </div>
+    <li *ngIf="username === 'superadmin'">
+        <a [routerLink]="['/sandbox/home/manage-dashboard']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>Manage Dashboard
+        </a>
+    </li>
+    <li *ngIf="username === 'superadmin'">
+        <a [routerLink]="['/sandbox/home/user']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>Manage User</a>
+    </li>
+    <li *ngIf="username === 'superadmin'">
+        <a [routerLink]="['/sandbox/home/groups']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>Manage Groups</a>
+    </li>
+    <li *ngIf="username === 'superadmin'">
+        <a [routerLink]="['/sandbox/home/managereports']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>Manage Reports</a>
+    </li>
+    <!-- <li><a [routerLink]="['/sandbox/home/indicator']" [routerLinkActive]="['active']"><mat-icon>assignment</mat-icon> Indicator Wise</a></li> -->
+
+
+
+    <!-- <div *ngIf="userParamName === 'Admin'" class='sideCustomHeader row'><div class='col-sm-1'><mat-icon>assignment</mat-icon></div><div class='col-sm-9'><span>Report</span></div></div> -->
+    <li *ngIf="userParamName === 'Admin'">
+        <a [routerLink]="['/sandbox/home/state']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>Report</a>
+    </li>
+    <!-- Commented by shamim Analitical report by JPA -->
+    <!-- <li *ngIf="userParamName === 'Admin'"><a [routerLink]="['/sandbox/home/analytics']" [routerLinkActive]="['active']"><mat-icon>assignment</mat-icon>Analytics</a></li> -->
+    <!-- End -->
+    <li *ngIf="userParamName === 'Admin'">
+        <a [routerLink]="['/sandbox/home/customAnalytics']" [routerLinkActive]="['active']">
+            <mat-icon>assignment</mat-icon>Analytics</a>
+    </li>
+
+    <!-- <li *ngIf="userParamName === 'Admin'"><a [routerLink]="['/sandbox/home/report']" [routerLinkActive]="['active']"><mat-icon>Report</mat-icon>Report</a></li> -->
+    <li *ngIf="userParamName === 'Admin'">
+        <a [routerLink]="['/sandbox/home/reportQuery']" [routerLinkActive]="['active']">
+            <mat-icon>Report</mat-icon>Native</a>
+    </li>
+    <li *ngIf="userParamName === 'Admin'">
+        <a [routerLink]="['/sandbox/home/staticReport']" [routerLinkActive]="['active']">
+            <mat-icon>Report</mat-icon>Static Report</a>
+    </li>
+    <!-- <li><a [routerLink]="['/sandbox/home/stateWiseDomain']" [routerLinkActive]="['active']"><mat-icon>assignment</mat-icon> State Wise Domain</a></li> -->
+    <li>
+        <a href="javascript:void(0);" (click)="onLogout()">
+            <mat-icon>power_settings_new</mat-icon> Logout</a>
+    </li>
+</ul>

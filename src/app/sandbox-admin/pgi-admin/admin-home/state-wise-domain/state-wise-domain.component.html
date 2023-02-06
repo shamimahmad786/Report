@@ -1,0 +1,85 @@
+<h1 class="mb-2 page-head">State wise PGI Domains</h1>
+
+<div *ngIf="showFilters">
+  <form #searchInd="ngForm" (ngSubmit)="searchInd.valid && getStateData()">
+    <div class="filter-area">
+      <h6 class="filters-heading">Please fill the below search parameters</h6>
+      <div class="d-flex">
+        <ul class="list-unstyled filter-list m-0">
+          <li class="pl-0">
+            <mat-form-field appearance="outline" style="width: 120px">
+              <mat-label>Year</mat-label>
+              <mat-select [(ngModel)]="fYear" required name="year" #year="ngModel">
+                <mat-option *ngFor="let year of years" [value]="year.value" (click)="filtersModel.year = year.key">
+                  {{year.key}} </mat-option>
+              </mat-select>
+              <mat-error>Please select year</mat-error>
+            </mat-form-field>
+          </li>
+        </ul>
+        <button type="submit" mat-raised-button color="primary" class="btn-gradient ml-auto ml-3"
+          [disabled]="!searchInd.valid">
+          <mat-icon>search</mat-icon>
+          Search
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="!showFilters">
+  <div class="filter-area stateUser">
+    <h6 class="filters-heading">You have search for</h6>
+    <div class="d-flex align-items-center">
+      <ul class="list-inline selected-filters">
+        <li class="list-inline-item">
+          Year: <span class="search-item">{{filtersModel.year}}</span>
+        </li>
+      </ul>
+      <button type="submit" mat-raised-button color="primary" class="btn-gradient ml-auto mw-auto"
+        (click)="showFilters = true">
+        <mat-icon>search</mat-icon> Modify Search
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="scores.length > 0" class="table-wrap">
+  <div class="table-head">
+    <table class="table m-0 table-bordered state-data">
+      <thead>
+        <tr>
+          <th scope="col" rowspan="2" width="8%" class="text-center">S.No.</th>
+          <th scope="col" rowspan="2" width="32%">State Name</th>
+          <th scope="col" colspan="5" class="text-center">PGI Domains</th>
+          <th scope="col" rowspan="2" class="text-center" width="10%">Total Score</th>
+        </tr>
+        <tr>
+
+          <th scope="col" class="text-center" width="10%">Learning Outcomes & Quality</th>
+          <th scope="col" class="text-center" width="10%">Access</th>
+          <th scope="col" class="text-center" width="10%">Infrastructure & Facilities</th>
+          <th scope="col" class="text-center" width="10%">Equity</th>
+          <th scope="col" class="text-center" width="10%">Governance Processes</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="table-scroll" data-simplebar>
+    <table class="table">
+      <tbody>
+        <tr *ngFor="let score of scores; let index = index;">
+          <td score="row" width="8%" class="text-center">{{index + 1}}</td>
+          <td width="32%">{{score.stateName}}</td>
+          <td width="10%" class="text-center">{{score.domainScore.domain1}}</td>
+          <td width="10%" class="text-center">{{score.domainScore.domain2}}</td>
+          <td width="10%" class="text-center">{{score.domainScore.domain3}}</td>
+          <td width="10%" class="text-center">{{score.domainScore.domain4}}</td>
+          <td width="10%" class="text-center">{{score.domainScore.domain5}}</td>
+          <td width="10%" class="text-center"><strong>{{score.domainScore.totalScore}}</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

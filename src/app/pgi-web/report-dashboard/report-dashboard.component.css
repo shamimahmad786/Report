@@ -1,0 +1,228 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+mat-sidenav {
+    width: 260px;
+    /* padding: 15px; */
+}
+
+  
+.mat-drawer {
+    background-color: #8d2825;
+    color: #fff
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.mat-toolbar.mat-primary {
+    background: #d2d5d8 !important;
+    color: #fff;
+}
+
+button {
+    border-radius: 0px !important;
+    height: 25px !important;
+}
+
+.material-icons {
+    font-size: 20px !important;
+}
+
+
+/* custom csss */
+
+.menuBorder {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.5) ! important;
+    border-bottom: 1px solid #c0c0c073;
+}
+
+button.btn-Back {
+    padding: 0px;
+    background: #8d2825;
+    border: 0px;
+    outline: none;
+    padding: 3px;
+    position: absolute;
+    z-index: 9999;
+}
+
+mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
+    color: white;
+}
+
+button.btn-Back:hover {
+    background: #8d2825;
+    outline: none;
+    padding: 3px;
+}
+
+
+/* menu  varticle*/
+
+.borderWhite {
+    border-bottom: 1px solid #020238;
+}
+
+.liMenu {
+    padding: 20px 0px;
+    cursor: pointer;
+    /* background: #8d2825; */
+}
+
+.liMenu:hover {
+    background: white;
+    border-left: 10px solid #6bf704;
+    /* background: #6a1c19; */
+}
+
+.liMenu a {
+    color: white;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+}
+
+.active {
+    background: white;
+    border-left: 10px solid #6bf704;
+    color: rgb(255, 255, 255);
+}
+
+.active .ml-2,
+.active .material-icons {
+    color: rgb(255, 255, 255);
+}
+
+.liMenu:hover .ml-2,
+.liMenu:hover .material-icons {
+    color: rgb(255, 255, 255);
+}
+
+.mat-drawer-content {
+    padding: 0px !important;
+    z-index: 0 !important;
+}
+
+.mat-sidenav {
+    /* padding: 0px !important; */
+    z-index: 9999;
+}
+
+
+/* .mat-drawer{overflow-y: visible ! important;}
+.mat-drawer-inner-container{ overflow: visible ! important;}
+.btn-Back{ float: right; margin-right: -61px; background: red; z-index:9999;} */
+
+
+/* three Icon */
+
+@import '//codepen.io/chrisdothtml/pen/ojLzJK.css';
+.social-btns .btn,
+.social-btns .btn:before,
+.social-btns .btn .fa {
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+    -webkit-transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+    transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+}
+
+.social-btns .btn:before {
+    top: 90%;
+    left: -110%;
+}
+
+.social-btns .btn .fa {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+}
+
+.social-btns .btn:focus:before,
+.social-btns .btn:hover:before {
+    top: -10%;
+    left: -10%;
+}
+
+.social-btns .btn:focus img,
+.social-btns .btn:hover img {
+    color: #fff;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.social-btns {
+    height: 50px;
+    margin: auto;
+    font-size: 0;
+    text-align: center;
+}
+
+.social-btns .btn {
+    display: inline-block;
+    background-color: #00000073;
+    border: 1px solid white;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 10px;
+    padding: 0px 5px 9px 5px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 61%;
+    -webkit-box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+    opacity: 0.99;
+}
+
+.social-btns .btn:before {
+    content: '';
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.social-btns .btn .fa {
+    font-size: 38px;
+    vertical-align: middle;
+}
+
+::ng-deep .mat-select-panel mat-option.mat-option {
+    height: unset;
+    background: red;
+}
+
+.mat-option-text.mat-option-text {
+    white-space: normal;
+}
+
+body {
+    /* overflow: hidden; */
+}
+
+::ng-deep .mat-select-content {
+    /* width: 2000px; */
+    background-color: red;
+    font-size: 10px;
+    overflow: hidden ! important;
+}
+::ng-deep .mat-drawer-container,
+::ng-deep .mat-drawer-content
+{ overflow-x: hidden ! important;}
+
+@media( max-width:767px)
+{
+    .logoMobile{ width:90%;}
+    mat-sidenav {
+        width: 170px;
+        padding: 15px;
+    }
+  
+}

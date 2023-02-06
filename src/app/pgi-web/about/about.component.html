@@ -1,0 +1,19 @@
+<section id="banner" data-aos="fade-in">
+  <img src="assets/images/about-banner.jpg" alt="banner" class="img-fluid w-100">
+  <div class="container banner-caption">
+    <div class="row h-100">
+      <div class="col-md-10 d-flex align-items-center">
+        <div>
+          <h2 class="animated fadeIn wow">
+            {{pageId == 'catalysing' ? 'Catalysing Transformation': (pageId == 'methodology' ? 'PGI Methodology': 'PGI Conclusion')}}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container" id="main_content">
+  <app-catalysing *ngIf="pageId == 'catalysing'"></app-catalysing>
+  <app-conclusions *ngIf="pageId == 'conclusions'"></app-conclusions>
+  <app-methodology *ngIf="pageId == 'methodology'"></app-methodology>
+</div>

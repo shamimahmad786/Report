@@ -1,0 +1,82 @@
+::ng-deep .owl-item{
+    margin-right: 25px !important;
+}
+
+.row{margin: auto ! important; }
+
+.btm-link-wrap {
+    background-color: #fff!important;
+    border-top: #e4e4e4 1px solid;
+    margin-top: 30px;
+
+}
+
+.bottom-logos {
+	overflow:hidden;
+    padding:0;
+
+    margin: 0 auto;
+}
+.bottom-logos ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+    width:100%;
+    margin:0px auto;
+}
+.bottom-logos ul li {
+	float:left;
+	width: auto;
+    margin-right:18px;
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+}
+.bottom-logos ul li img {
+    border-radius: 5px;
+}
+.bottom-logos ul li:last-child {
+	margin-right:0;
+}
+
+
+
+body{      
+    overflow: auto !important;
+}
+
+.lowerBanner{
+    height: 450px !important;
+    margin:0px auto;
+}
+
+.spaceBottom{
+    margin-bottom: 40px!important;
+    width: 90%;
+}
+.upPos {
+    margin-top: -180px ! important;
+    width: 90%;
+}
+.btm-link-wrap {
+    background-color: #ececec!important;
+}
+@media (max-width: 768px) {
+    .bottom-logos {
+        overflow:hidden;
+        padding:0;
+        margin: 0 auto;
+    }
+    .bottom-logos ul li {
+        float:left;
+        width: 47%;
+        margin-right:24px;
+        border: 1px solid #e4e4e4;
+        border-radius: 5px;
+        margin: 4px;
+    }
+}
+
+
+
+
+

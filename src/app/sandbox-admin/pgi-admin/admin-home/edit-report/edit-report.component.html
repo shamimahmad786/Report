@@ -1,0 +1,63 @@
+<h1 class="mb-2 page-head">Edit Report</h1>
+<!-- <h3 *ngIf="message!=''" class={{messageClass}} style="text-align: center;"> {{message}} </h3> -->
+
+<br>
+
+<!-- <form #lf="ngForm" (ngSubmit)="lf.valid && register(lf)"> -->
+<form autocomplete="off" [formGroup]="reportForm">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Report Name</mat-label>
+                <input matInput placeholder="Report Name" formControlName="report_name" required>
+                <mat-icon matSuffix>person_outline</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Description</mat-label>
+                <input matInput placeholder="Description" formControlName="tag" required>
+                <mat-icon matSuffix>person_outline</mat-icon>
+            </mat-form-field>
+        </div>
+
+        <!-- *ngIf="routeId==-1" -->
+
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Tag</mat-label>
+                <mat-select required multiple formControlName="reportTag" (selectionChange)="getStates()">
+                    <mat-option *ngFor="let tag of reportTag" [value]="tag.tagName">
+                        {{tag.tagName}} </mat-option>
+                </mat-select>
+                <mat-error>Please select Designation</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Category</mat-label>
+                <mat-select required formControlName="reportdomain" (selectionChange)="getCategories();">
+
+                    <mat-option *ngFor="let category of reportDomain" [value]="category.domainName">
+                        {{category.domainName}} </mat-option>
+                </mat-select>
+
+            </mat-form-field>
+        </div>
+
+        <!-- <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Tags</mat-label>
+                <mat-select multiple required formControlName="reportTag">
+                    <mat-option *ngFor="let tag of tags" [value]="tag.id">
+                        {{tag.tagName}} </mat-option>
+                </mat-select>
+
+            </mat-form-field>
+        </div> -->
+    </div>
+    <button mat-raised-button (click)="submit()" class="text-right">Save</button>
+    <button mat-raised-button [routerLink]="['/sandbox/home/managereports']" class="text-right" style="margin-left:1%;">Cancle</button>
+
+</form>

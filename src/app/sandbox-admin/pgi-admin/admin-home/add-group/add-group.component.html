@@ -1,0 +1,39 @@
+<h1 class="mb-2 page-head">Add Group</h1>
+<h3 *ngIf="message!=''" class={{messageClass}} style="text-align: center;"> {{message}} </h3>
+<form autocomplete="off" [formGroup]="UserForm">
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Group Name</mat-label>
+        <input matInput formControlName="groupName" placeholder="Group Name" required>
+    </mat-form-field>
+
+    <div class="table-head">
+        <table class="table m-0">
+            <thead>
+                <tr>
+                    <th width="5%" class="text-center">S.No.</th>
+                    <th width="5%">Select</th>
+                    <th width="60%">Reports name</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div class="table-scroll" data-simplebar>
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let report of reportsList; let index = index;">
+                    <td width="5%" class="text-center">{{index + 1}} </td>
+                    <td width="5%">
+                        <mat-checkbox class="example-margin" [checked]="isChecked(report.id)" (change)='onChange($event,report.id)'></mat-checkbox>
+                    </td>
+                    <td width="60%">{{report.report_name}}</td>
+                    <td>{{report.reportdomain}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>
+<br>
+<button mat-raised-button (click)="saveGroup()">Save</button>
+<button mat-raised-button [routerLink]="['/sandbox/home/groups']" style="margin-left: 1%;">Cancel</button>

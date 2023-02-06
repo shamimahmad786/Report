@@ -1,0 +1,129 @@
+<h1 class="mb-2 page-head">Indicator wise PGI records</h1>
+<div *ngIf="showFilters">
+  <form #searchInd="ngForm" (ngSubmit)="searchInd.valid && getStateData()">
+    <div class="filter-area">
+      <h6 class="filters-heading">Please fill the below search parameters</h6>
+      <div class="d-flex">
+        <ul class="list-unstyled filter-list m-0">
+          <li class="pl-0">
+            <mat-form-field appearance="outline" style="width: 120px">
+              <mat-label>Year</mat-label>
+              <mat-select [(ngModel)]="indData.year" required name="year" #year="ngModel">
+                <mat-option *ngFor="let year of years" [value]="year.value" (click)="filtersModel.year = year.key">
+                  {{year.key}} </mat-option>
+              </mat-select>
+              <mat-error>Please select year</mat-error>
+            </mat-form-field>
+          </li>
+          <li class="pl-0">
+            <mat-form-field appearance="outline">
+              <mat-label>Category</mat-label>
+              <mat-select [(ngModel)]="indData.cat" required name="category" #category="ngModel"
+                (ngModelChange)="getDomains()">
+                <mat-option *ngFor="let cat of catList" [value]="cat.value" (click)="filtersModel.cat = cat.key">
+                  {{cat.key}} </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </li>
+          <li class="pl-0">
+            <mat-form-field appearance="outline">
+              <mat-label>Domain</mat-label>
+              <mat-select [(ngModel)]="indData.domain" required name="domain" #domain="ngModel"
+                (ngModelChange)="getIndicators()">
+                <mat-option *ngFor="let dom of domains" [value]="dom.domain_id" (click)="filtersModel.dom = dom.value">
+                  {{dom.value}} </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </li>
+          <li class="pl-0">
+            <mat-form-field appearance="outline" style="width: 300px">
+              <mat-label>Indicator</mat-label>
+              <mat-select [(ngModel)]="indData.indicator" required name="indicator" #indicator="ngModel">
+                <mat-option *ngFor="let ind of indicators" [value]="ind.indId" title="{{ind.name}}"
+                  (click)="filtersModel.indicator = ind" [disabled]="ind.weight == 0">
+                  {{ind.serial + ' ' + ind.name}} </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </li>
+        </ul>
+        <button type="submit" mat-raised-button color="primary" class="btn-gradient ml-auto ml-3"
+          [disabled]="!searchInd.valid">
+          <mat-icon>search</mat-icon>
+          Search
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<div *ngIf="!showFilters">
+  <div class="filter-area stateUser">
+    <h6 class="filters-heading">You have search for</h6>
+    <div class="d-flex align-items-center">
+      <ul class="list-inline selected-filters">
+        <li class="list-inline-item">
+          Year: <span class="search-item">{{filtersModel.year}}</span>
+        </li>
+        <li class="list-inline-item">
+          Category: <span class="search-item">{{filtersModel.cat}}</span>
+        </li>
+        <li class="list-inline-item">
+          Domain: <span class="search-item">{{filtersModel.dom}}</span>
+        </li>
+        <li class="list-inline-item">
+          Indicator: <span
+            class="search-item">{{filtersModel.indicator.serial + " "+ filtersModel.indicator.name}}</span>
+        </li>
+      </ul>
+      <button type="submit" mat-raised-button color="primary" class="btn-gradient ml-auto mw-auto"
+        (click)="modifySearch()">
+        <mat-icon>search</mat-icon> Modify Search
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-success" role="alert" *ngIf="showMsg">
+  Data Saved Successfully.
+</div>
+
+
+<div *ngIf="states.length > 0">
+  <form #recordForm="ngForm" (ngSubmit)="recordForm.valid && manageIndData()">
+    <div class="table-wrap">
+      <div class="table-head">
+        <table class="table m-0">
+          <thead>
+            <tr>
+              <th scope="col" width="80" class="text-center">S.No.</th>
+              <th scope="col">State</th>
+              <th scope="col" width="200" class="text-center">Calcuated raw value</th>
+              <th scope="col" width="100" class="text-center">Weight</th>
+              <th scope="col" width="180" class="text-center">Proccessed value</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="table-scroll" data-simplebar>
+        <table class="table">
+          <tbody>
+            <tr *ngFor="let state of states; let index = index;">
+              <td width="80" scope="row" class="text-center">{{index + 1}}</td>
+              <td>{{state.stateName}}</td>
+              <td width="200" class="text-center"><input type="text" class="form-control" name="{{index+1}}"
+                  [(ngModel)]="state.calcRawValue" (blur)="changeProcsdValue(state)" required style="width: 60px; margin: 0 auto;"></td>
+              <td width="100" class="text-center">{{indWeight}}</td>
+              <td width="180" class="text-center">{{state.score}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="text-right mt-4">
+      <button mat-raised-button color="primary" class="btn-gradient" [disabled]="!recordForm.valid"
+        (click)="states = []; showFilters = true;">Cancel</button>
+      <button type="submit" mat-raised-button color="primary" class="btn-gradient ml-1"
+        [disabled]="!recordForm.valid">Save</button>
+    </div>
+  </form>
+
+</div>

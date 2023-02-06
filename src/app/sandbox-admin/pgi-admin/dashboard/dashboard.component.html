@@ -1,0 +1,101 @@
+ <div *ngIf = "currentUser.paramName ==='STLU'">
+<section id="banner">
+  <img data-src="assets/images/states-banner/{{stateDetail.banner}}" src="assets/images/blur.png" alt="{{stateDetail.stateName}}" class="img-fluid w-100" appLoadBanner>
+  <div class="container banner-caption">
+    <div class="row h-100">
+      <div class="col-md-8 d-flex align-items-center">
+        <div>
+          <h2>{{stateDetail.stateName}}</h2>
+          <div
+            class="grade-score grade-{{stateGrade==1?'one':(stateGrade==2?'two':(stateGrade==3?'three' : (stateGrade==4?'four': (stateGrade==5?'five':'six'))))}}">
+            Grade
+            {{stateGrade==1?'I':(stateGrade==2?'II':(stateGrade==3?'III' : (stateGrade==4?'IV':(stateGrade==5?'V':'VI'))))}}</div>
+        </div>
+      </div>
+      <div class="col-md-4 h-100">
+        <div class="state-map grade-one h-100">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" [innerHtml]="stateDetail.path | safeSvg"
+            class="h-100"></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="about-state" id="main_content">
+  <div class="container">
+    <div class="row" style="background: #740f78;padding: 5px;">
+      <div class="col-sm-6" style="text-align: right;">
+        <h6 class="" style="color: cyan;"><span style="font-size: larger;color: white;">Performance</span> Matrix</h6>
+      </div>
+      <div class="col-sm-6">
+        <select  class="dropdown-select" 
+            [(ngModel)]="scoreYear"    (change)="changeIndexData($event)">
+                <option class="dropdown-item" href="javascript:void(0);" value="2017">2017</option>
+                <option class="dropdown-item" href="javascript:void(0);" value="2018">2018</option>
+                <option class="dropdown-item" href="javascript:void(0);" value="2019">2019</option>
+              </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 offset-1 state-progress text-center">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 animated zoomIn wow" *ngFor="let dom of domainScores; let index = index"
+            attr.data-wow-delay="{{((index + 1) * 200) + 'ms'}}">
+            <a href="javascript:void(0);" class="d-inline-block" [routerLink]="['/domain', index + 1]">
+              <div class="progress-box">
+                <svg width="200" height="200" viewBox="0 0 200 200" stroke="blue" class="radial-progress">
+                  <circle class="progress-bg" cx="100" cy="100" r="85" fill="none" stroke="#e6e6e6" stroke-width="8" />
+                  <circle class="progress-meter domain-one" cx="100" cy="100" r="85" fill="none" stroke="#f77a52"
+                    stroke-width="8" stroke-dasharray="534.070" stroke-dashoffset="534.070" style="transition: all 2s ease-in-out 0s; stroke-dasharray: 900.071; stroke-dashoffset: 277.717;" />
+                </svg>
+
+                <!-- <svg _ngcontent-mnl-c4="" class="radial-progress" height="200" stroke="blue" viewBox="0 0 200 200" width="200">
+                  <circle _ngcontent-mnl-c4="" class="progress-bg" cx="100" cy="100" fill="none" r="85" stroke="#e6e6e6" stroke-width="8"></circle>
+                  <circle _ngcontent-mnl-c4="" class="progress-meter domain-one" cx="100" cy="100" fill="none" r="85" stroke="#f77a52" stroke-dasharray="534.070" stroke-dashoffset="534.070" stroke-width="8" style="transition: all 2s ease-in-out 0s; stroke-dasharray: 534.071; stroke-dashoffset: 83.0777;"></circle>
+                  </svg> -->
+
+                <div class="total-progress">
+                  <img src="{{dom.img}}" alt="{{dom.value}}">
+                  <div class="get-score">
+                    <span class="performance domain-one" attr.data-score="{{dom.score}}">{{dom.score}}</span></div>
+                  <div class="total-score">Out of <span class="total">{{dom.max}}</span></div>
+                </div>
+              </div>
+              <div class="domain-name domain-one">{{dom.value}}</div>
+            </a>
+          </div>
+          <!-- For Total Value -->
+          <div class="col-lg-4 col-md-6 animated zoomIn wow">
+          <a href="javascript:void(0);" class="d-inline-block">
+            <div class="progress-box">
+              <svg width="200" height="200" viewBox="0 0 200 200" stroke="blue" class="radial-progress">
+                <circle class="progress-bg" cx="100" cy="100" r="85" fill="none" stroke="#e6e6e6" stroke-width="8" />
+                <circle class="progress-meter domain-one" cx="100" cy="100" r="85" fill="none" stroke="#f77a52"
+                  stroke-width="8" stroke-dasharray="534.070" stroke-dashoffset="534.070" style="transition: all 2s ease-in-out 0s; stroke-dasharray: 900.071; stroke-dashoffset: 277.717;" />
+              </svg>
+              <div class="total-progress">
+                <img src="assets/images/domains-icon/lo.png" >
+                <div class="get-score">
+                  <span class="performance domain-one" [innerHTML]="totalScores"></span></div>
+                <div class="total-score">Out of <span class="total">1000</span></div>
+              </div>
+            </div>
+            <div class="domain-name domain-one">Total Score</div>
+          </a>
+        </div>
+
+        <!-- End -->
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div> 
+
+<div *ngIf = "currentUser.paramName != 'STLU'">
+
+  Coming Soon Dashboards 
+
+</div>

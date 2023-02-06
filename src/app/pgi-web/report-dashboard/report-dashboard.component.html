@@ -1,0 +1,152 @@
+<!--  <mat-sidenav-container fullscreen>
+    <mat-sidenav mode="side" #sidenav opened position="start">
+        <ul class="list-unstyled">
+            <li style="padding: 5px;background: #eaf3f5;border: 1px solid currentColor;" [routerLinkActive]="['active']"><a [routerLink]="['/reportDashboard/sReport']"  style="font-size: 15px; cursor: pointer;" ><mat-icon style="font-size: 20px !important;color: blue;">assignment</mat-icon> <span style="color: black;padding: 10px;">Static Reports</span> </a></li>    
+            <li style="padding: 5px;background: #eaf3f5;border:1px solid currentColor" [routerLinkActive]="['active']"><a [routerLink]="['/reportDashboard/aReport']"  style="font-size: 15px; cursor: pointer;"><mat-icon style="font-size: 20px !important;color: blue;">assignment</mat-icon> <span style="color: black;padding: 10px;">Analytical Reports</span> </a></li>    
+        </ul>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+                <button mat-icon-button (click)="sidenav.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <div>
+                    <ul class="list-inline ml-auto top-nav">
+
+                        <li class="list-inline-item"><img style="height: 60px;"
+                                    src="./assets/images/mhrd-logo.pngll.png" alt="MHARD"></li>
+                    </ul>
+                </div>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container-fluid menuBorder bg-white">
+    <div class="row p-2">
+        <div class="col-md-6">
+            <a [routerLink]="['/home']"> <img src="assets/images/se-logo.png" alt="" class="logoMobile"></a>
+        </div>
+        <div class="col-md-6">
+            <img src="assets/images/udise-reports.png" alt="" style="float: right; padding-right: 50px; padding-top: 12px;">
+        </div>
+    </div>
+</div>
+
+<mat-sidenav-container style="height:92vh;">
+    <mat-sidenav mode="side" #sidenav opened="true" position="start" class="sidenav-bg">
+        <div class="row  mb-4" style="width: 95%; margin: 0 auto;">
+            <div class="col-md-4 mt-5 text-center">
+                <!-- [routerLink]="['/reportDashboard/sDashboard']" -->
+                <a [routerLink]="['/reportDashboard/sDashboard']" title=""><img src="assets/images/school-icon-round.png" alt="School"></a>
+                <p class="mt-2"><a [routerLink]="['/reportDashboard/sDashboard']" title="School" class="text-light">School</a></p>
+            </div>
+            <div class="col-md-4 mt-5 text-center">
+                <!-- [routerLink]="['/reportDashboard/tDashboard']" -->
+                <a [routerLink]="['/reportDashboard/tDashboard']" title=""><img src="assets/images/teacher-icon-round.png" alt="Teacher"></a>
+                <p class="mt-2"><a [routerLink]="['/reportDashboard/tDashboard']" title="Teacher" class="text-light">Teacher</a></p>
+            </div>
+            <div class="col-md-4 mt-5 text-center">
+                <!-- [routerLink]="['/reportDashboard/stdDashboard']" -->
+                <a [routerLink]="['/reportDashboard/stdDashboard']" title=""><img src="assets/images/student-icon-round.png" alt="Student"></a>
+                <p class="mt-2"><a [routerLink]="['/reportDashboard/stdDashboard']" title="Student" class="text-light">Student</a></p>
+            </div>
+        </div>
+        <!-- <div>
+            <div class="col-md-4 text-center">
+                <a [routerLink]="['/reportDashboard/national']" title=""><img src="assets/images/student-icon-round.png" alt="Student"></a>
+                <p class="mt-2"><a [routerLink]="['/reportDashboard/national']" title="Student" class="text-light">Student</a></p>
+            </div>
+        </div> -->
+
+        <!--<div class="social-btns " style="margin:25px 0px">
+            <a class="btn" style="background: orange;" [routerLink]="['/reportDashboard/sDashboard']"><img src="assets/images/high-school.svg" width="22px" /></a>
+            <a class="btn" style="background: orange;" [routerLink]="['/reportDashboard/tDashboard']"><img src="assets/images/teacher.svg" width="22px" /></a>
+            <a class="btn" style="background: orange;" [routerLink]="['/reportDashboard/stdDashboard']"><img src="assets/images/book.svg" width="22px" /></a>
+        </div>-->
+        <ul class="list-unstyled border-top">
+            <li [routerLink]="['/home']" [ngClass]="'liMenu borderWhite'" (click)="flagSet('static');sidenav.toggle()" [routerLinkActive]="['active']">
+                <a class="mx-3 pr-2"><span class="mr-2"><img src="assets/images/dash-icon/home-side.png" alt="Home"></span> <span class="ml-2">Home</span> </a>
+            </li>
+            <!-- <li [routerLink]="['/reportDashboard/state']" [ngClass]="'liMenu borderWhite'" (click)="flagSet('static');sidenav.toggle()" [routerLinkActive]="['active']">
+                <a class="mx-3 pr-2"><span class="mr-2"><img src="assets/images/dash-icon/states-side.png" alt="States & Uts"></span> <span class="ml-2">States and UTs</span> </a>
+            </li> -->
+            <li [routerLink]="['/reportDashboard/sReport']" [ngClass]="'liMenu borderWhite'" (click)="flagSet('static');sidenav.toggle()" [routerLinkActive]="['active']">
+                <a class="mx-3 pr-2"><span class="mr-2"><img src="assets/images/dash-icon/static-side.png" alt="Static Reports"></span> <span class="ml-2">Static Reports</span> </a>
+            </li>
+            <!-- <li [routerLink]="['/reportDashboard/aspirationalDist']" [ngClass]="'liMenu borderWhite'" (click)="flagSet('static');sidenav.toggle()" [routerLinkActive]="['active']">
+                <a class="mx-3 pr-2"><span class="mr-2"><img src="assets/images/dash-icon/static-side.png" alt="Aspirational Reports"></span> <span class="ml-2">Aspirational District</span> </a>
+            </li> -->
+            <li [ngClass]="'liMenu borderWhite'"><a class="mx-3 pr-2" download href="assets/images/pdf/UDISE+2021_22_Booklet.pdf"><span><img src="assets/images/dash-icon/pdf-side.png"></span><span class="ml-2">UDISE+ Report 2021-22</span></a></li>
+            <li [ngClass]="'liMenu borderWhite'"><a class="mx-3 pr-2" download href="assets/images/pdf/UDISE+2020_21_Booklet.pdf"><span><img src="assets/images/dash-icon/pdf-side.png"></span><span class="ml-2">UDISE+ Report 2020-21</span></a></li>
+            <li [ngClass]="'liMenu borderWhite'"><a class="mx-3 pr-2" download href="assets/images/pdf/UDISE+2019_20_Booklet.pdf"><span><img src="assets/images/dash-icon/pdf-side.png"></span><span class="ml-2">UDISE+ Report 2019-20</span></a></li>
+            <li [ngClass]="'liMenu borderWhite'"><a class="mx-3 pr-2" download href="assets/images/pdf/UDISE+2018_19_Booklet.docx"><span><img src="assets/images/dash-icon/pdf-side.png"></span><span class="ml-2">UDISE+ Report 2018-19</span></a></li>
+            
+
+            <!-- <li [routerLink]="['/reportDashboard/citywiseReport']" [ngClass]="'liMenu borderWhite'" (click)="flagSet('static');sidenav.toggle()" [routerLinkActive]="['active']">
+                <a class="mx-3 pr-2"><span class="mr-2"><img src="assets/images/statics-icon.png" alt="Static Reports"></span> <span class="ml-2">City-wise Report</span> </a>
+            </li> -->
+
+            <!-- <li [routerLink]="['/sedashboard/national']" [ngClass]="'liMenu borderWhite'" (click)="flagSet('static')" [routerLinkActive]="['active']">
+                <a class="mx-3 pr-2"><span class="mr-2"><img src="assets/images/statics-icon.png" alt="Static Reports"></span> <span class="ml-2">National</span> </a>
+            </li>
+            <li [routerLink]="['/sedashboard/state']" [ngClass]="'liMenu borderWhite'" (click)="flagSet('static')" [routerLinkActive]="['active']">
+                <a class="mx-3 pr-2"><span class="mr-2"><img src="assets/images/statics-icon.png" alt="Static Reports"></span> <span class="ml-2">State</span> </a>
+            </li>
+            <li [routerLink]="['/sedashboard/schemes']" [ngClass]="'liMenu borderWhite'" (click)="flagSet('static')" [routerLinkActive]="['active']">
+                <a class="mx-3 pr-2"><span class="mr-2"><img src="assets/images/statics-icon.png" alt="Static Reports"></span> <span class="ml-2">Schemes</span> </a>
+            </li> -->
+
+            <!-- <li [routerLink]="['/reportDashboard/aReport']" [ngClass]="'liMenu borderWhite'" (click)="flagSet('Analytical')" [routerLinkActive]="['active']">
+                <a class="mx-3"><span class="mr-2"><img src="assets/images/analytical-icon.png" alt="Analytical Reports"></span> <span class="ml-2"> Analytical Reports</span> </a>
+            </li> -->
+        </ul>
+    </mat-sidenav>
+    <mat-sidenav-content style=" padding:0px; background-color: #f2f5fa; ">
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="btn-Back" style="background: #6a1c19;" mat-icon-button (click)="sidenav.toggle()">
+                    <mat-icon style="margin-top: -20px;">menu</mat-icon>
+                </button>
+            </div>
+            <div class="col-sm-6" *ngIf="videoFlag=='Y'">
+                <div class="row" style="margin-top:5px">
+                    <div class="col-sm-2" style="padding-top: 15px;">
+                        Help Videos
+                    </div>
+                    <div class='col-sm-9'>
+                        <mat-form-field style="width: 100%;">
+                            <mat-label>Analytical Video</mat-label>
+                            <mat-select (selectionChange)="downloadVideo($event.value)">
+                                <mat-option value="0">
+                                    Select
+                                </mat-option>
+                                <mat-option value="http://164.100.77.133/shagun/Q1.mp4">
+                                    Number of school state-wise in which primary girls enrolment is less than 500
+                                </mat-option>
+                                <mat-option value="http://164.100.77.133/shagun/Q2.mp4">
+                                    Number of school in punjab state in which secondary boys enrollment is equal to 200
+                                </mat-option>
+                                <mat-option value="http://164.100.77.133/shagun/Q3.mp4" style="margin-top: 20px;">
+                                    State wise school name in which secondary boys as well as secondary girls enrollment greater than equal to 200
+                                </mat-option>
+                                <mat-option value="http://164.100.77.133/shagun/Q4.mp4" style="margin-top: 30px;">
+                                    Number of school in each district of Gujarat state in which higher secondray enrollment is less than 100
+                                </mat-option>
+                                <mat-option value="http://164.100.77.133/shagun/Q5.mp4" style="margin-top: 40px;">
+                                    Number of school in chhattisgarh state-management wise in which total enrollment is grater than 300
+                                </mat-option>
+                                <mat-option value="http://164.100.77.133/shagun/Q6.mp4" style="margin-top: 50px;">
+                                    School name of govt aided only girls school in rural areas of Jaipur district og Rajasthan state in which total enrollment less than 50
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

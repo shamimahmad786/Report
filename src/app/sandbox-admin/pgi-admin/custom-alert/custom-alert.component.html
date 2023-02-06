@@ -1,0 +1,10 @@
+<div >
+<h2 matDialogTitle style="text-align: center;">Message</h2>
+<mat-dialog-content>
+  <p style="color: green;" [(ngModel)]="alertMessage">{{alertMessage}}</p>
+ <!-- <mat-card (messageEvent)="exParent($event)"></mat-card>  -->
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button matDialogClose="cancel" color="primary">Cancel</button>
+</mat-dialog-actions>
+</div>

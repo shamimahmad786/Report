@@ -1,0 +1,601 @@
+<div style="margin:5px!important; margin-top:40px; margin-bottom:50px; margin-left: 30px; margin-right: 30px;">
+    <mat-card-content>
+        <div class="clearfix border-bottom" style="background: #8d2825; color:white; border-radius: 5px;">
+            <div class="row">
+                <div class="col-md-7">
+                    <h5 style="font-weight: bolder; font-size: 22px; margin-left: 20px; margin-top: 15px;">Report</h5>
+                </div>
+                <div class="col-md-5" style="text-align: right; padding-right: 40px;">
+                    <mat-form-field class="example-full-width" style="margin-right: 5%;">
+                        <input matInput [(ngModel)]="tag" />
+                        <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field style="margin-right: 1%; padding: 0px;">
+                        <!-- <mat-label>Tag</mat-label> -->
+                        <mat-select (selectionChange)="selectReport($event)">
+                            <mat-option
+                                style="border-bottom: 1px solid #ccc; background: none; color: rgb(59, 59, 59);"><img
+                                    style="width: 16px; height:16px; margin-right:5%;"
+                                    src="assets/images/right-chevron.svg">All</mat-option>
+                            <mat-option *ngFor="let rTag of reportTag"
+                                style="border-bottom: 1px solid #ccc; background: none; color: rgb(59, 59, 59);"
+                                value="{{rTag.tagName}}"><img style="width: 16px; height:16px; margin-right:5%;"
+                                    src="assets/images/right-chevron.svg">{{rTag.tagName}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <!-- <div class="left"><img src="assets/images/info1.svg" width="20px;"></div> -->
+
+        </div>
+        <div class='col-sm-12' style='padding: 0px; margin-top: 1%;'>            
+            
+            <div class="card p-3" style="border-radius: 4px; margin-top: 1%;">
+                <div class="card-content px-3">
+                    <div class='col-sm-12' style='padding: 0px;margin-top: 1%;'>
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="clearfix" style="background-color: #8d2825; padding:5px 5px;">
+                                    <div class="float-left mt-2">
+                                        <h5 class="text-white mt-1 ml-2"><img src="assets/images/schoolwhite.svg"
+                                                width="20px" class="mr-2"><span style="margin-top:30px;">Aspirational</span>
+                                        </h5>
+                                    </div>
+                                    <!-- <div class="float-right">
+                                        <h6 class="text-white mt-1 mr-2">
+                                            <span class="badge badge-flat badge-primary-lit  text-pink-600 rounded-circle ">9</span>
+                                        </h6>
+                                    </div> -->
+                                </div>
+                                <div class="table-responsive">
+                                    <table class='col-md-12 tabl-font'>
+                                        <thead class="tabbleHeader">
+                                            <tr>
+                                                <th class="sNo" style="width:1%">S.No</th>
+                                                <th style="width: 5%"> Id </th>
+                                                <th style="width:60%"> Report Name </th>
+                                                <th style="width: 7%;"> Graph/Table </th>
+                                                <!-- <th style="width:30%"> Description</th> -->
+                                                <th style="width:20%">Tag</th>
+                                            </tr>
+                                        </thead>
+                                        <ng-container
+                                            *ngFor="let staticReportValue of aspirationalReport  let i = index">
+                                            <ng-container *ngIf="staticReportValue.id > 36 ">
+                                                <tr>
+                                                    <td class="sNo"><span title="{{staticReportValue.id}}"
+                                                            class="badge  border-primary badge-pill text-primary-600">{{i+1}}</span>
+                                                    </td>
+                                                    <!-- <tr *ngFor="let staticReportValue of staticReportValues | tablePipe: 'tag': tag"> -->
+                                                    <td style="display: none;">{{staticReportValue.ordernumber}}</td>
+
+                                                    <td> <span
+                                                            class="badge badge-flat border-primary badge-pill text-primary-600">
+                                                            {{staticReportValue.ordernumber}} </span></td>
+                                                    <td>
+                                                        <!-- <span class="badge badge-flat badge-primary  text-pink-600 rounded-circle">A</span> -->
+                                                        {{staticReportValue.report_name}}
+                                                    </td>
+                                                    <td>
+                                                        <ng-container *ngIf="staticReportValue.chartFlag">
+                                                            <img (click)="openPieXl(staticReportValue.id,staticReportValue.report_name,staticReportValue.ordernumber)"
+                                                                (click)="getChartsData(staticReportValue.id)"
+                                                                src="assets/images/graph2.svg" width="20px"
+                                                                class="mr-2">
+                                                        </ng-container>
+                                                        <ng-container *ngIf="!staticReportValue.chartFlag">
+                                                            <img src="assets/images/wht-blnk.png" width="20px"
+                                                                class="mr-2">
+                                                        </ng-container>
+                                                        <img (click)="openXl(staticReportValue.id,staticReportValue.report_name,staticReportValue.ordernumber)"
+                                                            (click)="getTabularDataAllYear(staticReportValue.id)"
+                                                            style="margin-left: -25px !important;cursor: pointer;"
+                                                            src="assets/images/edit-tools.svg" width="20px">
+                                                    </td>
+                                                    <!-- <td>{{staticReportValue.tag}}</td> -->
+                                                    <td>{{staticReportValue.reportTag}}</td>
+                                                </tr>
+                                            </ng-container>
+                                        </ng-container>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </mat-card-content>
+
+
+    <ng-template #aspirationalAgGridAllYear let-modal style="min-width: 100%;">
+
+        <div class="modal-header" style="display: block; text-align: center; background:#000e75d4">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="clearfix">
+                        <div class="float-left">
+                            <h4 class="text-white align-middle">{{uniHeader}}</h4>
+                        </div>
+                        <div class="float-right">
+                            <ul class="reportCard">
+                                <li>
+                                    <span class="text-white">Report Id:</span> <strong
+                                        class="badge badge-flat mx-3  border-white text-white">{{reportOrder}}</strong>
+                                </li>
+    
+                                <li>
+                                    <img width="16" src='assets/images/pdf.svg' (click)="convert(reportOrder)" class="mr-3"
+                                        style="cursor: pointer;" />
+                                </li>
+                                <li>
+                                    <img width="16" src='assets/images/excell.png' (click)="onBtExport()" class="mr-3"
+                                        style="cursor: pointer;" />
+                                </li>
+                                <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button> -->
+                                <li> <a style="cursor: pointer;" type="button" class="close mr-3 p-0 border-none btn" aria-label="Close"
+                                        (click)="modal.dismiss('Cross click')">
+                                        <span style="font-size: 20px; color: rgb(0 0 0 / 100%);" aria-hidden="true">&times;
+                                        </span></a> </li>
+    
+                            </ul>
+    
+    
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="col-md-10" style="color: white">
+    
+    
+                </div>
+                <div class="col-md-1">
+    
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-body" style="min-width: 100%; max-height: 750px;">
+            <div style="align-content:center; margin-bottom: 10px;">
+                <button class="btn btn-primary" (click)="modal.dismiss()">Get Deatiled Data of Selected Year</button>
+            </div>               
+            <ag-grid-angular #agGrid
+                style="width: 100%; height: 500px;"
+                class="ag-theme-balham"
+                id="myGrid"
+                [rowData] = rowData
+                [columnDefs] = columnDefs
+                rowSelection="multiple"
+                [defaultColDef]="defaultColDef"
+                [autoGroupColumnDef]="autoGroupColumnDef"
+                [enableRangeSelection]="true"
+                [animateRows]="true"
+                [suppressAggFuncInHeader] = "true"
+                (gridReady)="onGridReady($event)"
+            ></ag-grid-angular>
+        </div>
+    
+    </ng-template>
+
+
+    <ng-template #aspirationalAgGridSingleYear let-modal style="min-width: 100%; min-height: 1000px;">
+
+        <div class="modal-header" style="display: block; text-align: center; background:#000e75d4; ">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="clearfix">
+                        <div class="float-left">
+                            <h4 class="text-white align-middle">{{uniHeader}}</h4>
+                        </div>
+                        <div class="float-right">
+                            <ul class="reportCard">
+                                <li>
+                                    <span class="text-white">Report Id:</span> <strong
+                                        class="badge badge-flat mx-3  border-white text-white">{{reportOrder}}</strong>
+                                </li>
+    
+                                <!-- <li>
+                                    <img width="16" src='assets/images/pdf.svg' (click)="convert(reportOrder)" class="mr-3"
+                                        style="cursor: pointer;" />
+                                </li> -->
+                                <li>
+                                    <img width="16" src='assets/images/excell.png' (click)="onBtExport()" class="mr-3"
+                                        style="cursor: pointer;" />
+                                </li>
+                                <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button> -->
+                                <li> <a style="cursor: pointer;" type="button" class="close mr-3 p-0 border-none btn" aria-label="Close"
+                                        (click)="modal.dismiss('Cross click')">
+                                        <span style="font-size: 20px; color: rgb(0 0 0 / 100%);" aria-hidden="true">&times;
+                                        </span></a> </li>
+    
+                            </ul>
+    
+    
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="col-md-10" style="color: white">
+    
+    
+                </div>
+                <div class="col-md-1">
+    
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-body" style="min-width: 100%; max-height: 750px;">
+            <div class="row" style="margin:0%;  color: black;">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-4" *ngIf="yearShow">
+    
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label mt-2 text-right">Year</label>
+                                <div class="col-sm-10">
+                                    <!-- <div *ngIf="!isValid">
+                                        <select class="form-control" required>
+                                            <option>Select</option>
+                                        </select>
+                                    </div> -->
+                                    <select *ngIf="isValid; else newOne" class="form-control" required>
+                                        <option>Select</option>
+                                    </select>
+                                    
+                                        <ng-template #newOne>
+                                            <!-- {{combinedyearList}} -->
+                                            <select class="form-control" required [(ngModel)]="uniYear"
+                                                (change)="getYear($event)">
+                                                <option *ngFor="let item of combinedyearList index let i = index"
+                                                    value="{{item}}">{{item}}</option>
+    
+                                                <!-- <option value="2018-19">2018-19</option>
+                                            <option value="2017-18">2017-18</option>
+                                            <option value="2016-17">2016-17</option>
+                                            <option value="2015-16">2015-16</option>
+                                            <option value="2014-15">2014-15</option>
+                                            <option value="2013-14">2013-14</option>
+                                            <option value="2012-13">2012-13</option> -->
+                                            </select>
+                                        </ng-template>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-4" *ngIf="stateShow">
+    
+                            <div class="form-group row">
+                                <label for="staticEmail"
+                                    class="col-sm-4 col-form-label mt-2 text-right">India/State/UT</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" required [(ngModel)]="uniState"
+                                        (change)="getDistrict($event);">
+                                        <option value="national">All India/National</option>
+                                        <option value="all">State-wise</option>
+                                        <option value="{{st.udise_state_code}}" *ngFor="let st of state">{{st.state_name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="col-md-3 col-sm-4" *ngIf="distShow">
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label mt-2 text-right">District</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" required [(ngModel)]="uniDist">
+                                        <option value="none">Select</option>
+                                        <option value="all">District-wise</option>
+                                        <option value="{{dist.udise_district_code}}" *ngFor="let dist of district">
+                                            {{dist.district_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                        </div>
+                        <!-- <div class="col-md-3 col-sm-4" *ngIf="blockShow">
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label mt-2 text-right">Block</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" required [(ngModel)]="uniBlock"
+                                        (change)="getRegion($event)">
+                                        <option value="none">Select</option>
+                                        <option value="all">Block-wise</option>
+                                        <option value="{{block.udise_block_code}}" *ngFor="let block of block">
+                                            {{block.block_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+    
+                        </div> -->
+                    </div>
+                </div>
+    
+    
+    
+                <!-- <div class="col-sm-4">
+                    <ul class="reportCard">
+                        <li>
+                            <span style="color: #767676;">Report Id: &nbsp;</span> <strong
+                                class="badge badge-flat badge-pill border-primary text-primary-600">{{reportOrder}}</strong>
+                        </li>
+    
+                        <li>
+                            <label>
+                                <button (click)="convert()" style="margin: 0 0 0 15px; padding: 0;
+                                font-weight: bold;border: none; background: none;">
+                                    <img style="cursor: pointer;" width="24" height="24" src='assets/images/pdf.svg' />
+                                </button>
+    
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <button (click)="onBtExport()"
+                                    style="margin: 0 0 0 5px; padding: 0; font-weight: bold;border: none; background: none;">
+                                    <img style="cursor: pointer;" width="24" height="24" src='assets/images/excell.png' />
+                                </button>
+                            </label>
+    
+                        </li>
+    
+                    </ul>
+    
+                    <div class="row text-center">
+                        <div class="col-sm-6" style="margin-top: 15px;">
+    
+                        </div>
+    
+    
+                        <div class="col-sm-3" style="padding:5px">
+    
+                        </div>
+    
+                        <div class="col-sm-3" style="padding:5px">
+    
+                        </div>
+                    </div>
+    
+    
+    
+                </div> -->
+            </div>
+
+            <ag-grid-angular #agGrid
+                style="width: 100%; height: 650px;"
+                class="ag-theme-balham"
+                id="myGrid"
+                [rowData] = rowData
+                [columnDefs] = universalAgGridColumnDefs
+                rowSelection="multiple"
+                [defaultColDef]="defaultColDef"
+                [autoGroupColumnDef]="autoGroupColumnDef"
+                [enableRangeSelection]="true"
+                [animateRows]="true"
+                [suppressAggFuncInHeader] = "true"
+                (gridReady)="onGridReady($event)"
+                (columnVisible)="onColumnVisible($event)"
+            ></ag-grid-angular>
+
+        </div>
+    
+    </ng-template>
+
+    <ng-template #aspirationalAgGridwithBlock let-modal style="min-width: 100%; min-height: 1000px;">
+
+        <div class="modal-header" style="display: block; text-align: center; background:#000e75d4; ">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="clearfix">
+                        <div class="float-left">
+                            <h4 class="text-white align-middle">{{uniHeader}}</h4>
+                        </div>
+                        <div class="float-right">
+                            <ul class="reportCard">
+                                <li>
+                                    <span class="text-white">Report Id:</span> <strong
+                                        class="badge badge-flat mx-3  border-white text-white">{{reportOrder}}</strong>
+                                </li>
+    
+                                <!-- <li>
+                                    <img width="16" src='assets/images/pdf.svg' (click)="convert(reportOrder)" class="mr-3"
+                                        style="cursor: pointer;" />
+                                </li> -->
+                                <li>
+                                    <img width="16" src='assets/images/excell.png' (click)="onBtExport()" class="mr-3"
+                                        style="cursor: pointer;" />
+                                </li>
+                                <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button> -->
+                                <li> <a style="cursor: pointer;" type="button" class="close mr-3 p-0 border-none btn" aria-label="Close"
+                                        (click)="modal.dismiss('Cross click')">
+                                        <span style="font-size: 20px; color: rgb(0 0 0 / 100%);" aria-hidden="true">&times;
+                                        </span></a> </li>
+    
+                            </ul>
+    
+    
+                        </div>
+                    </div>
+    
+                </div>
+                <div class="col-md-10" style="color: white">
+    
+    
+                </div>
+                <div class="col-md-1">
+    
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-body" style="min-width: 100%; max-height: 750px;">
+            <div class="row" style="margin:0%;  color: black;">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-4" *ngIf="yearShow">
+    
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label mt-2 text-right">Year</label>
+                                <div class="col-sm-10">
+                                    <!-- <div *ngIf="!isValid">
+                                        <select class="form-control" required>
+                                            <option>Select</option>
+                                        </select>
+                                    </div> -->
+                                    <select *ngIf="isValid; else newOne" class="form-control" required>
+                                        <option>Select</option>
+                                    </select>
+                                    
+                                        <ng-template #newOne>
+                                            <!-- {{combinedyearList}} -->
+                                            <select class="form-control" required [(ngModel)]="uniYear"
+                                                (change)="getYear($event)">
+                                                <option *ngFor="let item of combinedyearList index let i = index"
+                                                    value="{{item}}">{{item}}</option>
+    
+                                                <!-- <option value="2018-19">2018-19</option>
+                                            <option value="2017-18">2017-18</option>
+                                            <option value="2016-17">2016-17</option>
+                                            <option value="2015-16">2015-16</option>
+                                            <option value="2014-15">2014-15</option>
+                                            <option value="2013-14">2013-14</option>
+                                            <option value="2012-13">2012-13</option> -->
+                                            </select>
+                                        </ng-template>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-4" *ngIf="distShow">
+    
+                            <div class="form-group row">
+                                <label for="staticEmail"
+                                    class="col-sm-4 col-form-label mt-2 text-right">District</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" required [(ngModel)]="uniDist"
+                                        (change)="getDistrict($event);">
+                                        <option value="none">Select</option>
+                                        <!-- <option value="national">All India/National</option> -->
+                                        <option value="all">District-wise</option>
+                                        <option value="{{st.udise_district_code}}" *ngFor="let st of state">{{st.district_name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="col-md-3 col-sm-4" *ngIf="blockShow">
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label mt-2 text-right">Block</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control"
+                                    (change)="getRegion($event)">
+                                        <option value="none">Select</option>
+                                        <option value="all">Block-wise</option>
+                                        <option value="{{dist.udise_block_code}}" *ngFor="let dist of district">
+                                            {{dist.block_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                        </div>
+                        <!-- <div class="col-md-3 col-sm-4" *ngIf="blockShow">
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-2 col-form-label mt-2 text-right">Block</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" required [(ngModel)]="uniBlock"
+                                        (change)="getRegion($event)">
+                                        <option value="none">Select</option>
+                                        <option value="all">Block-wise</option>
+                                        <option value="{{block.udise_block_code}}" *ngFor="let block of block">
+                                            {{block.block_name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+    
+                        </div> -->
+                    </div>
+                </div>
+    
+    
+    
+                <!-- <div class="col-sm-4">
+                    <ul class="reportCard">
+                        <li>
+                            <span style="color: #767676;">Report Id: &nbsp;</span> <strong
+                                class="badge badge-flat badge-pill border-primary text-primary-600">{{reportOrder}}</strong>
+                        </li>
+    
+                        <li>
+                            <label>
+                                <button (click)="convert()" style="margin: 0 0 0 15px; padding: 0;
+                                font-weight: bold;border: none; background: none;">
+                                    <img style="cursor: pointer;" width="24" height="24" src='assets/images/pdf.svg' />
+                                </button>
+    
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <button (click)="onBtExport()"
+                                    style="margin: 0 0 0 5px; padding: 0; font-weight: bold;border: none; background: none;">
+                                    <img style="cursor: pointer;" width="24" height="24" src='assets/images/excell.png' />
+                                </button>
+                            </label>
+    
+                        </li>
+    
+                    </ul>
+    
+                    <div class="row text-center">
+                        <div class="col-sm-6" style="margin-top: 15px;">
+    
+                        </div>
+    
+    
+                        <div class="col-sm-3" style="padding:5px">
+    
+                        </div>
+    
+                        <div class="col-sm-3" style="padding:5px">
+    
+                        </div>
+                    </div>
+    
+    
+    
+                </div> -->
+            </div>
+
+            <ag-grid-angular #agGrid
+                style="width: 100%; height: 600px;"
+                class="ag-theme-balham"
+                id="myGrid"
+                [rowData] = rowData
+                [columnDefs] = universalAgGridColumnDefs
+                rowSelection="multiple"
+                [defaultColDef]="defaultColDef"
+                [autoGroupColumnDef]="autoGroupColumnDef"
+                [enableRangeSelection]="true"
+                [animateRows]="true"
+                [suppressAggFuncInHeader] = "true"
+                [sideBar]="true"
+                [pinnedBottomRowData]="pinnedBottomRowData"
+                (gridReady)="onGridReady($event)"
+                (columnVisible)="onColumnVisible($event)"
+                (filterChanged)="onFilterChanged($event)"
+                [excelStyles]="excelStyles"
+            ></ag-grid-angular>
+
+        </div>
+    
+    </ng-template>
+</div>

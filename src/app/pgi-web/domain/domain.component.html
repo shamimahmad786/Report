@@ -1,0 +1,123 @@
+<section id="banner">
+  <img data-src="assets/images/domain-banner/{{pgiService.domainDetails.banner}}" src="assets/images/blur.png"
+    alt="{{pgiService.domainDetails.value}}" class="img-fluid w-100" appLoadBanner>
+  <div class="container banner-caption">
+    <div class="row h-100">
+      <div class="col-md-10 d-flex align-items-center">
+        <div>
+          <h2>{{pgiService.domainDetails.value}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="mt-0 gray position-relative" id="main_content">
+  <div class="container">
+    <div class="about-domain d-flex">
+      <h3 class="heading m-0 text-left align-self-center position-relative">Understand <br /><span>the Domain</span>
+      </h3>
+      <div class="divider"></div>
+      <p class="m-0 align-self-center">{{pgiService.domainDetails.text}}</p>
+    </div>
+  </div>
+  <div class="d-nav">
+    <a *ngIf="domainId !== 1" [routerLink]="['/domain', domainId - 1]" class="d-nav-prev"></a>
+    <a *ngIf="domainId !== 5" [routerLink]="['/domain', domainId + 1]" class="d-nav-next"></a>
+  </div>
+</section>
+<section class="about-section" id="main_content">
+  <div class="container">
+    <div class="row performance d-flex">
+      <div class="col-md-4 animated zoomIn wow">
+        <div class="performance-block">
+          <figure><img src="assets/images/first-place.svg" alt="Top State" class="img-fluid"></figure>
+          <div class="performance-title first">Top State/UT in <div>{{pgiService.domainDetails.value}}</div>
+          </div>
+          <div class="performance-score">{{pgiService.topDomainStates[0].stateName}}</div>
+        </div>
+      </div>
+      <div class="col-md-4 animated zoomIn wow" data-wow-delay="0.2s">
+        <div class="performance-block">
+          <figure><img src="assets/images/high.svg" alt="Highest Score" class="img-fluid">
+          </figure>
+          <div class="performance-title">Highest Score</div>
+          <div class="performance-score">
+            {{pgiService.topDomainStates[0].domainScore['domain' + domainId]}}/{{pgiService.topDomainStates[0].domainScore['domain' + domainId + 'Max']}}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 animated zoomIn wow" data-wow-delay="0.4s">
+        <div class="performance-block">
+          <figure><img src="assets/images/low.svg" alt="Lowest Score" class="img-fluid">
+          </figure>
+          <div class="performance-title">Lowest Score</div>
+          <div class="performance-score">
+            {{pgiService.topDomainStates[pgiService.topDomainStates.length-1].domainScore['domain' + domainId]}}/{{pgiService.topDomainStates[pgiService.topDomainStates.length-1].domainScore['domain' + domainId + 'Max']}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="state-carousel gray">
+  <div class="container">
+    <h2 class="heading">State<code>s</code>/UT<code>s</code> Performance In <span>{{pgiService.domainDetails.value}}</span></h2>
+    <div class="card-carousel card-view domain-slider">
+      <owl-carousel-o [options]="smSlider">
+        <ng-container *ngFor="let slide of pgiService.topDomainStates" class="my-card">
+          <ng-template carouselSlide>
+            <a [routerLink]="['/state', slide.stateId]">
+              <img src="assets/images/state-carousel/{{slide.banner}}" alt="{{slide.stateName}}" class="state-img">
+              <div class="card-caption d-flex align-items-center justify-content-center front">
+                <div>
+                  <div
+                    class="state-map mx-auto small mr-3 grade-{{slide.domainScore.grade==1?'one':(slide.domainScore.grade==2?'two':(slide.domainScore.grade==3?'three' : (slide.domainScore.grade==4?'four':(slide.domainScore.grade==5?'five': 'six'))))}}">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"
+                      [innerHtml]="slide.path | safeSvg"></svg>
+                  </div>
+                  <div class="card-name">{{slide.stateName}}</div>
+                </div>
+              </div>
+              <div class="card-caption d-flex align-items-center justify-content-center hover">
+                <div class="card-data">
+                  <figure><img src="assets/images/{{pgiService.domainDetails.id}}.svg" alt=""></figure>
+                  <div class="card-name mb-4">{{slide.key}}</div>
+                  <h5 class="m-0">Domain Score</h5>
+                  <h2>{{slide.domainScore['domain' + domainId]}}/{{slide.domainScore['domain' + domainId + 'Max']}}</h2>
+                </div>
+                <div
+                  class="card-footer  grade-{{slide.domainScore.grade==1?'one':(slide.domainScore.grade==2?'two':(slide.domainScore.grade==3?'three' : (slide.domainScore.grade==4?'four':(slide.domainScore.grade==5?'five': 'six'))))}}">
+                  Grade
+                  {{slide.domainScore.grade==1?'I':(slide.domainScore.grade==2?'II':(slide.domainScore.grade==3?'III' : (slide.domainScore.grade==4?'IV':(slide.domainScore.grade==5?'V': 'VI'))))}}
+                </div>
+              </div>
+            </a>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>
+<section class="topper-states">
+  <div class="container">
+    <h2 class="heading mb-1">Top <span>Performers</span> in <span>{{pgiService.domainDetails.value}}</span></h2>
+    <div class="row">
+      <div class="col-lg-4 col-md-6" *ngFor="let achiver of pgiService.topPerformerStates; let i = index">
+        <div class="media state-block align-items-center animated zoomIn wow"
+          attr.data-wow-delay="{{((i + 1) * 200) + 'ms'}}">
+          <div
+            class="state-map small mr-4 grade-{{achiver.domainScore.grade==1?'one':(achiver.domainScore.grade==2?'two':(achiver.domainScore.grade==3?'three' : (achiver.domainScore.grade==4?'four':(achiver.domainScore.grade==5?'five': 'six'))))}}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" [innerHtml]="achiver.path | safeSvg"></svg>
+          </div>
+          <div class="media-body">
+            <h5 class="mt-0 text-uppercase state-name">{{achiver.stateName}}</h5>
+            <h6 class="text-uppercase grade">Grade
+              {{achiver.domainScore.grade==1?'I':(achiver.domainScore.grade==2?'II':(achiver.domainScore.grade==3?'III' : (achiver.domainScore.grade==4?'IV':(achiver.domainScore.grade==5?'V': 'VI'))))}}
+            </h6>
+            <a [routerLink]="['/state', achiver.stateId]" class="button purplle sm">more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

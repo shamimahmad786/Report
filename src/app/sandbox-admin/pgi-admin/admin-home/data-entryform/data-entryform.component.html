@@ -1,0 +1,1040 @@
+<h1 class="mb-2 page-head">Data Entry Form</h1>
+<div *ngIf="currentUser.paramName === 'STLU'">
+    <form #def="ngForm" (ngSubmit)="def.valid && saveStateIndScore()">
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Year</mat-label>
+                    <mat-select [(ngModel)]="dataModel.year" required name="year" (ngModelChange)="getCycle();">
+                        <mat-option *ngFor="let y of years" [value]="y.value">
+                            {{y.key}} </mat-option>
+                    </mat-select>
+                    <mat-error>Please select Year</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Cycle</mat-label>
+                    <mat-select [(ngModel)]="dataModel.cycle" required name="cycle" (ngModelChange)="getCategory()">
+                        <mat-option *ngFor="let cycle of cycles" [value]="cycle.cycleId">
+                            {{cycle.cycleCode}} - ({{cycle.cycleDesc}}) </mat-option>
+                    </mat-select>
+                    <mat-error>Please select Cycle</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Category</mat-label>
+                    <mat-select [(ngModel)]="dataModel.category" required name="category" (ngModelChange)="getDomain();">
+                        <mat-option *ngFor="let cat of categories" [value]="cat.categoryId">
+                            {{cat.categoryName}} </mat-option>
+                    </mat-select>
+                    <mat-error>Please select Category</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Domain</mat-label>
+                    <mat-select [(ngModel)]="dataModel.domain" required name="domain" (ngModelChange)="getIndicator();">
+                        <mat-option *ngFor="let dom of domains" [value]="dom.domainId">
+                            {{dom.domainName}} </mat-option>
+                    </mat-select>
+                    <mat-error>Please select Domain</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Indicator</mat-label>
+                    <mat-select [(ngModel)]="dataModel.indicator" required name="indicator" (ngModelChange)="getIndValue();">
+                        <mat-option *ngFor="let ind of indicators" [value]="ind.indId" title="{{ind.name}}" [disabled]="ind.weight === 0">
+                            {{ind.serial}} {{ind.name}} </mat-option>
+                    </mat-select>
+                    <mat-error>Please select State</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Previous Value</mat-label>
+                    <input type="number" matInput placeholder="Previous Value" [(ngModel)]="dataModel.prevValue" name="prevValue" required disabled>
+                    <mat-icon matSuffix>email_outline</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Current Value</mat-label>
+                    <input type="number" matInput placeholder="Current Value" [(ngModel)]="dataModel.crntValue" name="crntValue" required>
+                    <mat-icon matSuffix>email_outline</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="text-right">
+            <button type="button" (click)="def.reset()" class="mr-2">Cancel</button>
+            <button type="submit" mat-raised-button color="primary" class="btn-gradient" [disabled]="!def.valid">
+                <span *ngIf="!showOverlay">Submit</span>
+                <span *ngIf="showOverlay"><span class="spinner-grow spinner-grow-sm" role="status"
+                        aria-hidden="true"></span>
+                    Loading...</span>
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- <div *ngIf="currentUser.paramName === 'DLU'">
+    <div>
+        <table class="w-100" mat-table [dataSource]="districtQuestions">
+
+            <ng-container matColumnDef="quesSeries">
+                <th mat-header-cell *matHeaderCellDef width="70px"> No. </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="{'font-weight-bold' : (element.questionType == null)}"> {{element.quesSeries}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="quesDesc">
+                <th mat-header-cell *matHeaderCellDef> Question </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="{'font-weight-bold' : (element.questionType == null)}"> {{element.quesDesc}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="questionType">
+                <th mat-header-cell *matHeaderCellDef> Input </th>
+                <td mat-cell *matCellDef="let element">
+                    <div *ngIf="element.questionType === 'R'">
+                        <mat-radio-group aria-label="Select an option">
+                            <mat-radio-button value="Y">Yes</mat-radio-button>
+                            &nbsp;
+                            <mat-radio-button value="N">No</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div *ngIf="element.questionType === 'I' && element.fieldcount == 1">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Input Value</mat-label>
+                            <input type="number" matInput name="disValue" required>
+                        </mat-form-field>
+                    </div>
+                    <div *ngIf="element.questionType === 'I' && element.fieldcount == 2">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Input Value</mat-label>
+                            <input type="number" matInput name="disValue" required>
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Input Value</mat-label>
+                            <input type="number" matInput name="disValue" required>
+                        </mat-form-field>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSize]="7" [hidePageSize]="true" showFirstLastButtons>
+        </mat-paginator>
+    </div>
+</div> -->
+
+
+
+<div *ngIf="currentUser.paramName === 'DLU'">
+    <!-- <mat-tab-group (selectedTabChange)="getDistrictQuestions($event.index)"> -->
+    <mat-tab-group (selectedTabChange)="tabSelection($event.index)">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <span class="tab-text">Norms</span>
+            </ng-template>
+            <div>Waiting</div>
+        </mat-tab>
+        <mat-tab #firstTab>
+            <div style="text-align:center; background:bisque">Learning outcomes and Quality :
+                <span class="tab-number" style="color: blue;">{{loCount}}/7</span>
+            </div>
+            <ng-template mat-tab-label>
+                <span class="tab-text">Learning outcomes and Quality</span>
+                <span class="tab-number" style="color: blue;">{{loCount}}/7</span>
+                <!-- Learning outcomes and Quality <br>  -->
+            </ng-template>
+
+            <div>
+                <div>
+                    <!-- <table #LoTable class="table">
+                        <tr>
+                            <th>No.</th>
+                            <th>Question</th>
+                            <th>Input</th>
+                        </tr>
+                        <tr *ngFor="let dques of loQuestion; let i=index;">
+                            <td>{{dques.quesSeries}}</td>
+                            <td>{{dques.quesDesc}}</td>
+                            <td>
+                                <div *ngIf="dques.questionType === 'R'">
+                                    <mat-radio-group aria-label="Select an option" [(ngModel)]="loQuestion[i].columnR1" #radioGroup="matRadioGroup">
+                                        <mat-radio-button value="Y">Yes</mat-radio-button>
+                                        &nbsp;
+                                        <mat-radio-button value="N">No</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                                <div *ngIf="dques.questionType === 'I'">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Input Value</mat-label>
+                                        <input type="string" matInput [(ngModel)]="loQuestion[i].columnR1" name="disValue" required>
+                                    </mat-form-field>
+                                </div>
+                            </td>
+                            <td>
+                                <div *ngIf="dques.questionType === 'I' && dques.fieldcount == 2">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Input Value</mat-label>
+                                        <input type="string" matInput [(ngModel)]="loQuestion[i].columnR2" name="disValue" required>
+                                    </mat-form-field>
+                                </div>
+                            </td>
+                        </tr>
+                    </table> -->
+                    <table #DLTable class="table">
+                        <tr>
+                            <th>No.</th>
+                            <th>Question</th>
+                            <th>Input</th>
+                            <th>Total School</th>
+                        </tr>
+                        <ng-container *ngFor="let dques of loQuestion; let i=index;">
+                            <ng-container *ngIf="dques.fieldcount == 2" style="border: 1px solid red">
+                                <tr>
+                                    <td>{{dques.quesSeries}}</td>
+                                    <td colspan="2" style="width:35%">{{dques.quesDesc}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>weight</mat-label>
+                                            <input type="string" matInput value="{{dques.weight}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>% Value</mat-label>
+                                            <input type="string" matInput name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Points</mat-label>
+                                            <input type="string" matInput name="disValue" disabled>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2">{{dques.subquestiondesc1}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>weight</mat-label>
+                                            <input type="string" matInput (change)="calValue('LO',i,$event.target.value)" [(ngModel)]="loQuestion[i].columnR1" name="disValue" required>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2">{{dques.subquestiondesc2}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>weight</mat-label>
+                                            <input type="string" matInput (change)="calValue('LO',i,$event.target.value)" [(ngModel)]="loQuestion[i].columnR2" name="disValue" required>
+                                        </mat-form-field>
+                                    </td>
+
+                                </tr>
+                            </ng-container>
+                            <ng-container *ngIf="dques.fieldcount == 1">
+                                <tr>
+                                    <td>{{dques.quesSeries}}</td>
+                                    <td colspan="2" style="width:35%">{{dques.quesDesc}}</td>
+                                    <td>
+                                        <ng-container *ngIf="dques.questionType === 'R'">
+                                            <mat-radio-group aria-label="Select an option" (change)="calValue('LO',i,$event.value)" style="margin-right: 10%" [(ngModel)]="loQuestion[i].columnR1" #radioGroup="matRadioGroup">
+                                                <mat-radio-button value="Y">Yes</mat-radio-button>
+                                                &nbsp;
+                                                <mat-radio-button value="N">No</mat-radio-button>
+                                            </mat-radio-group>
+                                        </ng-container>
+                                        <ng-container *ngIf="dques.questionType === 'I'">
+                                            <mat-form-field appearance="outline" style="margin-right: 5px;">
+                                                <mat-label>Input Value</mat-label>
+                                                <input type="string" matInput (change)="calValue('LO',i,$event.target.value)" [(ngModel)]="loQuestion[i].columnR1" name="disValue" required>
+                                            </mat-form-field>
+                                        </ng-container>
+                                        <mat-form-field appearance="outline" style="margin-right: 5px;">
+                                            <mat-label>weight</mat-label>
+                                            <input type="string" matInput value="{{dques.weight}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline" style="margin-right: 5px;">
+                                            <mat-label>% Value</mat-label>
+                                            <input type="string" [(ngModel)]="loQuestion[i].columnRPR" matInput name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline" style="margin-right: 5px;">
+                                            <mat-label>Points</mat-label>
+                                            <input type="string" [(ngModel)]="loQuestion[i].columnRPS" matInput name="disValue" disabled>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                        </ng-container>
+                    </table>
+                    <div style="text-align:center">
+                        <button mat-raised-button color="primary" (click)="saveData('LO')">save</button>
+                    </div>
+
+                    <!-- <table class="w-100" mat-table [dataSource]="districtQuestions">
+        
+                    <ng-container matColumnDef="quesSeries">
+                        <th mat-header-cell *matHeaderCellDef width="70px"> No. </th>
+                        <td mat-cell *matCellDef="let element" [ngClass]="{'font-weight-bold' : (element.questionType == null)}"> {{element.quesSeries}} </td>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="quesDesc">
+                        <th mat-header-cell *matHeaderCellDef> Question </th>
+                        <td mat-cell *matCellDef="let element" [ngClass]="{'font-weight-bold' : (element.questionType == null)}"> {{element.quesDesc}} </td>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="questionType">
+                        <th mat-header-cell *matHeaderCellDef> Input </th>
+                        <td mat-cell *matCellDef="let element">
+                            <div *ngIf="element.questionType === 'R'">
+                                <mat-radio-group aria-label="Select an option">
+                                    <mat-radio-button value="Y">Yes</mat-radio-button>
+                                    &nbsp;
+                                    <mat-radio-button value="N">No</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                            <div *ngIf="element.questionType === 'I' && element.fieldcount == 1">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Input Value</mat-label>
+                                    <input type="number" matInput name="disValue"  [(ngModel)]="element.age" required>
+                                </mat-form-field>
+                            </div>
+                            <div *ngIf="element.questionType === 'I' && element.fieldcount == 2">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Input Value</mat-label>
+                                    <input type="number" matInput name="disValue" required>
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Input Value</mat-label>
+                                    <input type="number" matInput name="disValue" required>
+                                </mat-form-field>
+                            </div>
+                        </td>
+                    </ng-container>
+        
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <mat-paginator [pageSize]="7" [hidePageSize]="true" showFirstLastButtons>
+                </mat-paginator> -->
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab>
+            <div style="text-align:center; background:bisque">
+                <span class="tab-number" style="color: blue;">{{dlCount}}/10</span>
+            </div>
+            <ng-template mat-tab-label>
+                <span class="tab-text">Digital Learning (DL)</span>
+                <span class="tab-number" style="color: blue;">{{dlCount}}/10</span>
+            </ng-template>
+            <div>
+                <div>
+                    <div>
+                        <table #DLTable class="table">
+                            <tr>
+                                <th>No.</th>
+                                <th>Question</th>
+                                <th>Input</th>
+                                <th>Total School</th>
+                            </tr>
+                            <ng-container *ngFor="let dques of dlQuestion; let i=index;">
+                                <ng-container *ngIf="dques.fieldcount == 2" style="border: 1px solid red">
+                                    <tr>
+                                        <td>{{dques.quesSeries}}</td>
+                                        <td colspan="2" style="width:50%">{{dques.quesDesc}}</td>
+                                        <td>
+                                            <mat-form-field appearance="outline">
+                                                <mat-label>weight</mat-label>
+                                                <input type="string" matInput  value="{{dques.weight}}" name="disValue" disabled>
+                                            </mat-form-field>
+                                            <mat-form-field appearance="outline">
+                                                <mat-label>% Value</mat-label>
+                                                <input type="string" matInput value="{{dques.columnRPR}}" name="disValue" disabled>
+                                            </mat-form-field>
+                                            <mat-form-field appearance="outline">
+                                                <mat-label>Points</mat-label>
+                                                <input type="string" value="{{dques.columnRPS}}" matInput name="disValue" disabled>
+                                            </mat-form-field>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="2">{{dques.subquestiondesc1}}</td>
+                                        <td>
+                                            <mat-form-field appearance="outline">
+                                                <mat-label>input</mat-label>
+                                                <input type="string" (change)="calValue('DL',i,$event.target.value)" matInput [(ngModel)]="dlQuestion[i].columnR1" name="disValue" required>
+                                            </mat-form-field>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="2">{{dques.subquestiondesc2}}</td>
+                                        <td>
+                                            <mat-form-field appearance="outline">
+                                                <mat-label>input</mat-label>
+                                                <input type="string" matInput (change)="calValue('DL',i,$event.target.value)" [(ngModel)]="dlQuestion[i].columnR2" name="disValue" required>
+                                            </mat-form-field>
+                                        </td>
+
+                                    </tr>
+                                </ng-container>
+                                <ng-container *ngIf="dques.fieldcount == 1">
+                                    <tr>
+                                        <td>{{dques.quesSeries}}</td>
+                                        <td colspan="2" style="width:50%">{{dques.quesDesc}}</td>
+                                        <td>
+                                            <ng-container *ngIf="dques.questionType === 'R'">
+                                                <mat-radio-group aria-label="Select an option" (change)="calValue('DL',i,$event.value)" style="margin-right: 10%" [(ngModel)]="dlQuestion[i].columnR1" #radioGroup="matRadioGroup">
+                                                    <mat-radio-button value="Y">Yes</mat-radio-button>
+                                                    &nbsp;
+                                                    <mat-radio-button value="N">No</mat-radio-button>
+                                                </mat-radio-group>
+                                            </ng-container>
+                                            <ng-container *ngIf="dques.questionType === 'I'">
+                                                <mat-form-field appearance="outline" style="margin-right: 5px;">
+                                                    <mat-label>Input Value</mat-label>
+                                                    <input type="string" matInput (change)="calValue('DL',i,$event.target.value)" [(ngModel)]="dlQuestion[i].columnR1" name="disValue" required>
+                                                </mat-form-field>
+                                            </ng-container>
+                                            <mat-form-field appearance="outline">
+                                                <mat-label>weight</mat-label>
+                                                <input type="string" matInput value="{{dques.weight}}" name="disValue" disabled>
+                                            </mat-form-field>
+                                            <mat-form-field appearance="outline">
+                                                <mat-label>% Value</mat-label>
+                                                <input type="string" matInput name="disValue" disabled>
+                                            </mat-form-field>
+                                            <mat-form-field appearance="outline">
+                                                <mat-label>Points</mat-label>
+                                                <input type="string" matInput name="disValue" disabled>
+                                            </mat-form-field>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </ng-container>
+                        </table>
+
+                        <div style="text-align:center">
+                            <button mat-raised-button color="primary" (click)="saveData('DL')">save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab>
+            <div style="text-align:center; background:bisque">
+                <span class="tab-number" style="color: blue;">{{aCount}}/6</span>
+            </div>
+            <ng-template mat-tab-label>
+                <span class="tab-text">Access (A)</span>
+                <span class="tab-number" style="color: blue;">{{aCount}}/6</span>
+            </ng-template>
+            <div>
+                <div>
+                    <!-- <table #ATable class="table">
+                        <tr>
+                            <th>No.</th>
+                            <th>Question</th>
+                            <th>Input</th>
+                            <th>Total School</th>
+                        </tr>
+                        <tr *ngFor="let dques of aQuestion; let i=index;">
+                            <td>{{dques.quesSeries}}</td>
+                            <td>{{dques.quesDesc}}</td>
+                            <td>
+                                <div *ngIf="dques.questionType === 'R'">
+                                    <mat-radio-group aria-label="Select an option" [(ngModel)]="aQuestion[i].columnR1" #radioGroup="matRadioGroup">
+                                        <mat-radio-button value="Y">Yes</mat-radio-button>
+                                        &nbsp;
+                                        <mat-radio-button value="N">No</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                                <div *ngIf="dques.questionType === 'I'">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Input Value</mat-label>
+                                        <input type="string" matInput [(ngModel)]="aQuestion[i].columnR1" name="disValue" required>
+                                    </mat-form-field>
+                                </div>
+                            </td>
+                            <td>
+                                <div *ngIf="dques.questionType === 'I' && dques.fieldcount == 2">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Input Value</mat-label>
+                                        <input type="string" matInput [(ngModel)]="aQuestion[i].columnR2" name="disValue" required>
+                                    </mat-form-field>
+                                </div>
+                            </td>
+                        </tr>
+                    </table> -->
+                    <table #DLTable class="table">
+                        <tr>
+                            <th>No.</th>
+                            <th>Question</th>
+                            <th>Input</th>
+                            <th>Total School</th>
+                        </tr>
+                        <ng-container *ngFor="let dques of aQuestion; let i=index;">
+                            <ng-container *ngIf="dques.fieldcount == 2" style="border: 1px solid red">
+                                <tr>
+                                    <td>{{dques.quesSeries}}</td>
+                                    <td colspan="2" style="width:50%">{{dques.quesDesc}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>weight</mat-label>
+                                            <input type="string" matInput value="{{dques.weight}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>% Value</mat-label>
+                                            <input type="string" matInput value="{{dques.columnRPR}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Points</mat-label>
+                                            <input type="string" matInput value="{{dques.columnRPS}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2">{{dques.subquestiondesc1}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>input</mat-label>
+                                            <input type="string" (change)="calValue('A',i,$event.target.value)" matInput [(ngModel)]="aQuestion[i].columnR1" name="disValue" required>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2">{{dques.subquestiondesc2}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>input</mat-label>
+                                            <input type="string" (change)="calValue('A',i,$event.target.value)" matInput [(ngModel)]="aQuestion[i].columnR2" name="disValue" required>
+                                        </mat-form-field>
+                                    </td>
+
+                                </tr>
+                            </ng-container>
+                            <ng-container *ngIf="dques.fieldcount == 1">
+                                <tr>
+                                    <td>{{dques.quesSeries}}</td>
+                                    <td colspan="2" style="width:50%">{{dques.quesDesc}}</td>
+                                    <td>
+                                        <ng-container *ngIf="dques.questionType === 'R'">
+                                            <mat-radio-group aria-label="Select an option" (change)="calValue('A',i,$event.value)" style="margin-right: 10%" [(ngModel)]="aQuestion[i].columnR1" #radioGroup="matRadioGroup">
+                                                <mat-radio-button value="Y">Yes</mat-radio-button>
+                                                &nbsp;
+                                                <mat-radio-button value="N">No</mat-radio-button>
+                                            </mat-radio-group>
+                                        </ng-container>
+                                        <ng-container *ngIf="dques.questionType === 'I'">
+                                            <mat-form-field appearance="outline" style="margin-right: 5px;">
+                                                <mat-label>Input Value</mat-label>
+                                                <input type="string" (change)="calValue('A',i,$event.target.value)" matInput [(ngModel)]="aQuestion[i].columnR1" name="disValue" required>
+                                            </mat-form-field>
+                                        </ng-container>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>weight</mat-label>
+                                            <input type="string" matInput value="{{dques.weight}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>% Value</mat-label>
+                                            <input type="string" matInput value="{{dques.columnRPR}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Points</mat-label>
+                                            <input type="string" matInput value="{{dques.columnRPS}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                        </ng-container>
+                    </table>
+
+                    <div style="text-align:center">
+                        <button mat-raised-button color="primary" (click)="saveData('A')">save</button>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab>
+            <div style="text-align:center; background:bisque">
+                <span class="tab-number" style="color: blue;">{{ifCount}}/10</span>
+            </div>
+            <ng-template mat-tab-label>
+                <span class="tab-text">Infrastructure & Facilities (I&F)</span>
+                <span class="tab-number" style="color: blue;">{{ifCount}}/10</span>
+            </ng-template>
+            <div>
+                <div>
+                    <!-- <table #IFTable class="table">
+                        <tr>
+                            <th>No.</th>
+                            <th>Question</th>
+                            <th>Input</th>
+                            <th>Total School</th>
+                        </tr>
+                        <tr *ngFor="let dques of ifQuestion; let i=index;">
+                            <td>{{dques.quesSeries}}</td>
+                            <td>{{dques.quesDesc}}</td>
+                            <td>
+                                <div *ngIf="dques.questionType === 'R'">
+                                    <mat-radio-group aria-label="Select an option" [(ngModel)]="ifQuestion[i].columnR1" #radioGroup="matRadioGroup">
+                                        <mat-radio-button value="Y">Yes</mat-radio-button>
+                                        &nbsp;
+                                        <mat-radio-button value="N">No</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                                <div *ngIf="dques.questionType === 'I'">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Input Value</mat-label>
+                                        <input type="string" matInput [(ngModel)]="ifQuestion[i].columnR1" name="disValue" required>
+                                    </mat-form-field>
+                                </div>
+                            </td>
+                            <td>
+                                <div *ngIf="dques.questionType === 'I' && dques.fieldcount == 2">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Input Value</mat-label>
+                                        <input type="string" matInput [(ngModel)]="ifQuestion[i].columnR2" name="disValue" required>
+                                    </mat-form-field>
+                                </div>
+                            </td>
+                        </tr>
+                    </table> -->
+                    <table #DLTable class="table">
+                        <tr>
+                            <th>No.</th>
+                            <th>Question</th>
+                            <th>Input</th>
+                            <th>Total School</th>
+                        </tr>
+                        <ng-container *ngFor="let dques of ifQuestion; let i=index;">
+                            <ng-container *ngIf="dques.fieldcount == 2" style="border: 1px solid red">
+                                <tr>
+                                    <td>{{dques.quesSeries}}</td>
+                                    <td colspan="2" style="width:50%">{{dques.quesDesc}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>weight</mat-label>
+                                            <input type="string" matInput value="{{dques.weight}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>% Value</mat-label>
+                                            <input type="string" matInput value="{{dques.columnRPR}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Points</mat-label>
+                                            <input type="string" matInput value="{{dques.columnRPS}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2">{{dques.subquestiondesc1}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>input</mat-label>
+                                            <input type="string" matInput (change)="calValue('IF',i,$event.target.value)" [(ngModel)]="ifQuestion[i].columnR1" name="disValue" required>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2">{{dques.subquestiondesc2}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>input</mat-label>
+                                            <input type="string" matInput (change)="calValue('IF',i,$event.target.value)" [(ngModel)]="ifQuestion[i].columnR2" name="disValue" required>
+                                        </mat-form-field>
+                                    </td>
+
+                                </tr>
+                            </ng-container>
+                            <ng-container *ngIf="dques.fieldcount == 1">
+                                <tr>
+                                    <td>{{dques.quesSeries}}</td>
+                                    <td colspan="2" style="width:50%">{{dques.quesDesc}}</td>
+                                    <td>
+                                        <ng-container *ngIf="dques.questionType === 'R'">
+                                            <mat-radio-group aria-label="Select an option" (change)="calValue('IF',i,$event.value)" style="margin-right: 10%" [(ngModel)]="ifQuestion[i].columnR1" #radioGroup="matRadioGroup">
+                                                <mat-radio-button value="Y">Yes</mat-radio-button>
+                                                &nbsp;
+                                                <mat-radio-button value="N">No</mat-radio-button>
+                                            </mat-radio-group>
+                                        </ng-container>
+                                        <ng-container *ngIf="dques.questionType === 'I'">
+                                            <mat-form-field appearance="outline" style="margin-right: 5px;">
+                                                <mat-label>Input Value</mat-label>
+                                                <input type="string" matInput (change)="calValue('IF',i,$event.target.value)" [(ngModel)]="ifQuestion[i].columnR1" name="disValue" required>
+                                            </mat-form-field>
+                                        </ng-container>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>weight</mat-label>
+                                            <input type="string" matInput value="{{dques.weight}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>% Value</mat-label>
+                                            <input type="string" matInput value="{{dques.columnRPR}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Points</mat-label>
+                                            <input type="string" matInput value="{{dques.columnRPS}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                        </ng-container>
+                    </table>
+                    <div style="text-align:center">
+                        <button mat-raised-button color="primary" (click)="saveData('IF')">save</button>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab>
+            <div style="text-align:center; background:bisque">
+                <span class="tab-number" style="color: blue;">{{eCount}}/3</span>
+            </div>
+            <ng-template mat-tab-label>
+                <span class="tab-text">Equity (E)</span>
+                <span class="tab-number" style="color: blue;">{{eCount}}/3</span>
+            </ng-template>
+            <div>
+                <div>
+                    <!-- <table #ETable class="table">
+                        <tr>
+                            <th>No.</th>
+                            <th>Question</th>
+                            <th>Input</th>
+                            <th>Total School</th>
+                        </tr>
+                        <tr *ngFor="let dques of eQuestion; let i=index;">
+                            <td>{{dques.quesSeries}}</td>
+                            <td>{{dques.quesDesc}}</td>
+                            <td>
+                                <div *ngIf="dques.questionType === 'R'">
+                                    <mat-radio-group aria-label="Select an option" [(ngModel)]="eQuestion[i].columnR1" #radioGroup="matRadioGroup">
+                                        <mat-radio-button value="Y">Yes</mat-radio-button>
+                                        &nbsp;
+                                        <mat-radio-button value="N">No</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                                <div *ngIf="dques.questionType === 'I'">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Input Value</mat-label>
+                                        <input type="string" matInput [(ngModel)]="eQuestion[i].columnR1" name="disValue" required>
+                                    </mat-form-field>
+                                </div>
+                            </td>
+                            <td>
+                                <div *ngIf="dques.questionType === 'I' && dques.fieldcount == 2">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Input Value</mat-label>
+                                        <input type="string" matInput [(ngModel)]="eQuestion[i].columnR2" name="disValue" required>
+                                    </mat-form-field>
+                                </div>
+                            </td>
+                        </tr>
+                    </table> -->
+
+                    <table #DLTable class="table">
+                        <tr>
+                            <th>No.</th>
+                            <th>Question</th>
+                            <th>Input</th>
+                            <th>Total School</th>
+                        </tr>
+                        <ng-container *ngFor="let dques of eQuestion; let i=index;">
+                            <ng-container *ngIf="dques.fieldcount == 2" style="border: 1px solid red">
+                                <tr>
+                                    <td>{{dques.quesSeries}}</td>
+                                    <td colspan="2" style="width:50%">{{dques.quesDesc}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>weight</mat-label>
+                                            <input type="string" matInput value="{{dques.weight}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>% Value</mat-label>
+                                            <input type="string" matInput value="{{dques.columnRPR}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Points</mat-label>
+                                            <input type="string" matInput value="{{dques.columnRPS}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2">{{dques.subquestiondesc1}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>input</mat-label>
+                                            <input type="string" matInput (change)="calValue('E',i,$event.target.value)" [(ngModel)]="eQuestion[i].columnR1" name="disValue" required>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2">{{dques.subquestiondesc2}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>input</mat-label>
+                                            <input type="string" matInput (change)="calValue('E',i,$event.target.value)" [(ngModel)]="eQuestion[i].columnR2" name="disValue" required>
+                                        </mat-form-field>
+                                    </td>
+
+                                </tr>
+                            </ng-container>
+                            <ng-container *ngIf="dques.fieldcount == 1">
+                                <tr>
+                                    <td>{{dques.quesSeries}}</td>
+                                    <td colspan="2" style="width:50%">{{dques.quesDesc}}</td>
+                                    <td>
+                                        <ng-container *ngIf="dques.questionType === 'R'">
+                                            <mat-radio-group aria-label="Select an option" (change)="calValue('E',i,$event.value)" style="margin-right: 10%" [(ngModel)]="eQuestion[i].columnR1" #radioGroup="matRadioGroup">
+                                                <mat-radio-button value="Y">Yes</mat-radio-button>
+                                                &nbsp;
+                                                <mat-radio-button value="N">No</mat-radio-button>
+                                            </mat-radio-group>
+                                        </ng-container>
+                                        <ng-container *ngIf="dques.questionType === 'I'">
+                                            <mat-form-field appearance="outline" style="margin-right: 5px;">
+                                                <mat-label>Input Value</mat-label>
+                                                <input type="string" matInput (change)="calValue('E',i,$event.target.value)" [(ngModel)]="eQuestion[i].columnR1" name="disValue" required>
+                                            </mat-form-field>
+                                        </ng-container>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>weight</mat-label>
+                                            <input type="string" matInput value="{{dques.weight}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>% Value</mat-label>
+                                            <input type="string" value="{{dques.columnRPR}}" matInput name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Points</mat-label>
+                                            <input type="string" value="{{dques.columnRPS}}" matInput name="disValue" disabled>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                        </ng-container>
+                    </table>
+
+                    <div style="text-align:center">
+                        <button mat-raised-button color="primary" (click)="saveData('E')">save</button>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab>
+            <div style="text-align:center; background:bisque">
+                <span class="tab-number" style="color: blue;">{{gpCount}}/20</span>
+            </div>
+            <ng-template mat-tab-label>
+                <span class="tab-text">Governance Processes (GP)</span>
+                <span class="tab-number" style="color: blue;">{{gpCount}}/20</span>
+            </ng-template>
+            <div>
+                <div>
+                    <!-- <table #GPTable class="table">
+                        <tr>
+                            <th>No.</th>
+                            <th>Question</th>
+                            <th>Input</th>
+                            <th>Total School</th>
+                        </tr>
+                        <tr *ngFor="let dques of gpQuestion; let i=index;">
+                            <td>{{dques.quesSeries}}</td>
+                            <td>{{dques.quesDesc}}</td>
+                            <td>
+                                <div *ngIf="dques.questionType === 'R'">
+                                    <mat-radio-group aria-label="Select an option" [(ngModel)]="gpQuestion[i].columnR1" #radioGroup="matRadioGroup">
+                                        <mat-radio-button value="Y">Yes</mat-radio-button>
+                                        &nbsp;
+                                        <mat-radio-button value="N">No</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                                <div *ngIf="dques.questionType === 'I'">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Input Value</mat-label>
+                                        <input type="string" matInput [(ngModel)]="gpQuestion[i].columnR1" name="disValue" required>
+                                    </mat-form-field>
+                                </div>
+                            </td>
+                            <td>
+                                <div *ngIf="dques.questionType === 'I' && dques.fieldcount == 2">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Input Value</mat-label>
+                                        <input type="string" matInput [(ngModel)]="gpQuestion[i].columnR2" name="disValue" required>
+                                    </mat-form-field>
+                                </div>
+                            </td>
+                        </tr>
+                    </table> -->
+                    <table #DLTable class="table">
+                        <tr>
+                            <th>No.</th>
+                            <th>Question</th>
+                            <th>Input</th>
+                            <th>Total School</th>
+                        </tr>
+                        <ng-container *ngFor="let dques of gpQuestion; let i=index;">
+                            <ng-container *ngIf="dques.fieldcount == 2" style="border: 1px solid red">
+                                <tr>
+                                    <td>{{dques.quesSeries}}</td>
+                                    <td colspan="2" style="width:35%">{{dques.quesDesc}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>weight</mat-label>
+                                            <input type="string" matInput value="{{dques.weight}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>% Value</mat-label>
+                                            <input type="string" value="{{dques.columnRPR}}" matInput name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Points</mat-label>
+                                            <input type="string" value="{{dques.columnRPS}}" matInput name="disValue" disabled>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2">{{dques.subquestiondesc1}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>input</mat-label>
+                                            <input type="string" (change)="calValue('GP',i,$event.target.value)" matInput [(ngModel)]="gpQuestion[i].columnR1" name="disValue" required>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td colspan="2">{{dques.subquestiondesc2}}</td>
+                                    <td>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>input</mat-label>
+                                            <input type="string" matInput (change)="calValue('GP',i,$event.target.value)" [(ngModel)]="gpQuestion[i].columnR2" name="disValue" required>
+                                        </mat-form-field>
+                                    </td>
+
+                                </tr>
+                            </ng-container>
+                            <ng-container *ngIf="dques.fieldcount == 1">
+                                <tr>
+                                    <td>{{dques.quesSeries}}</td>
+                                    <td colspan="2" style="width:35%">{{dques.quesDesc}}</td>
+                                    <td>
+                                        <ng-container *ngIf="dques.questionType === 'R'">
+                                            <mat-radio-group aria-label="Select an option" (change)="calValue('GP',i,$event.value)" style="margin-right: 10%" [(ngModel)]="gpQuestion[i].columnR1" #radioGroup="matRadioGroup">
+                                                <mat-radio-button value="Y">Yes</mat-radio-button>
+                                                &nbsp;
+                                                <mat-radio-button value="N">No</mat-radio-button>
+                                            </mat-radio-group>
+                                        </ng-container>
+                                        <ng-container *ngIf="dques.questionType === 'I'">
+                                            <mat-form-field appearance="outline" style="margin-right: 5px;">
+                                                <mat-label>Input Value</mat-label>
+                                                <input type="string" matInput (change)="calValue('GP',i,$event.target.value)" [(ngModel)]="gpQuestion[i].columnR1" name="disValue" required>
+                                            </mat-form-field>
+                                        </ng-container>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>weight</mat-label>
+                                            <input type="string" matInput value="{{dques.weight}}" name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>% Value</mat-label>
+                                            <input type="string" value="{{dques.columnRPR}}" matInput name="disValue" disabled>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Points</mat-label>
+                                            <input type="string" value="{{dques.columnRPS}}" matInput name="disValue" disabled>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                        </ng-container>
+                    </table>
+                    <div style="text-align:center">
+                        <button mat-raised-button color="primary" (click)="saveData('GP')">save</button>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+
+        <mat-tab>
+            <div style="text-align:center; background:bisque">
+                <span class="tab-number" style="color: blue;">{{tCount}}/56</span>
+            </div>
+            <ng-template mat-tab-label>
+                <span class="tab-text">Preview</span>
+                <span class="tab-number" style="color: blue;">{{tCount}}/56</span>
+            </ng-template>
+            <div>
+            <div>
+            <label style="color: blue;">Total Points: {{totalPoints}}</label><br>
+            <label style="color: blue;" *ngIf="leftQuestios !=''">Question Number To Be Fill:{{leftQuestios}}</label>
+            </div>
+                <div>
+                    <table #GPTable class="table">
+                        <tr>
+                            <th>No.</th>
+                            <th>Question</th>
+                            <!-- <th>Input</th> -->
+                            <th>% value</th>
+                            <th>Points</th>
+                        </tr>
+                        <tr *ngFor="let dques of previewQuestion; let i=index;">
+                            <td>{{dques.quesSeries}}</td>
+                            <td>{{dques.quesDesc}}</td>
+                            <td>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>%Value</mat-label>
+                                    <input type="string" matInput [(ngModel)]="previewQuestion[i].columnRPR" name="disValue" disabled required>
+                                </mat-form-field>
+                                <!-- <div *ngIf="dques.questionType === 'R'">
+                                    <mat-radio-group aria-label="Select an option" [(ngModel)]="previewQuestion[i].columnR1" #radioGroup="matRadioGroup">
+                                        <mat-radio-button value="Y">Yes</mat-radio-button>
+                                        &nbsp;
+                                        <mat-radio-button value="N">No</mat-radio-button>
+                                    </mat-radio-group>
+                                </div>
+                                <div *ngIf="dques.questionType === 'I'">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Input Value</mat-label>
+                                        <input type="string" matInput [(ngModel)]="previewQuestion[i].columnR1" name="disValue" disabled required>
+                                    </mat-form-field>
+                                </div> -->
+                            </td>
+                            <td>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Points</mat-label>
+                                    <input type="string" matInput [(ngModel)]="previewQuestion[i].columnRPS" name="disValue" disabled required>
+                                </mat-form-field>
+                                <!-- <div *ngIf="dques.questionType === 'I' && dques.fieldcount == 2">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Input Value</mat-label>
+                                        <input type="string" matInput [(ngModel)]="previewQuestion[i].columnR2" name="disValue" disabled required>
+                                    </mat-form-field>
+                                </div> -->
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="text-align:center">
+                        <button mat-raised-button color="primary" (click)="saveFinalDPGIStatus()" [disabled]=" QuestionCount !== tCount">submit</button>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+
+    </mat-tab-group>
+</div>

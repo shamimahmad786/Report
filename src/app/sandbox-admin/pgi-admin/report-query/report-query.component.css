@@ -1,0 +1,14 @@
+.panel{
+    overflow:none;
+    max-height:100%
+}
+
+.nativeQuery{
+    min-height: 100px;
+
+}
+
+button{
+    height: 30px;
+ 
+}

@@ -1,0 +1,136 @@
+<h1 class="mb-2 page-head">Add/Update User</h1>
+<h3 *ngIf="message!=''" class={{messageClass}} style="text-align: center;"> {{message}} </h3>
+
+<br>
+
+<!-- <form #lf="ngForm" (ngSubmit)="lf.valid && register(lf)"> -->
+<form autocomplete="off" [formGroup]="UserForm">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Firstname</mat-label>
+                <input matInput placeholder="Firstname" formControlName="firstname" required>
+                <mat-icon matSuffix>person_outline</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Lastname</mat-label>
+                <input matInput placeholder="Lastname" formControlName="lastname" required>
+                <mat-icon matSuffix>person_outline</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Mobile No.</mat-label>
+                <input matInput placeholder="Mobile No." formControlName="mobileNo" required>
+                <mat-icon matSuffix>contact_phone_outline</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Username</mat-label>
+                <input matInput placeholder="Username" formControlName="username" required>
+                <mat-icon matSuffix>person_outline</mat-icon>
+            </mat-form-field>
+        </div>
+        <!-- *ngIf="routeId==-1" -->
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput placeholder="Password" formControlName="password" required>
+                <mat-icon matSuffix>person_outline</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Designation</mat-label>
+                <mat-select required formControlName="paramName" (selectionChange)="getStates()">
+                    <mat-option *ngFor="let dsg of designations" [value]="dsg.value">
+                        {{dsg.value}} </mat-option>
+                </mat-select>
+                <mat-error>Please select Designation</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6" *ngIf="UserForm.value.paramName === 'State' || UserForm.value.paramName === 'District' || UserForm.value.paramName === 'Block'">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>State</mat-label>
+                <mat-select required formControlName="stateName" (selectionChange)="getDistrict();">
+
+                    <mat-option *ngFor="let state of states" [value]="state.udiseStateCode">
+                        {{state.stateName}} </mat-option>
+                </mat-select>
+                <mat-error>Please select State</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6" *ngIf="UserForm.value.paramName === 'District' || UserForm.value.paramName === 'Block'">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>District</mat-label>
+                <mat-select required formControlName="districtName" (selectionChange)="getBlock();">
+
+                    <mat-option *ngFor="let dis of districts" [value]="dis.udiseDisCode">
+                        {{dis.districtName}} </mat-option>
+                </mat-select>
+                <mat-error>Please select District</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6" *ngIf="UserForm.value.paramName === 'Block'">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Block</mat-label>
+                <mat-select required formControlName="blockName">
+                    <mat-option *ngFor="let bl of blocks" [value]="bl.udiseBlockCode">
+                        {{bl.blockName}} </mat-option>
+                </mat-select>
+                <mat-error>Please select Block</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Email Id</mat-label>
+                <input type="email" matInput placeholder="Email Id" formControlName="email" required>
+                <mat-icon matSuffix>email_outline</mat-icon>
+            </mat-form-field>
+        </div>
+
+
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Roles</mat-label>
+                <mat-select required multiple formControlName="roleId">
+                    <mat-option *ngFor="let role of roles" [value]="role.id">
+                        {{role.roleName}} </mat-option>
+                </mat-select>
+
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Groups</mat-label>
+                <mat-select multiple required formControlName="groupId">
+                    <mat-option *ngFor="let group of groups" [value]="group.id">
+                        {{group.groupName}} </mat-option>
+                </mat-select>
+
+            </mat-form-field>
+
+            <!-- <mat-form-field class="ca80">
+                <mat-select [(ngModel)]="type_list" multiple name="type_list">
+                    <mat-option (change)="onChange()" *ngFor="let type of groups" [value]="type.id_type"> {{type.name}}</mat-option>
+                </mat-select>
+            </mat-form-field> -->
+        </div>
+    </div>
+    <button mat-raised-button (click)="submit()" class="text-right">Save</button>
+    <button mat-raised-button [routerLink]="['/sandbox/home/user']" class="text-right" style="margin-left:1%;">Cancle</button>
+    <!-- <div class="text-right">
+        <button type="button" (click)="showRegForm = false; lf.reset()" class="mr-2">Cancel</button>
+        <button type="submit" mat-raised-button color="primary" class="btn-gradient">
+                <span *ngIf="!showOverlay">Create</span>
+                <span *ngIf="showOverlay"><span class="spinner-grow spinner-grow-sm" role="status"
+                        aria-hidden="true"></span>
+                    Loading...</span>
+            </button>
+    </div> -->
+</form>

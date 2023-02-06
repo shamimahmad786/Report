@@ -1,0 +1,122 @@
+.topTabLink {
+    z-index: 1;
+    position: relative;
+}
+
+.topTabLink ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.topTabLink ul li {
+    float: left;
+    width: 25%;
+}
+
+.topTabLink ul li a {
+    text-decoration: none;
+    position: relative;
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    font-weight: 500;
+    /* background: url(../images/link-tab-icons.png) center 15px no-repeat; */
+    cursor: pointer!important;
+}
+
+.topTabLink ul li a img {
+    margin-right: 20px;
+}
+
+.topTabLink ul li a.blueLink {
+    background-color: #41cac6;
+    background-position: center 15px;
+    cursor: pointer!important;
+}
+
+.topTabLink ul li a.redLink {
+    background-color: #4c98cf;
+    background-position: center -85px;
+    cursor: pointer !important;
+}
+
+.topTabLink ul li a.violetLink {
+    background-color: #4873a6;
+    background-position: center -185px;
+    cursor: pointer !important;
+}
+
+.topTabLink ul li a.yellowLink {
+    background-color: #595386;
+    background-position: center -280px;
+    cursor: pointer !important;
+}
+
+.topTabLink ul li a.blueLink:hover {
+    background-color: #2ba7a3;
+}
+
+.topTabLink ul li a.redLink:hover {
+    background-color: #337baf;
+}
+
+.topTabLink ul li a.violetLink:hover {
+    background-color: #264f80;
+}
+
+.topTabLink ul li a.yellowLink:hover {
+    background-color: #302a5d;
+}
+
+.topTabLink ul li.active a.blueLink:after,
+.topTabLink ul li.active a.redLink:after,
+.topTabLink ul li.active a.violetLink:after,
+.topTabLink ul li.active a.yellowLink:after {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: 10px;
+    margin-left: -10px;
+}
+
+.topTabLink ul li.active a.blueLink:after {
+    border-color: rgba(53, 152, 219, 0);
+    border-top-color: #41cac6;
+}
+
+.topTabLink ul li.active a.redLink:after {
+    border-color: rgba(225, 83, 82, 0);
+    border-top-color: #4c98cf;
+}
+
+.topTabLink ul li.active a.violetLink:after {
+    border-color: rgba(154, 89, 181, 0);
+    border-top-color: #4873a6;
+}
+
+.topTabLink ul li.active a.yellowLink:after {
+    border-color: rgba(217, 168, 29, 0);
+    border-top-color: #595386;
+}
+
+.topRtText {
+    font-size: 24px;
+    color: #2b99f0;
+    float: right;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    padding-top: 15px;
+}
+
+.logoSection {
+    padding: 10px 0;
+}

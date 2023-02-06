@@ -1,0 +1,137 @@
+<!-- <div class="container-fluid position-absolute h-100 bg-gradient d-flex overflow-hidden">
+  <mat-card class="login-box m-auto" [ngClass]="{'flipInY animated': card === 'login'}">
+    <h3 class="text-center mb-4 mt-3">Login</h3>
+    <mat-card-content>
+      <form #lf="ngForm" (ngSubmit)="lf.valid && login()">
+        <div class="form-group">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" [(ngModel)]="loginModel.userId" name="username" required>
+            <mat-icon matSuffix>person_outline</mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" type="password" [(ngModel)]="loginModel.password" name="password"
+              required>
+            <mat-icon matSuffix>lock_outline</mat-icon>
+          </mat-form-field>
+          <mat-error class="text-center" *ngIf="invalidUser">Username or Password is not valid.</mat-error>
+        </div>
+        <button type="submit" mat-raised-button color="primary" class="w-100 btn-gradient" [disabled]="!lf.valid">
+          <span *ngIf="!showOverlay">Login</span>
+          <span *ngIf="showOverlay"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Loading...</span>
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="modal-backdrop fade" *ngIf="showOverlay"></div> -->
+
+
+<div class="first-home">
+  <section>
+    <div class="container">
+      <div class="row pt-3 pb-3">
+        <div class="col-md-8 text-left">
+          <picture _ngcontent>
+            <source media="(min-width: 2000px)" srcset="assets/images/mhrd-logo.png">
+            <img alt="MHRD" src="assets/images/mhrd-logo-small.png">
+          </picture>
+        </div>
+        <!-- <div class="col-md-4 text-right"> <img src="assets/images/pgi-logo.png"> </div> -->
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-blue">
+    <div class="container">
+      <div class="row">
+        <div class="height55"></div>
+      </div>
+    </div>
+  </section>
+</div>
+<section class="form-back d-flex align-items-center">
+  <div class="container h-100 align-items-center">
+    <div class="row h-100">
+      <div class="col-md-6 ">
+        <div class="mt-5  p-3">
+          <h3></h3>
+          <p> </p>
+          <img src="assets/images/formpng.png" class="w-100" />
+        </div>
+
+      </div>
+      <div class="col-md-6">
+          <mat-card class="login-box m-auto" [ngClass]="{'flipInY animated': card === 'login'}">
+              <h3 class="text-center mb-4 mt-3">Login</h3>
+              <mat-card-content>
+                <form #lf="ngForm" (ngSubmit)="lf.valid && login()">
+                  <div class="form-group">
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Username</mat-label>
+                      <input matInput placeholder="Username" [(ngModel)]="loginModel.username" name="username" required>
+                      <mat-icon matSuffix>person_outline</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="w-100">
+                      <mat-label>Password</mat-label>
+                      <input matInput placeholder="Password" type="password" [(ngModel)]="loginModel.password" name="password"
+                        required>
+                      <mat-icon matSuffix>lock_outline</mat-icon>
+                    </mat-form-field>
+                    <mat-error class="text-center" *ngIf="invalidUser">Username or Password is not valid.</mat-error>
+                  </div>
+                  <button type="submit" mat-raised-button color="primary" class="w-100 btn-gradient" [disabled]="!lf.valid">
+                    <span *ngIf="!showOverlay">Login</span>
+                    <span *ngIf="showOverlay"><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                      Loading...</span>
+                  </button>
+                </form>
+              </mat-card-content>
+            </mat-card>
+        <!-- <form #lf="ngForm" (ngSubmit)="lf.valid && login()">
+          <div class="card mt-5 mb-5 p-4 pb-5">
+              <h2 class="text-center">PGI Login</h2>
+            <div class="row">
+              <div class="col-md-12 mt-3">
+                <div class="form-group">
+                  <label class="bold">Username</label>
+                  <input type="text" [(ngModel)]="loginModel.userId" name="username"
+                    class="form-control form-control-lg" id="colFormLabelSm">
+                </div>
+              </div>
+              <div class="col-md-12 mt-2">
+                <label class="bold">Password</label>
+                <input type="Password" [(ngModel)]="loginModel.password" name="password"
+                  class="form-control form-control-lg" id="colFormLabelSm">
+              </div>
+              <div class="col-md-12 mt-4">
+                <div class="text-center">
+                  <button type="submit" class="btn btn-lg btn-info w-100" [disabled]="!lf.valid">Login</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <p data-wow-delay="0.4s">Copyright 2019 Department of School Education &
+          Literacy,<br /> Ministry of Human Resource Development</p>
+      </div>
+      <div class="col-md-6 text-right">
+        <a href="http://seshagun.gov.in" target="_blank"><img src="assets/images/seshagun_logo_big.png"
+            alt="SESSHAGUN"></a>
+
+      </div>
+    </div>
+  </div>
+
+</footer>

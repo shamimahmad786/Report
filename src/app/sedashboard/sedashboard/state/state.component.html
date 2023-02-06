@@ -1,0 +1,314 @@
+<div class="wrapper">
+    <!-- Common Header Starts Here -->
+    <!-- <section id="header" class="header allIndiaHeader">
+        <div class="container logoSection"> -->
+    <!-- <div class="logo">
+                <a href="#"><img src="assets/newdashboard/images/logo.png" width="316" height="65" alt="Ministry of Education" title="Ministry of Education"></a>
+            </div> -->
+    <!-- <div class="topRtText">School Education Dashboard</div>
+        </div>
+    </section> -->
+    <!-- Common Header Ends Here -->
+
+    <section id="midContainer">
+        <!-- <div class="topTabLink">
+            <ul>
+                 <li>
+                    <a [routerLink]="['/reportDashboard/national']" class="blueLink"><img src="assets/newdashboard/images/india.svg" width="40" height="40" alt="">All India Figures</a>
+                </li> 
+                <li class="active">
+                    <a href="#" class="redLink"><img src="assets/newdashboard/images/states.svg" width="40" height="40" alt="">States and UTs</a>
+                </li>
+                 <li>
+                    <a [routerLink]="['/reportDashboard/scheme']" class="violetLink"><img src="assets/newdashboard/images/scheme.svg" width="40" height="40" alt="">Schemes</a>
+                </li>
+                <li>
+                    <a [routerLink]="['/reportDashboard/autonomus']" class="yellowLink"><img src="assets/newdashboard/images/puzzle.svg" width="40" height="40" alt="">Autonomous Bodies</a>
+                </li>
+            </ul>
+        </div> -->
+
+
+
+        <div class="graphBoxSection cf" style="padding: 0 20px;">
+
+            <div class="container-fluid" style="margin-right: 5px;">
+                <div class="row mb-0 pt-5">
+                    <div class="col-md-6">
+                        <h3 style="font-size: 24px; font-weight: 600; margin: 0px; padding-left: 30px; padding-top: 12px; text-transform: uppercase; color: #565656;">School Education Dashboard</h3>
+                    </div>
+                    <div class="col-md-3">
+                        <!-- <select *ngIf="reportCode == 'R125' else other_content" class="form-control" required [(ngModel)]="uniYear" (change)="getYear($event)">
+                            <option value="2018-19">2018-19</option>
+                        </select> -->
+                        <!-- <select *ngIf="isValid; else newOne" class="form-control" required>
+                            <option>Select</option>
+                        </select> -->
+
+                        <!-- <ng-template #newOne> -->
+                        <!-- {{combinedyearList}} -->
+                        <div class="search-sec">
+                            <label>Select Year:</label>
+
+                            <select class="form-control" required [(ngModel)]="uniYear" (change)="getYear($event.target.value)">
+                                <!-- <option>hello</option> -->
+                                <option value="2015-16">2015-2016</option>
+                                <option value="2016-17">2016-2017</option>
+                                <option value="2017-18">2017-2018</option>
+                                <option value="2018-19">2018-2019</option>
+                                <option value="2019-20">2019-2020</option>
+                                
+                                <!-- <option *ngFor="let item of combinedyearList">{{item.inityear}}</option> -->
+                                    <!-- <option *ngFor="let item of combinedyearList"
+                                        value="{{item.inityear}}">{{item.inityear}}</option>  -->
+
+                                </select>
+                        </div>
+                        <!-- </ng-template> -->
+                    </div>
+                    <div class="col-md-3">
+                        <div class="search-sec">
+                            <label>Select State:</label>
+                            <select (change)='getStateValue($event.target.value)'>
+                                <!-- <option value="99">National</option> -->
+                                <option  *ngFor="let dObj of stateListData" value="{{dObj.id}}">{{dObj.stateName}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="countBox shadowRoundBox blueBox">
+                            <div class="countBoxTop">
+                                <div class="cf">
+                                    <h3>Number of <span class="boxName">Schools</span></h3>
+                                    <span class="schoolIcon"></span> </div>
+                                <div class="totalCount">{{schoolCount}}</div>
+                            </div>
+                            <div id="schoolsPieState" style="width:100%; height:400px;"></div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="countBox shadowRoundBox yellowBox">
+                            <div class="countBoxTop">
+                                <div class="cf">
+                                    <h3>Number of <span class="boxName">Teachers</span></h3>
+                                    <span class="teacherIcon"></span> </div>
+                                <div class="totalCount">{{teachCount}}</div>
+                            </div>
+                            <div id="teacherPieState" style="width:100%; height:400px;"></div>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="countBox shadowRoundBox redBox">
+                            <div class="countBoxTop">
+                                <div class="cf">
+                                    <h3>Number of <span class="boxName">Students</span></h3>
+                                    <span class="studentsIcon"></span> </div>
+                                <div class="totalCount">{{studentCount}}</div>
+                            </div>
+                            <div id="studentPieState" style="width:100%; height:400px;"></div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="cols12">
+                        <div class="sourceData blackColor">Source : UDISE + 2018-19 (Provisional)</div>
+                    </div>
+                </div> -->
+                <div class="row ">
+                    <div class="cols12 my-5">
+                        <div class="shadowRoundBox pad20" style="margin-left: 10px; margin-right: 10px;">
+                            <div class="row">
+                                <div class="cols8">
+                                    <h3 class="barChartTitle">Enrolment by Level of Education and Gender</h3>
+                                </div>
+
+                            </div>
+                            <div id="enrolmentChartState" style="height:400; width:100%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="cf mrgT60">
+                    <h3 class="barChartTitle">Status of infrastructure in schools (Management Wise)</h3>
+                </div> -->
+                <div class="row">
+                    <div class="cols12 my-5">
+
+                        <div class="resTab" style="margin-left: 10px; margin-right: 10px;">
+                            <ul class="colorTabs">
+                                <li class="darkblueIconTab tab_selected">
+                                    <a href="#girlsToiletState"><img src="assets/images/toilet.png"> Girls Toilet</a>
+                                </li>
+                                <!-- <li class="violetIconTab"><a href="#boysToiletState"><img src="assets/images/toilet.png"> Boys Toilet</a></li> -->
+                                <!-- <li class="yellowIconTab"><a href="#cwnsToiletState"><img src="assets/images/toilet-cwsn.png"> CWNS Toilet</a></li> -->
+                                <li class="brownIconTab">
+                                    <a href="#libraryState"><img src="assets/images/library.png"> Library</a>
+                                </li>
+                                <li class="libraryBook">
+                                    <a href="#libraryStateWithBooks"><img src="assets/images/book.png"> Library with Books</a>
+                                </li>
+                                <li class="purpleIconTab">
+                                    <a href="#electricityState"><img src="assets/images/plugin.png"> Electricity</a>
+                                </li>
+                                <li class="lightblueIconTab">
+                                    <a href="#drinkingWaterState"><img src="assets/images/water-tap.png"> Drinking Water</a>
+                                </li>
+                                <li class="handwash">
+                                    <a href="#handwashFacilityState"> <img src="assets/images/handwash.png"> Handwash Facility</a>
+                                </li>
+                                <li class="medical">
+                                    <a href="#medicalFacilityState"> <img src="assets/images/first-aid-kit.png"> Medical Facility</a>
+                                </li>
+
+                            </ul>
+                            <div class="tabContainer">
+                                <div id="girlsToiletState" class="tabContent">
+                                    <div class="row">
+                                        <div class="cols10">
+                                            <h3 class="barChartTitle">Status of infrastructure in schools (Management Wise)</h3>
+                                        </div>
+                                        <div class="cols2"><a href="#" class="downloadLink alignRight"><span class="fa fa-arrow-down"></span></a></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cols12">
+                                            <div id="girlsToiletChartState" style="height:400; width:100%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div id="boysToiletState" class="tabContent">
+                                    <div class="row">
+                                        <div class="cols10">
+                                            <h3 class="barChartTitle">Status of infrastructure in schools (Management Wise)</h3>
+                                        </div>
+                                        <div class="cols2"><a href="#" class="downloadLink alignRight"><span class="fa fa-arrow-down"></span></a></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cols12">
+                                            <div id="boysToiletChartState" style="height:400; width:100%;"></div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div id="cwnsToiletState" class="tabContent">
+                                    <div class="row">
+                                        <div class="cols10">
+                                            <h3 class="barChartTitle">Status of infrastructure in schools (Management Wise)</h3>
+                                        </div>
+                                        <div class="cols2"><a href="#" class="downloadLink alignRight"><span class="fa fa-arrow-down"></span></a></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cols12">
+                                            <div id="cwsnToiletChartState" style="height:400; width:100%;"></div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div id="libraryState" class="tabContent">
+                                    <div class="row">
+                                        <div class="cols10">
+                                            <h3 class="barChartTitle">Status of infrastructure in schools (Management Wise)</h3>
+                                        </div>
+                                        <div class="cols2"><a href="#" class="downloadLink alignRight"><span class="fa fa-arrow-down"></span></a></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cols12">
+                                            <div id="libraryChartState" style="height:400; width:100%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="libraryStateWithBooks" class="tabContent">
+                                    <div class="row">
+                                        <div class="cols10">
+                                            <h3 class="barChartTitle">Status of infrastructure in schools (Management Wise)</h3>
+                                        </div>
+                                        <div class="cols2"><a href="#" class="downloadLink alignRight"><span class="fa fa-arrow-down"></span></a></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cols12">
+                                            <div id="libraryChartStateWithBooks" style="height:400; width:100%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="electricityState" class="tabContent">
+                                    <div class="row">
+                                        <div class="cols10">
+                                            <h3 class="barChartTitle">Status of infrastructure in schools (Management Wise)</h3>
+                                        </div>
+                                        <div class="cols2"><a href="#" class="downloadLink alignRight"><span class="fa fa-arrow-down"></span></a></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cols12">
+                                            <div id="electricityChartState" style="height:400; width:100%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="drinkingWaterState" class="tabContent">
+                                    <div class="row">
+                                        <div class="cols10">
+                                            <h3 class="barChartTitle">Status of infrastructure in schools (Management Wise)</h3>
+                                        </div>
+                                        <div class="cols2"><a href="#" class="downloadLink alignRight"><span class="fa fa-arrow-down"></span></a></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cols12">
+                                            <div id="waterChartState" style="height:400; width:100%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="handwashFacilityState" class="tabContent">
+                                    <div class="row">
+                                        <div class="cols10">
+                                            <h3 class="barChartTitle">Status of infrastructure in schools (Management Wise)</h3>
+                                        </div>
+                                        <div class="cols2"><a href="#" class="downloadLink alignRight"><span class="fa fa-arrow-down"></span></a></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cols12">
+                                            <div id="hadwashFacilityChartState" style="height:400; width:100%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="medicalFacilityState" class="tabContent">
+                                    <div class="row">
+                                        <div class="cols10">
+                                            <h3 class="barChartTitle">Status of infrastructure in schools (Management Wise)</h3>
+                                        </div>
+                                        <div class="cols2"><a href="#" class="downloadLink alignRight"><span class="fa fa-arrow-down"></span></a></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="cols12">
+                                            <div id="MedicalFacilityChartState" style="height:400; width:100%;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Footer Starts Here -->
+    <section id="dashbordFooter">
+        <div class="container">
+            <div class="row" style="margin-bottom: 5px;">
+                <div class="cols2">
+                    <div class="nic-logo">
+                        <a href="#" title="NIC"><img src="assets/newdashboard/images/nic-logo-wht.png" alt="NIC"></a>
+                    </div>
+                </div>
+                <div class="cols10">
+                    <p class="nicText">This site is designed, developed, maintained and hosted by National Informatics Centre (NIC), Ministry of Electronics & Information Technology.<br> This Website belongs to Department of School Education & Literacy, Ministry of Education,
+                        Government of India.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Common Footer Ends Here -->
+</div>
