@@ -849,7 +849,7 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
       // this.rowData.push(JSON.stringify(node.data));
     });
     // this.rowData=arrayRowData;
-    if (this.reportCode != "R131" && this.reportCode != "R121" && this.reportCode != "R148" && this.reportCode != "R149" && this.reportCode != "R150" && this.reportCode != "R108" && this.reportCode != "R138" && this.reportCode != "R139" && this.reportCode != "R140" && this.reportCode != "R115" && this.reportCode != "R116" && this.reportCode != "R117" && this.reportCode != "R125" && this.reportCode != "R119" && this.reportCode != "R122" && this.reportCode != "R114" && this.reportCode != "R118" && this.reportCode != "R84" && this.reportCode != "R101" && this.reportCode != "R103" && this.reportCode != "R104" && this.reportCode != "R102" && this.reportCode != "R100" && this.reportCode != "R91" && this.reportCode != "R92" && this.reportCode != "R81" && this.reportCode != "R90" && this.reportCode != "R87" && this.reportCode != "R88" && this.reportCode != "R89" && this.reportCode != "R93" && this.reportCode != "R85" && this.reportCode != "R82" && this.reportCode != "R86" && !(this.reportCode >= "R49" && this.reportCode <= "R80")) {
+    if (this.reportCode != "R96" && this.reportCode != "R115" && this.reportCode != "R117" && this.reportCode != "R113" && this.reportCode != "R126" && this.reportCode != "R135" && this.reportCode != "R131" && this.reportCode != "R121" && this.reportCode != "R148" && this.reportCode != "R149" && this.reportCode != "R150" && this.reportCode != "R108" && this.reportCode != "R138" && this.reportCode != "R139" && this.reportCode != "R140" && this.reportCode != "R115" && this.reportCode != "R116" && this.reportCode != "R117" && this.reportCode != "R125" && this.reportCode != "R119" && this.reportCode != "R122" && this.reportCode != "R114" && this.reportCode != "R118" && this.reportCode != "R84" && this.reportCode != "R101" && this.reportCode != "R103" && this.reportCode != "R104" && this.reportCode != "R102" && this.reportCode != "R100" && this.reportCode != "R91" && this.reportCode != "R92" && this.reportCode != "R81" && this.reportCode != "R90" && this.reportCode != "R87" && this.reportCode != "R88" && this.reportCode != "R89" && this.reportCode != "R93" && this.reportCode != "R85" && this.reportCode != "R82" && this.reportCode != "R86" && !(this.reportCode >= "R49" && this.reportCode <= "R80")) {
 
       setTimeout(() => {
         this.genericTotal(arrayRowData);
@@ -1562,6 +1562,7 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
     // this.gridApi.setHeaderHeight(50);
     this.gridApi.onFilterChanged();
 
+    // this.rowData.splice(params.rowData.index, 1);
     // this.gridOptions.api.eventService.addEventListener('filterChanged', (e) => {
     // this.filteredRows = e.api.paginationGetRowCount();
     // })
@@ -1650,8 +1651,8 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
   reportOrder: number;
   openXl(longContents, reportName, reportOrder) {
 // alert("called")
+    this.getReportYearByMapId(longContents);
     sessionStorage.setItem('yearId', '22');
-
     this.uniHeader = reportName;
     if (longContents == 81 || longContents == 118 || longContents == 154 || longContents == 112 || longContents == 153 || longContents == 102 || longContents == 95 || longContents == 132 || longContents == 109 || longContents == 133 || longContents == 131 || longContents == 130 || longContents == 41 || longContents == 152 || longContents == 103 || longContents == 126 || longContents == 151 || longContents == 125 || longContents == 121 || longContents == 114 || longContents == 129  || longContents == 124 || longContents == 125 || longContents == 123 || longContents == 104 || longContents == 108 || longContents >= 49 && longContents <= 84 || longContents == 99 || longContents == 101 || longContents == 97 || longContents == 96 || longContents == 86 || longContents == 85 || longContents == 87 || longContents == 88 || longContents == 89 || longContents == 91 || longContents == 92 || longContents == 90 || longContents == 93 || longContents == 94 || longContents == 135 || longContents == 136) {
       this.modalService.open(this.uniAgGridFlash, { size: 'xl', backdrop: 'static', keyboard: false });
@@ -1693,7 +1694,7 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
     // this.uniYear = "2018-19";
     // }
 
-    this.getMasterData('GET_STATE', " where year_id='20' order by state_name");
+    this.getMasterData('GET_STATE', " where year_id='22' order by state_name");
     this.chartType = "T";
     this.reportOrder = reportOrder;
 
@@ -2004,7 +2005,7 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
     this.errorDisplay = "";
 
     // alert(JSON.stringify(this.conditionObj));
-    this.combinedyearList=[];
+    // this.combinedyearList=[];
     this.reportService.getTabularData(this.conditionObj).subscribe(res => {
 
   //    console.log(JSON.stringify(res))
@@ -2014,7 +2015,10 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
     //  console.log("tabular response----" + JSON.stringify(res))
     //  alert(this.combinedyearList)
       // if(this.combinedyearList == [] || this.combinedyearList == '' || this.combinedyearList == undefined){
-        this.combinedyearList= res.yearListMap;
+        // this.combinedyearList= res.yearListMap;
+
+        // alert("old year format--->"+JSON.stringify(this.combinedyearList));
+
       // }
       
       
@@ -2036,11 +2040,11 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
       //   }
       // }
 
-      if (this.combinedyearList == null || this.combinedyearList == undefined || res.columnName == null && res.status == 0) {
-        this.isValid = true;
-      } else {
-        this.isValid = false;
-      }
+      // if (this.combinedyearList == null || this.combinedyearList == undefined || res.columnName == null && res.status == 0) {
+      //   this.isValid = true;
+      // } else {
+      //   this.isValid = false;
+      // }
 
       if (res.columnName == null && res.status == 0) {
         this.errorDisplay = res.errorMessage;
@@ -2159,8 +2163,10 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
       if(dataObj == 119){
         this.getCalculatedTransitionRate(res, 'NoColumnAlter')
       }
-      
 
+      // alert("called");
+      // this.modalService.open(this.uniHichart, { size: 'xl', backdrop: 'static', keyboard: false });
+      // this._highchart.highchart("83", 'id3', this.rowData, this.uniHeader, this.locationDetails(),""); 
 
       if (dataObj != 143 || dataObj != 144 || dataObj != 145 || dataObj != 146 || dataObj != 113 || dataObj != 137 || dataObj != 140 || dataObj != 139 || dataObj != 138) {
         this.listColumeNames = res.columnName;
@@ -3052,13 +3058,32 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
           if (this.rowData[i].location_name === "PONDICHERRY                   ") {
             this.rowData[i].location_name = "PUDUCHERRY"
           }
+
+          if (this.rowData[i].location_name == "" || this.rowData[i].location_name == null) {
+            this.rowData[i].location_name = "Total"
+          }
+
+          if (this.rowData[i].item_name == "" || this.rowData[i].item_name == null) {
+            this.rowData[i].item_name = "Overall"
+          }
+
         }
 
         this.universalAgGridColumnDefs = [
           {
-            headerName: "Location", field: "location_name", type: 'nonEditableColumn', enableValue: true, width: 200
-          },
-          { headerName: "Category", field: "item_name", type: 'nonEditableColumn', enableValue: true, width: 100, suppressMenu: false },
+            headerName: "Location", field: "location_name", type: 'nonEditableColumn', enableValue: true, width: 200,valueFormatter: params=>{
+              if(params.value === 'null' || params.value==null){
+                // alert(params.value);
+                 return 'Total'
+               }
+          }},
+          { headerName: "Category", field: "item_name", type: 'nonEditableColumn', enableValue: true, width: 100, suppressMenu: false, valueFormatter: params=>{
+            if(params.value === 'null' || params.value==null){
+              // alert(params.value);
+               return 'Overall'
+             }
+
+          }},
 
           {
             headerName: 'Pre Primary Enrolment',
@@ -3187,9 +3212,18 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
         this.columnLengthForExcel = this.universalAgGridColumnDefs.reduce((acc, item) => { return acc + (item.children ? item.children.length : 1); }, 0);
         this.showGrid = true;
         setTimeout(() => {
-          this.genericTotal(this.rowData);
+          // this.genericTotal(this.rowData);
         }, 500)
       } else if (dataObj == 135) {
+for(let i=0;i<this.rowData.length;i++){
+        if (this.rowData[i].location_name == "" || this.rowData[i].location_name == null) {
+          this.rowData[i].location_name = "Total"
+        }
+
+        if (this.rowData[i].item_name == "" || this.rowData[i].item_name == null) {
+          this.rowData[i].item_name = "Overall"
+        }
+      }
 
         this.universalAgGridColumnDefs = [
           {
@@ -3300,7 +3334,7 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
         this.columnLengthForExcel = this.universalAgGridColumnDefs.reduce((acc, item) => { return acc + (item.children ? item.children.length : 1); }, 0);
         this.showGrid = true;
         setTimeout(() => {
-          this.genericTotal(this.rowData);
+          // this.genericTotal(this.rowData);
         }, 500)
       } else if (dataObj == 136) {
 
@@ -8156,6 +8190,14 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
 
         this.yearShow = true;
         for (let i = 0; i < this.rowData.length; i++) {
+          if (this.rowData[i].location_name == "" || this.rowData[i].location_name == null) {
+            this.rowData[i].location_name = "Total"
+          }
+
+          if (this.rowData[i].caste_name == "" || this.rowData[i].caste_name == null) {
+            this.rowData[i].caste_name = "Overall"
+          }
+
           for (let j = 0; j < this.listColumeNames.length; j++) {
             if (+this.rowData[i][this.listColumeNames[j]] > 0 && (+(this.rowData[i][this.listColumeNames[j]]) % 1 != 0) && Number(+(this.rowData[i][this.listColumeNames[j]])) == (+this.rowData[i][this.listColumeNames[j]])) {
               this.rowData[i][this.listColumeNames[j]] = parseFloat(this.rowData[i][this.listColumeNames[j]]).toFixed(2)
@@ -8408,7 +8450,7 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
         this.columnLengthForExcel = ((this.columnLengthForExcel * 3) - 4)
         this.showGrid = true;
         setTimeout(() => {
-          this.genericTotal(this.rowData);
+          // this.genericTotal(this.rowData);
         }, 500)
       }
       // Bibek 114 Starts
@@ -8439,6 +8481,13 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
         this.thableNote = "..";
         this.yearShow = true;
         for (let i = 0; i < this.rowData.length; i++) {
+          if (this.rowData[i].location_name == "" || this.rowData[i].location_name == null) {
+            this.rowData[i].location_name = "Total"
+          }
+          if (this.rowData[i].caste_name == "" || this.rowData[i].caste_name == null) {
+            this.rowData[i].caste_name = "Overall"
+          }
+
           for (let j = 0; j < this.listColumeNames.length; j++) {
             if (+this.rowData[i][this.listColumeNames[j]] > 0 && (+(this.rowData[i][this.listColumeNames[j]]) % 1 != 0) && Number(+(this.rowData[i][this.listColumeNames[j]])) == (+this.rowData[i][this.listColumeNames[j]])) {
               this.rowData[i][this.listColumeNames[j]] = parseFloat(this.rowData[i][this.listColumeNames[j]]).toFixed(2)
@@ -8682,7 +8731,7 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
         (this.columnLengthForExcel = this.columnLengthForExcel - 63)
         this.showGrid = true;
         setTimeout(() => {
-          this.genericTotal(this.rowData);
+          // this.genericTotal(this.rowData);
         }, 500)
       } else if (dataObj == 116) {
         this.showTableNote = true;
@@ -8939,6 +8988,14 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
         this.thableNote = "..";
         this.yearShow = true;
         for (let i = 0; i < this.rowData.length; i++) {
+
+          if (this.rowData[i].location_name == "" || this.rowData[i].location_name == null) {
+            this.rowData[i].location_name = "Total"
+          }
+          if (this.rowData[i].caste_name == "" || this.rowData[i].caste_name == null) {
+            this.rowData[i].caste_name = "Overall"
+          }
+
           for (let j = 0; j < this.listColumeNames.length; j++) {
             if (+this.rowData[i][this.listColumeNames[j]] > 0 && (+(this.rowData[i][this.listColumeNames[j]]) % 1 != 0) && Number(+(this.rowData[i][this.listColumeNames[j]])) == (+this.rowData[i][this.listColumeNames[j]])) {
               this.rowData[i][this.listColumeNames[j]] = parseFloat(this.rowData[i][this.listColumeNames[j]]).toFixed(2)
@@ -9183,24 +9240,48 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
         this.columnLengthForExcel = this.universalAgGridColumnDefs.reduce((acc, item) => { return acc + (item.children ? item.children.length : 1); }, 0);
         this.showGrid = true;
         setTimeout(() => {
-          this.genericTotal(this.rowData);
+          // this.genericTotal(this.rowData);
         }, 500)
       } else if (dataObj == 119) {
+        // console.log(JSON.stringify(this.rowData))
+
+        for (let i = 0; i < this.rowData.length; i++) {
+          for (let j = 0; j < this.listColumeNames.length; j++) {
+            if (+this.rowData[i][this.listColumeNames[j]] > 100) {
+              this.rowData[i][this.listColumeNames[j]] = 100;
+            }
+          }
+        }
 
         this.showTableNote = true;
         this.thableNote = "..";
 
         for (let i = 0; i < this.rowData.length; i++) {
           for (let j = 0; j < this.listColumeNames.length; j++) {
-            if (+this.rowData[i][this.listColumeNames[j]] > 0 && (+(this.rowData[i][this.listColumeNames[j]]) % 1 != 0) && Number(+(this.rowData[i][this.listColumeNames[j]])) == (+this.rowData[i][this.listColumeNames[j]])) {
-              this.rowData[i][this.listColumeNames[j]] = parseFloat(this.rowData[i][this.listColumeNames[j]]).toFixed(2)
+            if (+this.rowData[i][this.listColumeNames[j]] > 0 && (+(this.rowData[i][this.listColumeNames[j]]) % 1 != 0) && Number(+(this.rowData[i][this.listColumeNames[j]])) == (+this.rowData[i][this.listColumeNames[j]])) {         
+              if (+this.rowData[i][this.listColumeNames[j]] > 100) {
+                this.rowData[i][this.listColumeNames[j]] = 100;
+              }else{
+                this.rowData[i][this.listColumeNames[j]] = parseFloat(this.rowData[i][this.listColumeNames[j]]).toFixed(2)
+              }   
+              // this.rowData[i][this.listColumeNames[j]] = parseFloat(this.rowData[i][this.listColumeNames[j]]).toFixed(2);   
             }
           }
         }
+
+        //  console.log(JSON.stringify(this.rowData))
+
+        //  alert(this.rowData.length)
+
         this.yearShow = true;
         this.universalAgGridColumnDefs = [
           { headerName: "Location", field: "location_name", type: 'nonEditableColumn', enableValue: true, width: 230, suppressMenu: false },
-          { headerName: "Social Category", field: "caste_name", type: 'nonEditableColumn', enableValue: true, width: 150, suppressMenu: false },
+          { headerName: "Social Category", field: "caste_name", valueFormatter: params=>{
+            if(params.value === 'null' || params.value==null){
+              // alert(params.value);
+               return 'Overall'
+             }
+         }, type: 'nonEditableColumn', enableValue: true, width: 150, suppressMenu: false },
           { headerName: "Transition Rate",
           children: [
           {
@@ -9705,6 +9786,17 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
         this.showGrid = true;
       } else if (dataObj == 126) {
 
+        for (let i = 0; i < this.rowData.length; i++) {
+          if (this.rowData[i].location_name == "" || this.rowData[i].location_name == null) {
+            this.rowData[i].location_name = "Total"
+          }
+
+          if (this.rowData[i].sch_mgmt_name == "" || this.rowData[i].sch_mgmt_name == null) {
+            this.rowData[i].sch_mgmt_name = "Overall"
+          }
+
+        }
+
         this.yearShow = true;
         this.universalAgGridColumnDefs = [
           { headerName: "Location", field: "location_name", type: 'nonEditableColumn', enableValue: true, width: 230, suppressMenu: false },
@@ -9741,20 +9833,20 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
                   { headerName: 'Male', field: "caste_obc_m", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
                 ],
               },
-              {
-                headerName: "ORC",
-                children: [
-                  { headerName: 'Female', field: "caste_orc_f", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
-                  { headerName: 'Male', field: "caste_orc_m", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
-                ],
-              },
-              {
-                headerName: "Others",
-                children: [
-                  { headerName: 'Female', field: "caste_others_f", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
-                  { headerName: 'Male', field: "caste_others_m", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
-                ],
-              },
+              // {
+              //   headerName: "ORC",
+              //   children: [
+              //     { headerName: 'Female', field: "caste_orc_f", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
+              //     { headerName: 'Male', field: "caste_orc_m", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
+              //   ],
+              // },
+              // {
+              //   headerName: "Others",
+              //   children: [
+              //     { headerName: 'Female', field: "caste_others_f", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
+              //     { headerName: 'Male', field: "caste_others_m", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
+              //   ],
+              // },
             ]
           }
 
@@ -11166,7 +11258,7 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
           { headerName: "Rural/Urban", field: "loc_name", type: 'nonEditableColumn', filter: 'agSetColumnFilter', enableValue: true, width: 130, filterParams: this.location() },
           { headerName: "School Category ", field: "category_name", type: 'nonEditableColumn', width: 120, filter: 'agSetColumnFilter', enableValue: true, filterParams: this.catrgory() },
           { headerName: "School Management", field: "sch_mgmt_name", type: 'nonEditableColumn', width: 200, filter: 'agSetColumnFilter', enableValue: true, filterParams: this.management() },
-
+          { headerName: "School Type", field: "sch_type_name", type: 'nonEditableColumn', width: 200, filter: 'agSetColumnFilter', enableValue: true, filterParams: this.schoolType() },
           {
             headerName: 'Pre-Primary',
             children: [
@@ -16922,7 +17014,7 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
         this.modalService.open(this.uniHichart, { size: 'xl', backdrop: 'static', keyboard: false });
 
         if (this.chartData == null){
-
+alert(this.conditionObj)
         this.reportService.getChartsData(this.conditionObj).subscribe(res => {
         this.chartData=res.rowValue;
 
@@ -17080,7 +17172,7 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
       extensionCall: extensionCall,
       condition: condition
     };
-    // alert("called-->"+JSON.stringify(this.masterCondition));
+  
 
     this.reportService.getMasterData(this.masterCondition).subscribe(res => {
 // alert(JSON.stringify(res.rowValue))
@@ -17308,7 +17400,7 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
   genericTotal(rowData) {
 
     // alert(JSON.stringify(rowData))
-    
+    // alert(this.reportCode);
     var col = [];
     var columnKey = [];
     var stringColumnKey = [];
@@ -19736,4 +19828,24 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
     sessionStorage.setItem('yearId', '22');
     this.uniYear='22';
   }
+
+
+  getReportYearByMapId(mapId){
+
+    const data={mapId:mapId};
+
+    this.reportService.getReportYearByMapId(data).subscribe(res => {
+
+      this.combinedyearList=res;
+      if (this.combinedyearList == null || this.combinedyearList == undefined || res.columnName == null && res.status == 0) {
+        this.isValid = true;
+      } else {
+        this.isValid = false;
+      }
+
+
+    })
+  }
+
+
 }

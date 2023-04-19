@@ -110,7 +110,9 @@ return this.http.post<any>(environment.user_report_url + "/getExecutedData", exe
   // }
 
   getChartsData(tabularId){
-    return this.http.post<any>(environment.user_report_url + "/getChartsData", tabularId);
+    alert("tabularId--->"+tabularId)
+    const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
+    return this.http.post<any>(environment.user_report_url + "/getChartsData", tabularId,{headers});
   }
 
   getUserReport(groupId){
@@ -161,6 +163,11 @@ return this.http.post<any>(environment.user_report_url + "/getExecutedData", exe
     // alert("getSedashboardData---"+JSON.stringify(data))
     const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
     return this.http.post<any>(environment.user_report_url + "/getSedashboardData", data,{headers})
+  }
+
+  getReportYearByMapId(data){
+    const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
+    return this.http.post<any>(environment.user_report_url + "/getReportYearByMapId", data,{headers})
   }
 
 }
