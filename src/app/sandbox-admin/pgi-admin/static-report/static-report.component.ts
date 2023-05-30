@@ -849,7 +849,7 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
       // this.rowData.push(JSON.stringify(node.data));
     });
     // this.rowData=arrayRowData;
-    if (this.reportCode != "R96" && this.reportCode != "R115" && this.reportCode != "R117" && this.reportCode != "R113" && this.reportCode != "R126" && this.reportCode != "R135" && this.reportCode != "R131" && this.reportCode != "R121" && this.reportCode != "R148" && this.reportCode != "R149" && this.reportCode != "R150" && this.reportCode != "R108" && this.reportCode != "R138" && this.reportCode != "R139" && this.reportCode != "R140" && this.reportCode != "R115" && this.reportCode != "R116" && this.reportCode != "R117" && this.reportCode != "R125" && this.reportCode != "R119" && this.reportCode != "R122" && this.reportCode != "R114" && this.reportCode != "R118" && this.reportCode != "R84" && this.reportCode != "R101" && this.reportCode != "R103" && this.reportCode != "R104" && this.reportCode != "R102" && this.reportCode != "R100" && this.reportCode != "R91" && this.reportCode != "R92" && this.reportCode != "R81" && this.reportCode != "R90" && this.reportCode != "R87" && this.reportCode != "R88" && this.reportCode != "R89" && this.reportCode != "R93" && this.reportCode != "R85" && this.reportCode != "R82" && this.reportCode != "R86" && !(this.reportCode >= "R49" && this.reportCode <= "R80")) {
+    if (this.reportCode != "R83" && this.reportCode != "R90" &&  this.reportCode != "R89" &&  this.reportCode != "R85" &&  this.reportCode != "R81" && this.reportCode != "R87" &&  this.reportCode != "R115" && this.reportCode != "R117" && this.reportCode != "R113" && this.reportCode != "R126" && this.reportCode != "R135" && this.reportCode != "R131" && this.reportCode != "R121" && this.reportCode != "R148" && this.reportCode != "R149" && this.reportCode != "R150" && this.reportCode != "R108" && this.reportCode != "R138" && this.reportCode != "R139" && this.reportCode != "R140" && this.reportCode != "R115" && this.reportCode != "R116" && this.reportCode != "R117" && this.reportCode != "R125" && this.reportCode != "R119" && this.reportCode != "R122" && this.reportCode != "R114" && this.reportCode != "R118" && this.reportCode != "R84" && this.reportCode != "R101" && this.reportCode != "R103" && this.reportCode != "R104" && this.reportCode != "R102" && this.reportCode != "R100" && this.reportCode != "R91" && this.reportCode != "R92" && this.reportCode != "R81" && this.reportCode != "R90" && this.reportCode != "R87" && this.reportCode != "R88" && this.reportCode != "R89" && this.reportCode != "R93" && this.reportCode != "R85" && this.reportCode != "R82" && this.reportCode != "R86" && !(this.reportCode >= "R49" && this.reportCode <= "R80")) {
 
       setTimeout(() => {
         this.genericTotal(arrayRowData);
@@ -2742,6 +2742,72 @@ export class StaticReportComponent implements OnInit, AfterViewInit{
         setTimeout(() => {
           this.genericTotal(this.rowData);
         }, 500)
+      } else if(dataObj == 81 || dataObj == 86 || dataObj == 87  || dataObj == 90 || dataObj == 85 || dataObj == 89 || dataObj == 83){
+
+        for (let i = 0; i < this.rowData.length; i++) {
+              if (this.rowData[i].locn_name == "" || this.rowData[i].locn_name == null) {
+            this.rowData[i].locn_name = "Total"
+          }
+        
+          if (this.rowData[i].sch_mgmt_name == "" || this.rowData[i].sch_mgmt_name == null) {
+            // alert(this.rowData[i].sch_mgmt_name);
+            this.rowData[i].sch_mgmt_name = "Overall";
+          }
+        }
+
+        this.showTableNote = false;
+        this.thableNote = "";
+        if (this.uniState === "all" || this.uniDist === "all" || this.uniBlock === "all") {
+         
+          // console.log(JSON.stringify(this.rowData))
+          // From 49 to 83
+           this.universalAgGridColumnDefs = [
+             { headerName: "Location", field: "locn_name", type: 'nonEditableColumn', enableValue: true, width: 220 },
+             { headerName: "School Management", field: "sch_mgmt_name", enableValue: true, type: 'nonEditableColumn', width: 380 },
+             { headerName: "PS (I-V)", field: "cat1", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
+             { headerName: "UPS (I-VIII)", field: "cat2", enableValue: true, width: 120, type: 'numericColumn', suppressMenu: true },
+             { headerName: "HSS (I-XII)", field: "cat3", enableValue: true, width: 120, type: 'numericColumn', suppressMenu: true },
+             { headerName: "UPS (VI-VIII)", field: "cat4", enableValue: true, width: 140, type: 'numericColumn', suppressMenu: true },
+             { headerName: "HSS (VI-XII)", field: "cat5", enableValue: true, width: 130, type: 'numericColumn', suppressMenu: true },
+             { headerName: "SS (I-X)", field: "cat6", enableValue: true, width: 110, type: 'numericColumn', suppressMenu: true },
+             { headerName: "SS (VI-X)", field: "cat7", enableValue: true, width: 130, type: 'numericColumn', suppressMenu: true },
+             { headerName: "SS (IX-X)", field: "cat8", enableValue: true, width: 130, type: 'numericColumn', suppressMenu: true },
+             { headerName: "HSS (IX-XII)", field: "cat10", enableValue: true, width: 130, type: 'numericColumn', suppressMenu: true },
+             { headerName: "HSS (XI-XII)", field: "cat11", enableValue: true, width: 130, type: 'numericColumn', suppressMenu: true },
+             { headerName: "Total", field: "total", enableValue: true, width: 130, type: 'numericColumn', suppressMenu: true },
+           ]
+           this.finalJSONNew = [];
+           this.columnLengthForExcel = this.universalAgGridColumnDefs.length;
+           setTimeout(() => {
+            //  this.genericTotal(this.rowData);
+           }, 500)
+         } else {
+           
+           this.universalAgGridColumnDefs = [
+            { headerName: "Location", field: "locn_name", type: 'nonEditableColumn', enableValue: true, width: 220 },
+             { headerName: "School Management", field: "sch_mgmt_name", enableValue: true, type: 'nonEditableColumn', width: 380 },
+             { headerName: "PS (I-V)", field: "cat1", enableValue: true, width: 140, type: 'numericColumn', suppressMenu: true },
+             { headerName: "UPS (I-VIII)", field: "cat2", enableValue: true, width: 140, type: 'numericColumn', suppressMenu: true },
+             { headerName: "HSS (I-XII)", field: "cat3", enableValue: true, width: 135, type: 'numericColumn', suppressMenu: true },
+             { headerName: "UPS (VI-VIII)", field: "cat4", enableValue: true, width: 150, type: 'numericColumn', suppressMenu: true },
+             { headerName: "HSS (VI-XII)", field: "cat5", enableValue: true, width: 140, type: 'numericColumn', suppressMenu: true },
+             { headerName: "SS (I-X)", field: "cat6", enableValue: true, width: 140, type: 'numericColumn', suppressMenu: true },
+             { headerName: "SS (VI-X)", field: "cat7", enableValue: true, width: 130, type: 'numericColumn', suppressMenu: true },
+             { headerName: "SS (IX-X)", field: "cat8", enableValue: true, width: 140, type: 'numericColumn', suppressMenu: true },
+             { headerName: "HSS (IX-XII)", field: "cat10", enableValue: true, width: 140, type: 'numericColumn', suppressMenu: true },
+             { headerName: "HSS (XI-XII)", field: "cat11", enableValue: true, width: 140, type: 'numericColumn', suppressMenu: true },
+             { headerName: "Total", field: "total", enableValue: true, width: 140, type: 'numericColumn', suppressMenu: true },
+           ]
+           this.finalJSONNew = [];
+           this.columnLengthForExcel = this.universalAgGridColumnDefs.length;
+ 
+           setTimeout(() => {
+            //  this.genericTotal(this.rowData);
+           }, 500)
+         }
+
+         this.showGrid = true;
+            
       } else if ((dataObj >= 49 && dataObj <= 83) || (dataObj >= 85 && dataObj <= 90) || dataObj == 118 || dataObj == 154) {
 
         if (dataObj >= 49 && dataObj < 82) {
@@ -3451,12 +3517,25 @@ for(let i=0;i<this.rowData.length;i++){
         }, 500)
       } else if (dataObj == 97) {
 
+
+        
+        for (let i = 0; i < this.rowData.length; i++) {
+          if (this.rowData[i].location_name == "" || this.rowData[i].location_name == null) {
+        this.rowData[i].location_name = "Total"
+      }
+    
+      if (this.rowData[i].sch_mgmt_name == "" || this.rowData[i].sch_mgmt_name == null) {
+        // alert(this.rowData[i].sch_mgmt_name);
+        this.rowData[i].sch_mgmt_name = "Overall";
+      }
+    } 
         this.showTableNote = true;
         this.thableNote = "..";
 
         if (this.uniState === "all" || this.uniDist === "all" || this.uniBlock === "all") {
           this.universalAgGridColumnDefs = [
             { headerName: "Location", field: "location_name", enableValue: true, width: 200, type: 'nonEditableColumn' },
+            { headerName: "School Management", field: "sch_mgmt_name", enableValue: true, type: 'nonEditableColumn', width: 380 },
             {
               headerName: 'Pre-Primary Only(A)',
               children: [
@@ -3617,6 +3696,7 @@ for(let i=0;i<this.rowData.length;i++){
         } else {
 
           this.universalAgGridColumnDefs = [
+            { headerName: "Location", field: "location_name", enableValue: true, width: 200, type: 'nonEditableColumn' },
             { headerName: "Management Name", field: "sch_mgmt_name", enableValue: true, width: 200, type: 'nonEditableColumn' },
             {
               headerName: 'Pre-Primary Only(A)',
@@ -4385,52 +4465,52 @@ for(let i=0;i<this.rowData.length;i++){
               { headerName: "Overall", field: "ger_higher_secondary_all_sc", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
             ]
           },
-          // {
-          //   headerName: 'ST Primary (I-V)',
-          //   children: [
+          {
+            headerName: 'ST Primary (I-V)',
+            children: [
 
-          //     { headerName: "Girls", field: "ger_primary_girl_st", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
-          //     { headerName: "Boys", field: "ger_primary_boy_st", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
-          //     { headerName: "Overall", field: "ger_primary_all_st", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
-          //   ]
-          // },
-          // {
-          //   headerName: 'ST Upper Primary (VI-VIII)',
-          //   children: [
+              { headerName: "Girls", field: "ger_primary_girl_st", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
+              { headerName: "Boys", field: "ger_primary_boy_st", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
+              { headerName: "Overall", field: "ger_primary_all_st", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
+            ]
+          },
+          {
+            headerName: 'ST Upper Primary (VI-VIII)',
+            children: [
 
-          //     { headerName: "Girls", field: "ger_upper_primary_girl_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
-          //     { headerName: "Boys", field: "ger_upper_primary_boy_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
-          //     { headerName: "Overall", field: "ger_upper_primary_all_st", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
-          //   ]
-          // },
-          // {
-          //   headerName: 'ST Elementary (I-VIII)',
-          //   children: [
+              { headerName: "Girls", field: "ger_upper_primary_girl_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
+              { headerName: "Boys", field: "ger_upper_primary_boy_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
+              { headerName: "Overall", field: "ger_upper_primary_all_st", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
+            ]
+          },
+          {
+            headerName: 'ST Elementary (I-VIII)',
+            children: [
 
-          //     { headerName: "Girls", field: "ger_elementary_girl_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
-          //     { headerName: "Boys", field: "ger_elementary_boy_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
-          //     { headerName: "Overall", field: "ger_elementary_all_st", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
-          //   ]
-          // },
-          // {
-          //   headerName: 'ST Secondary (IX-X)',
-          //   children: [
+              { headerName: "Girls", field: "ger_elementary_girl_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
+              { headerName: "Boys", field: "ger_elementary_boy_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
+              { headerName: "Overall", field: "ger_elementary_all_st", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
+            ]
+          },
+          {
+            headerName: 'ST Secondary (IX-X)',
+            children: [
 
-          //     { headerName: "Girls", field: "ger_secondary_girl_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
-          //     { headerName: "Boys", field: "ger_secondary_boy_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
-          //     { headerName: "Overall", field: "ger_secondary_all_st", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
-          //   ]
-          // }
-          // ,
-          // {
-          //   headerName: 'ST Higher Secondary (XI-XII)',
-          //   children: [
+              { headerName: "Girls", field: "ger_secondary_girl_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
+              { headerName: "Boys", field: "ger_secondary_boy_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
+              { headerName: "Overall", field: "ger_secondary_all_st", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
+            ]
+          }
+          ,
+          {
+            headerName: 'ST Higher Secondary (XI-XII)',
+            children: [
 
-          //     { headerName: "Girls", field: "ger_higher_secondary_girl_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
-          //     { headerName: "Boys", field: "ger_higher_secondary_boy_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
-          //     { headerName: "Overall", field: "ger_higher_secondary_all_st", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
-          //   ]
-          // },
+              { headerName: "Girls", field: "ger_higher_secondary_girl_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
+              { headerName: "Boys", field: "ger_higher_secondary_boy_st", enableValue: true, width: 90, type: 'numericColumn', suppressMenu: true },
+              { headerName: "Overall", field: "ger_higher_secondary_all_st", enableValue: true, width: 100, type: 'numericColumn', suppressMenu: true },
+            ]
+          },
         ]
         this.finalJSONNew = [];
         this.columnLengthForExcel = this.universalAgGridColumnDefs.reduce((acc, item) => { return acc + (item.children ? item.children.length : 1); }, 0);
@@ -9246,12 +9326,21 @@ for(let i=0;i<this.rowData.length;i++){
         // console.log(JSON.stringify(this.rowData))
 
         for (let i = 0; i < this.rowData.length; i++) {
+          if (this.rowData[i].location_name == "" || this.rowData[i].location_name == null) {
+            this.rowData[i].location_name = "Total"
+          }
+  
+          if (this.rowData[i].caste_name == "" || this.rowData[i].caste_name == null) {
+            this.rowData[i].caste_name = "Overall"
+          }
           for (let j = 0; j < this.listColumeNames.length; j++) {
             if (+this.rowData[i][this.listColumeNames[j]] > 100) {
               this.rowData[i][this.listColumeNames[j]] = 100;
             }
           }
         }
+
+        
 
         this.showTableNote = true;
         this.thableNote = "..";
@@ -9368,7 +9457,7 @@ for(let i=0;i<this.rowData.length;i++){
         this.columnLengthForExcel = this.universalAgGridColumnDefs.reduce((acc, item) => { return acc + (item.children ? item.children.length : 1); }, 0);
         this.showGrid = true;
         setTimeout(() => {
-          this.genericTotal(this.rowData);
+          // this.genericTotal(this.rowData);
         }, 500)        
       } else if (dataObj == 112) {
         this.yearShow = true;
@@ -9740,7 +9829,7 @@ for(let i=0;i<this.rowData.length;i++){
         }
         this.yearShow = true;
         this.universalAgGridColumnDefs = [
-          { headerName: "Location", field: "state_name", type: 'nonEditableColumn', enableValue: true, width: 200, suppressMenu: true },
+          { headerName: "Location", field: "state_name", cellStyle:{textTransform:'capitalize'}, type: 'nonEditableColumn', enableValue: true, width: 200, suppressMenu: true },
           { headerName: "Rtention Rate",
           children: [
           {
@@ -9833,20 +9922,20 @@ for(let i=0;i<this.rowData.length;i++){
                   { headerName: 'Male', field: "caste_obc_m", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
                 ],
               },
-              // {
-              //   headerName: "ORC",
-              //   children: [
-              //     { headerName: 'Female', field: "caste_orc_f", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
-              //     { headerName: 'Male', field: "caste_orc_m", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
-              //   ],
-              // },
-              // {
-              //   headerName: "Others",
-              //   children: [
-              //     { headerName: 'Female', field: "caste_others_f", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
-              //     { headerName: 'Male', field: "caste_others_m", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
-              //   ],
-              // },
+              {
+                headerName: "ORC",
+                children: [
+                  { headerName: 'Female', field: "caste_orc_f", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
+                  { headerName: 'Male', field: "caste_orc_m", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
+                ],
+              },
+              {
+                headerName: "Others",
+                children: [
+                  { headerName: 'Female', field: "caste_others_f", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
+                  { headerName: 'Male', field: "caste_others_m", type: 'numericColumn', enableValue: true, width: 130, suppressMenu: true },
+                ],
+              },
             ]
           }
 
@@ -11258,7 +11347,7 @@ for(let i=0;i<this.rowData.length;i++){
           { headerName: "Rural/Urban", field: "loc_name", type: 'nonEditableColumn', filter: 'agSetColumnFilter', enableValue: true, width: 130, filterParams: this.location() },
           { headerName: "School Category ", field: "category_name", type: 'nonEditableColumn', width: 120, filter: 'agSetColumnFilter', enableValue: true, filterParams: this.catrgory() },
           { headerName: "School Management", field: "sch_mgmt_name", type: 'nonEditableColumn', width: 200, filter: 'agSetColumnFilter', enableValue: true, filterParams: this.management() },
-          { headerName: "School Type", field: "sch_type_name", type: 'nonEditableColumn', width: 200, filter: 'agSetColumnFilter', enableValue: true, filterParams: this.schoolType() },
+          // { headerName: "School Type", field: "sch_type_name", type: 'nonEditableColumn', width: 200, filter: 'agSetColumnFilter', enableValue: true, filterParams: this.schoolType() },
           {
             headerName: 'Pre-Primary',
             children: [
@@ -17407,7 +17496,7 @@ alert(this.conditionObj)
     var temps = [];
     this.jsonColumnName = "";
 
-    if (this.reportCode != 'R153' && this.reportCode != 'R148' && this.reportCode != 'R149' && this.reportCode != 'R150' && this.reportCode != 'R117' && this.reportCode != 'R116' && this.reportCode != 'R115' && this.reportCode != 'R113' && this.reportCode != 'R137' && this.reportCode != 'R140' && this.reportCode != 'R139' && this.reportCode != 'R138') {
+    if (this.reportCode != 'R153' && this.reportCode != 'R119' && this.reportCode != 'R148' && this.reportCode != 'R149' && this.reportCode != 'R150' && this.reportCode != 'R117' && this.reportCode != 'R116' && this.reportCode != 'R115' && this.reportCode != 'R113' && this.reportCode != 'R137' && this.reportCode != 'R140' && this.reportCode != 'R139' && this.reportCode != 'R138') {
 
       for (let i = 0; i < this.universalAgGridColumnDefs.length; i++) {
         if (this.universalAgGridColumnDefs[i].field === undefined) {

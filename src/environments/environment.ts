@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   env: 'dev',
 
-
+// Production Enviornment
 user_service_url: 'https://' + "dashboard.udiseplus.gov.in" + '/BackEnd-master/api/main',
 user_report_url: 'https://' + "dashboard.udiseplus.gov.in" + '/BackEnd-master/api/report',
 user_anlytical_url: 'https://' + "dashboard.udiseplus.gov.in" + '/BackEnd-master/api/analytical',

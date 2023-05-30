@@ -46,9 +46,9 @@ const routes: Routes = [
 
 
   {
-    path: 'sandbox',
-    loadChildren: () => import('./sandbox-admin/sandbox-admin.module').then(m => m.SandboxAdminModule)
+    path: 'sandbox',loadChildren: () => import('./sandbox-admin/sandbox-admin.module').then(m => m.SandboxAdminModule)
   },
+    
   {
     path: 'public',
     loadChildren: () => import('./sandbox-public/sandbox-public.module').then(m => m.SandboxPublicModule)

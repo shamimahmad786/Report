@@ -191,6 +191,132 @@
                     </div>
                 </div>
             </div>
+            <div class="card p-3" style="border-radius: 4px; margin-top: 1%;">
+                <div class="card-content px-3">
+                    <div class='col-sm-12' style='padding: 0px;margin-top: 1%;'>
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="clearfix" style="background-color: #8d2825; padding:5px 5px;">
+                                    <div class="float-left mt-2">
+                                        <h5 class="text-white mt-1 ml-2"><img src="assets/images/schoolwhite.svg" width="20px" class="mr-2"><span style="margin-top:30px;">Teacher</span>
+                                        </h5>
+                                    </div>
+                                    <!-- <div class="float-right">
+                                        <h6 class="text-white mt-1 mr-2">
+                                            <span class="badge badge-flat badge-primary-lit  text-pink-600 rounded-circle ">9</span>
+                                        </h6>
+                                    </div> -->
+                                </div>
+                                <div class="table-responsive">
+                                    <table class='col-md-12 tabl-font'>
+                                        <thead class="tabbleHeader">
+                                            <tr>
+                                                <th class="sNo" style="width:1%">S.No</th>
+                                                <th style="width: 5%"> Id </th>
+                                                <th style="width:60%"> Report Name </th>
+                                                <th style="width: 7%;"> Graph/Table </th>
+                                                <!-- <th style="width:30%"> Description</th> -->
+                                                <th style="width:20%">Tag</th>
+                                            </tr>
+                                        </thead>
+                                        <ng-container *ngFor="let staticReportValue of teacherReport | tablePipe: 'tag': tag;  let i = index">
+                                            <ng-container *ngIf="staticReportValue.id > 36">
+                                                <tr>
+                                                    <td class="sNo"><span title="{{staticReportValue.id}}" class="badge  border-primary badge-pill text-primary-600">{{i+1}}</span>
+                                                    </td>
+                                                    <!-- <tr *ngFor="let staticReportValue of staticReportValues | tablePipe: 'tag': tag"> -->
+                                                    <td style="display: none;">{{staticReportValue.ordernumber}}</td>
+
+                                                    <td> <span class="badge badge-flat border-primary badge-pill text-primary-600">
+                                                            {{staticReportValue.ordernumber}} </span></td>
+                                                    <td>
+                                                        <!-- <span class="badge badge-flat badge-primary  text-pink-600 rounded-circle">A</span> -->
+                                                        {{staticReportValue.report_name}}
+                                                    </td>
+                                                    <td>
+                                                        <ng-container *ngIf="staticReportValue.chartFlag">
+                                                            <!-- <img (click)="openPieXl(staticReportValue.id,staticReportValue.report_name,staticReportValue.ordernumber)" (click)="getChartsData(staticReportValue.id)" src="assets/images/graph2.svg" width="20px" class="mr-2"> -->
+                                                        </ng-container>
+                                                        <ng-container *ngIf="!staticReportValue.chartFlag">
+                                                            <img src="assets/images/wht-blnk.png" width="20px" class="mr-2">
+                                                        </ng-container>
+                                                        <img (click)="openXl(staticReportValue.id,staticReportValue.report_name,staticReportValue.ordernumber)" style="margin-left: -25px !important;cursor: pointer;" src="assets/images/edit-tools.svg" width="20px">
+                                                    </td>
+                                                    <!-- <td>{{staticReportValue.tag}}</td> -->
+                                                    <td>{{staticReportValue.reportTag}}</td>
+                                                </tr>
+                                            </ng-container>
+                                        </ng-container>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-3" style="border-radius:4px; margin-top: 1%;">
+                <div class="card-content px-3">
+                    <div class='col-sm-12' style='padding: 0px;margin-top: 1%;'>
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="clearfix" style="background-color: #8d2825; padding:5px 5px;">
+                                    <div class="float-left mt-2">
+                                        <h5 class="text-white mt-1 ml-2"><img src="assets/images/schoolwhite.svg" width="20px" class="mr-2"><span style="margin-top:30px;">Infrastructure</span> </h5>
+                                    </div>
+                                    <!-- <div class="float-right">
+                                        <h6 class="text-white mt-1 mr-2">
+                                            <span class="badge badge-flat badge-primary-lit  text-pink-600 rounded-circle ">9</span>
+                                        </h6>
+                                    </div> -->
+                                </div>
+                                <div class="table-responsive">
+                                    <table class='col-md-12 tabl-font'>
+                                        <thead class="tabbleHeader">
+                                            <tr>
+                                                <th class="sNo" style="width:1%">S.No</th>
+                                                <th style="width: 5%"> Id </th>
+                                                <th style="width:60%"> Report Name </th>
+                                                <th style="width: 7%;"> Graph/Table </th>
+                                                <!-- <th style="width:30%"> Description</th> -->
+                                                <th style="width:20%">Tag</th>
+                                            </tr>
+                                        </thead>
+                                        <ng-container *ngFor="let staticReportValue of infrastructureReport | tablePipe: 'tag': tag ;  let i = index">
+                                            <ng-container *ngIf="staticReportValue.id > 36">
+                                                <tr>
+                                                    <td class="sNo"><span title="{{staticReportValue.id}}" class="badge  border-primary badge-pill text-primary-600">{{i+1}}</span>
+                                                    </td>
+                                                    <!-- <tr *ngFor="let staticReportValue of staticReportValues | tablePipe: 'tag': tag"> -->
+                                                    <td style="display: none;">{{staticReportValue.ordernumber}}</td>
+
+                                                    <td> <span class="badge badge-flat border-primary badge-pill text-primary-600">
+                                                            {{staticReportValue.ordernumber}} </span></td>
+                                                    <td>
+                                                        <!-- <span class="badge badge-flat badge-primary  text-pink-600 rounded-circle">A</span> -->
+                                                        {{staticReportValue.report_name}}
+                                                    </td>
+                                                    <td>
+                                                        <ng-container *ngIf="staticReportValue.chartFlag">
+                                                            <!-- <img (click)="openPieXl(staticReportValue.id,staticReportValue.report_name,staticReportValue.ordernumber)" (click)="getChartsData(staticReportValue.id)" src="assets/images/graph2.svg" width="20px" class="mr-2"> -->
+                                                        </ng-container>
+                                                        <ng-container *ngIf="!staticReportValue.chartFlag">
+                                                            <img src="assets/images/wht-blnk.png" width="20px" class="mr-2">
+                                                        </ng-container>
+                                                        <img (click)="openXl(staticReportValue.id,staticReportValue.report_name,staticReportValue.ordernumber)" style="margin-left: -25px !important;cursor: pointer;" src="assets/images/edit-tools.svg" width="20px">
+                                                    </td>
+                                                    <!-- <td>{{staticReportValue.tag}}</td> -->
+                                                    <td>{{staticReportValue.reportTag}}</td>
+                                                </tr>
+                                            </ng-container>
+                                        </ng-container>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="card p-3" style="border-radius: 4px; margin-top: 1%;">
                 <div class="card-content px-3">
@@ -262,132 +388,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card p-3" style="border-radius:4px; margin-top: 1%;">
-                <div class="card-content px-3">
-                    <div class='col-sm-12' style='padding: 0px;margin-top: 1%;'>
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="clearfix" style="background-color: #8d2825; padding:5px 5px;">
-                                    <div class="float-left mt-2">
-                                        <h5 class="text-white mt-1 ml-2"><img src="assets/images/schoolwhite.svg" width="20px" class="mr-2"><span style="margin-top:30px;">Infrastructure</span> </h5>
-                                    </div>
-                                    <!-- <div class="float-right">
-                                        <h6 class="text-white mt-1 mr-2">
-                                            <span class="badge badge-flat badge-primary-lit  text-pink-600 rounded-circle ">9</span>
-                                        </h6>
-                                    </div> -->
-                                </div>
-                                <div class="table-responsive">
-                                    <table class='col-md-12 tabl-font'>
-                                        <thead class="tabbleHeader">
-                                            <tr>
-                                                <th class="sNo" style="width:1%">S.No</th>
-                                                <th style="width: 5%"> Id </th>
-                                                <th style="width:60%"> Report Name </th>
-                                                <th style="width: 7%;"> Graph/Table </th>
-                                                <!-- <th style="width:30%"> Description</th> -->
-                                                <th style="width:20%">Tag</th>
-                                            </tr>
-                                        </thead>
-                                        <ng-container *ngFor="let staticReportValue of infrastructureReport | tablePipe: 'tag': tag ;  let i = index">
-                                            <ng-container *ngIf="staticReportValue.id > 36">
-                                                <tr>
-                                                    <td class="sNo"><span title="{{staticReportValue.id}}" class="badge  border-primary badge-pill text-primary-600">{{i+1}}</span>
-                                                    </td>
-                                                    <!-- <tr *ngFor="let staticReportValue of staticReportValues | tablePipe: 'tag': tag"> -->
-                                                    <td style="display: none;">{{staticReportValue.ordernumber}}</td>
 
-                                                    <td> <span class="badge badge-flat border-primary badge-pill text-primary-600">
-                                                            {{staticReportValue.ordernumber}} </span></td>
-                                                    <td>
-                                                        <!-- <span class="badge badge-flat badge-primary  text-pink-600 rounded-circle">A</span> -->
-                                                        {{staticReportValue.report_name}}
-                                                    </td>
-                                                    <td>
-                                                        <ng-container *ngIf="staticReportValue.chartFlag">
-                                                            <!-- <img (click)="openPieXl(staticReportValue.id,staticReportValue.report_name,staticReportValue.ordernumber)" (click)="getChartsData(staticReportValue.id)" src="assets/images/graph2.svg" width="20px" class="mr-2"> -->
-                                                        </ng-container>
-                                                        <ng-container *ngIf="!staticReportValue.chartFlag">
-                                                            <img src="assets/images/wht-blnk.png" width="20px" class="mr-2">
-                                                        </ng-container>
-                                                        <img (click)="openXl(staticReportValue.id,staticReportValue.report_name,staticReportValue.ordernumber)" style="margin-left: -25px !important;cursor: pointer;" src="assets/images/edit-tools.svg" width="20px">
-                                                    </td>
-                                                    <!-- <td>{{staticReportValue.tag}}</td> -->
-                                                    <td>{{staticReportValue.reportTag}}</td>
-                                                </tr>
-                                            </ng-container>
-                                        </ng-container>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card p-3" style="border-radius: 4px; margin-top: 1%;">
-                <div class="card-content px-3">
-                    <div class='col-sm-12' style='padding: 0px;margin-top: 1%;'>
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="clearfix" style="background-color: #8d2825; padding:5px 5px;">
-                                    <div class="float-left mt-2">
-                                        <h5 class="text-white mt-1 ml-2"><img src="assets/images/schoolwhite.svg" width="20px" class="mr-2"><span style="margin-top:30px;">Teacher</span>
-                                        </h5>
-                                    </div>
-                                    <!-- <div class="float-right">
-                                        <h6 class="text-white mt-1 mr-2">
-                                            <span class="badge badge-flat badge-primary-lit  text-pink-600 rounded-circle ">9</span>
-                                        </h6>
-                                    </div> -->
-                                </div>
-                                <div class="table-responsive">
-                                    <table class='col-md-12 tabl-font'>
-                                        <thead class="tabbleHeader">
-                                            <tr>
-                                                <th class="sNo" style="width:1%">S.No</th>
-                                                <th style="width: 5%"> Id </th>
-                                                <th style="width:60%"> Report Name </th>
-                                                <th style="width: 7%;"> Graph/Table </th>
-                                                <!-- <th style="width:30%"> Description</th> -->
-                                                <th style="width:20%">Tag</th>
-                                            </tr>
-                                        </thead>
-                                        <ng-container *ngFor="let staticReportValue of teacherReport | tablePipe: 'tag': tag;  let i = index">
-                                            <ng-container *ngIf="staticReportValue.id > 36">
-                                                <tr>
-                                                    <td class="sNo"><span title="{{staticReportValue.id}}" class="badge  border-primary badge-pill text-primary-600">{{i+1}}</span>
-                                                    </td>
-                                                    <!-- <tr *ngFor="let staticReportValue of staticReportValues | tablePipe: 'tag': tag"> -->
-                                                    <td style="display: none;">{{staticReportValue.ordernumber}}</td>
-
-                                                    <td> <span class="badge badge-flat border-primary badge-pill text-primary-600">
-                                                            {{staticReportValue.ordernumber}} </span></td>
-                                                    <td>
-                                                        <!-- <span class="badge badge-flat badge-primary  text-pink-600 rounded-circle">A</span> -->
-                                                        {{staticReportValue.report_name}}
-                                                    </td>
-                                                    <td>
-                                                        <ng-container *ngIf="staticReportValue.chartFlag">
-                                                            <!-- <img (click)="openPieXl(staticReportValue.id,staticReportValue.report_name,staticReportValue.ordernumber)" (click)="getChartsData(staticReportValue.id)" src="assets/images/graph2.svg" width="20px" class="mr-2"> -->
-                                                        </ng-container>
-                                                        <ng-container *ngIf="!staticReportValue.chartFlag">
-                                                            <img src="assets/images/wht-blnk.png" width="20px" class="mr-2">
-                                                        </ng-container>
-                                                        <img (click)="openXl(staticReportValue.id,staticReportValue.report_name,staticReportValue.ordernumber)" style="margin-left: -25px !important;cursor: pointer;" src="assets/images/edit-tools.svg" width="20px">
-                                                    </td>
-                                                    <!-- <td>{{staticReportValue.tag}}</td> -->
-                                                    <td>{{staticReportValue.reportTag}}</td>
-                                                </tr>
-                                            </ng-container>
-                                        </ng-container>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="card p-3" style="border-radius: 4px; margin-top: 1%;">
                 <div class="card-content px-3">

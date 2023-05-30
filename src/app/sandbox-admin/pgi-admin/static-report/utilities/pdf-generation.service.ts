@@ -5265,6 +5265,8 @@ export class PdfGeneration {
           var uniYearFormatted = '2019-20';
         }else if(uniYear == '21' || uniYear == 21){
           var uniYearFormatted = '2020-21';
+        }else if(uniYear == '22' || uniYear == 22){
+          var uniYearFormatted = '2021-22';
         }
 
           if (reportCode == 'R44' || reportCode == 'R100' || reportCode == 'R107' || reportCode == 'R106' || reportCode == 'R105' || reportCode == 'R99' || reportCode == 'R141' || reportCode == 'R124' || reportCode == 'R123' || reportCode == 'R147' || reportCode == 'R137' || reportCode == 'R143' || reportCode == 'R97' || reportCode == 'R101' || reportCode == 'R98' || reportCode == 'R113' || reportCode == 'R43' || reportCode == 'R96' || reportCode == 'R48' || reportCode == 'R95') {
@@ -5415,6 +5417,8 @@ export class PdfGeneration {
               var uniYearFormatted = '2019-20';
             }else if(uniYear == '21' || uniYear == 21){
               var uniYearFormatted = '2020-21';
+            }else if(uniYear == '22' || uniYear == 22){
+              var uniYearFormatted = '2021-22';
             }
 
         if (reportCode == 'R150' || reportCode == 'R149' || reportCode == 'R148' || reportCode == 'R44' || reportCode == 'R44' || reportCode == 'R45' || reportCode == 'R145' || reportCode == 'R144' || reportCode == 'R135' || reportCode == 'R146' || reportCode == 'R136' || reportCode == 'R100' || reportCode == 'R107' || reportCode == 'R106' || reportCode == 'R105' || reportCode == 'R99' || reportCode == 'R141' || reportCode == 'R124' || reportCode == 'R123' || reportCode == 'R147' || reportCode == 'R137' || reportCode == 'R143' || reportCode == 'R97' || reportCode == 'R101' || reportCode == 'R98' || reportCode == 'R113' || reportCode == 'R43' || reportCode == 'R96' || reportCode == 'R48' || reportCode == 'R95') {
