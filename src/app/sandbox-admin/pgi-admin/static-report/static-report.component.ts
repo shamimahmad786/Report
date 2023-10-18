@@ -17103,7 +17103,7 @@ for(let i=0;i<this.rowData.length;i++){
         this.modalService.open(this.uniHichart, { size: 'xl', backdrop: 'static', keyboard: false });
 
         if (this.chartData == null){
-alert(this.conditionObj)
+// alert(this.conditionObj)
         this.reportService.getChartsData(this.conditionObj).subscribe(res => {
         this.chartData=res.rowValue;
 
@@ -17455,7 +17455,7 @@ alert(this.conditionObj)
       },
       series: [{
         name: 'Brands',
-        colorByPoint: true,
+        // colorByPoint: true,
         type: undefined,
         data: [{
           name: 'Minor Repair',
@@ -19926,6 +19926,7 @@ alert(this.conditionObj)
     this.reportService.getReportYearByMapId(data).subscribe(res => {
 
       this.combinedyearList=res;
+      // alert(JSON.stringify(this.combinedyearList));
       if (this.combinedyearList == null || this.combinedyearList == undefined || res.columnName == null && res.status == 0) {
         this.isValid = true;
       } else {
